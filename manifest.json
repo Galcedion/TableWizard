@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "__MSG_extensionName__",
+	"version": "1.0",
+	"description": "__MSG_extensionDescription__",
+	"icons": {},
+	"default_locale": "en",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["tablewizard.js"]
+		}
+	],
+	"browser_action": {
+		"default_icon": "icons/icon.svg",
+		"default_title": ""
+	},
+	"icons": {
+		"16": "icons/icon.svg"
+	},
+	"content_security_policy": "script-src 'self'; object-src 'self'",
+	"permissions": [
+		"menus",
+		"activeTab"
+	]
+}

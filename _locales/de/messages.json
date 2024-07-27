@@ -1,0 +1,46 @@
+{
+	"extensionName": {
+		"message": "TableWizard",
+		"description": "Name der Erweiterung."
+	},
+	"extensionDescription": {
+		"message": "Erlaubt Live-Manipulation von HTML-Tabellen.",
+		"description": "Beschreibung der Erweiterung."
+	},
+	"dropdownMain": {
+		"message": "TableWizard",
+		"description": "Text des Einstiegs-Dropdowns."
+	},
+	"dropdownMarkFields": {
+		"message": "Felder mit diesem Text markieren",
+		"description": "Dropdown-Text Felder markieren."
+	},
+	"dropdownColDel": {
+		"message": "Spalte löschen",
+		"description": "Dropdown-Text Spalte löschen."
+	},
+	"dropdownColDelByField": {
+		"message": "Spalten mit diesem Feld löschen",
+		"description": "Dropdown-Text Spalte nach Feld löschen."
+	},
+	"dropdownRowDel": {
+		"message": "Zeile löschen",
+		"description": "Dropdown-Text Zeile löschen."
+	},
+	"dropdownRowDelByField": {
+		"message": "Zeilen mit diesem Feld löschen",
+		"description": "Dropdown-Text Zeile nach Feld löschen."
+	},
+	"dropdownExportNewtab": {
+		"message": "Tabelle in neuem Tab öffnen",
+		"description": "Dropdown-Text Tabelle in neuem Tab."
+	},
+	"dropdownExportPrint": {
+		"message": "Tabelle drucken",
+		"description": "Dropdown-Text Tabelle drucken."
+	},
+	"dropdownReset": {
+		"message": "Zurücksetzen",
+		"description": "Alle Änderungen zurücksetzen."
+	}
+}

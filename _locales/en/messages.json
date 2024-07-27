@@ -1,0 +1,46 @@
+{
+	"extensionName": {
+		"message": "TableWizard",
+		"description": "Name of the extension."
+	},
+	"extensionDescription": {
+		"message": "Allows for live manipulation of HTML tables.",
+		"description": "Description of the extension."
+	},
+	"dropdownMain": {
+		"message": "TableWizard",
+		"description": "Entry dropdown text."
+	},
+	"dropdownMarkFields": {
+		"message": "Mark fields with this text",
+		"description": "Dropdown text mark fields."
+	},
+	"dropdownColDel": {
+		"message": "Delete column",
+		"description": "Dropdown text delete column."
+	},
+	"dropdownColDelByField": {
+		"message": "Delete columns with this field",
+		"description": "Dropdown text delete rows by field."
+	},
+	"dropdownRowDel": {
+		"message": "Delete row",
+		"description": "Dropdown text delete row."
+	},
+	"dropdownRowDelByField": {
+		"message": "Delete rows with this field",
+		"description": "Dropdown text delete rows by field."
+	},
+	"dropdownExportNewtab": {
+		"message": "Open table in new tab",
+		"description": "Dropdown text table new tab."
+	},
+	"dropdownExportPrint": {
+		"message": "Print table",
+		"description": "Dropdown text print table."
+	},
+	"dropdownReset": {
+		"message": "Reset",
+		"description": "Reset all changes."
+	}
+}
