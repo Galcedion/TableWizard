@@ -1,5 +1,6 @@
 var twHightlightClass = 'tw_highlight_' + Date.now().toString();
 var twHiddenClass = 'tw_hidden_' + Date.now().toString();
+var twPrintHiddenClass = 'tw_print_' + Date.now().toString();
 
 tw_check();
 
@@ -14,7 +15,8 @@ function tw_attach() {
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
 	injectCSS.innerHTML = '.' + twHightlightClass + '{background-color: #FF0000AA !important; }\
-	.' + twHiddenClass + '{display: none !important; }';
+	.' + twHiddenClass + '{display: none !important; }\
+	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 	var tableList = document.getElementsByTagName("table");
 	for(let t = 0; t < tableList.length; ++t) {
@@ -67,6 +69,18 @@ function checkChildrenIndex(children, index) {
 			if(index == -1 && !children[c].hasAttribute('colspan'))
 				children[c].classList.add(twHiddenClass);
 			return;
+		}
+	}
+}
+
+// adds given class to all neighbours
+function checkNeighboursAddClass(element, addClass) {
+	var children = element.parentNode.childNodes;
+	for(let c = 0; c < children.length; ++c) {
+		if(typeof(children[c].tagName) == 'undefined')
+			continue;
+		if(children[c] != element) {
+			children[c].classList.add(addClass);
 		}
 	}
 }
@@ -166,6 +180,35 @@ function tw_coldelbyfield(dom) {
 	}
 }
 
+// TW export table to new tab
+function tw_exportnewtab(dom) {
+	while(dom.tagName != 'TABLE') {
+		dom = dom.parentNode;
+	}
+	var table = new URLSearchParams(dom.innerHTML).toString();
+	browser.runtime.sendMessage({
+		task: 'exportNewTab',
+		tabledata: table
+	});
+}
+
+// TW export table to print
+function tw_exportprint(dom) {
+	while(dom.tagName != 'TABLE') {
+		dom = dom.parentNode;
+	}
+	//dom = dom.parentNode;
+	while(dom.tagName != 'BODY') {
+		checkNeighboursAddClass(dom, twPrintHiddenClass);
+		dom = dom.parentNode;
+	}
+	window.print();
+	var printlist = dom.getElementsByClassName(twPrintHiddenClass);
+	while(printlist.length > 0) {
+		printlist[0].classList.remove(twPrintHiddenClass);
+	}
+}
+
 // TW reset all modifications of the selected table
 function tw_reset(dom) {
 	if(dom.tagName != 'TABLE') {
@@ -173,11 +216,11 @@ function tw_reset(dom) {
 			dom = dom.parentNode;
 		} while(dom.tagName != 'TABLE');
 	}
-	hiddenList = dom.getElementsByClassName(twHiddenClass);
+	var hiddenList = dom.getElementsByClassName(twHiddenClass);
 	while(hiddenList.length > 0) {
 		hiddenList[0].classList.remove(twHiddenClass);
 	}
-	highlightList = dom.getElementsByClassName(twHightlightClass);
+	var highlightList = dom.getElementsByClassName(twHightlightClass);
 	while(highlightList.length > 0) {
 		highlightList[0].classList.remove(twHightlightClass);
 	}

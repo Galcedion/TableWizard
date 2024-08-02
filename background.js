@@ -102,7 +102,6 @@ browser.menus.create({
 	}
 });
 
-/*
 // MENU spacer colexport
 browser.menus.create({
 	id: 'tw_spacer_colexport',
@@ -118,7 +117,13 @@ browser.menus.create({
 	contexts: ["page"],
 	title: browser.i18n.getMessage("dropdownExportNewtab"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_exportnewtab(browser.menus.getTargetElement(${info.targetElementId}));`,
+		});
+	}
 });
 
 // MENU exportprint
@@ -127,8 +132,14 @@ browser.menus.create({
 	contexts: ["page"],
 	title: browser.i18n.getMessage("dropdownexportprint"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM
-}); */
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_exportprint(browser.menus.getTargetElement(${info.targetElementId}));`,
+		});
+	}
+});
 
 // MENU spacer rowreset
 browser.menus.create({
@@ -159,6 +170,9 @@ function messageListener(listener) {
 		case 'enableCM':
 			messageListenerDisplayCM(listener);
 			break;
+		case 'exportNewTab':
+			exportNewTab(listener);
+			break;
 	}
 }
 
@@ -171,6 +185,13 @@ function messageListenerDisplayCM(listener) {
 	else
 		browser.menus.update(TABLEWIZARD_MENU_ITEM, {visible: false});
 	browser.menus.refresh();
+}
+
+function exportNewTab(listener) {
+	browser.tabs.create({
+		url: '/tabletab.html?table=' + listener.tabledata,
+		active: true,
+	});
 }
 
 function messageListenerHideCM() {
