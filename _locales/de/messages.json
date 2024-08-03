@@ -42,5 +42,17 @@
 	"dropdownReset": {
 		"message": "Zurücksetzen",
 		"description": "Alle Änderungen zurücksetzen."
+	},
+	"errorTitle": {
+		"message": "TableWizard - Fehler",
+		"description": "Titelzeile für Fehlermeldungen."
+	},
+	"errorButton": {
+		"message": "OK",
+		"description": "Buttontext für Fehlermeldungen."
+	},
+	"errorNoCellFound": {
+		"message": "Es wurde keine Tabellenzelle anvisiert, bitte klicken Sie auf eine Tabellenzelle und versuchen Sie es erneut!",
+		"description": "Fehlernachricht: Keine Tabellenzelle angeklickt."
 	}
 }

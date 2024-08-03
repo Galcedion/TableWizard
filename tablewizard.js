@@ -1,6 +1,8 @@
-var twHightlightClass = 'tw_highlight_' + Date.now().toString();
-var twHiddenClass = 'tw_hidden_' + Date.now().toString();
-var twPrintHiddenClass = 'tw_print_' + Date.now().toString();
+var currentDate = Date.now().toString()
+var twHightlightClass = 'tw_highlight_' + currentDate;
+var twHiddenClass = 'tw_hidden_' + currentDate;
+var twPrintHiddenClass = 'tw_print_' + currentDate;
+var twAlertDialogClass = 'tw_alert_' + currentDate;
 
 tw_check();
 
@@ -16,6 +18,7 @@ function tw_attach() {
 	injectCSS.type = 'text/css';
 	injectCSS.innerHTML = '.' + twHightlightClass + '{background-color: #FF0000AA !important; }\
 	.' + twHiddenClass + '{display: none !important; }\
+	.' + twAlertDialogClass + '{z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 	var tableList = document.getElementsByTagName("table");
@@ -96,13 +99,29 @@ function getColIndex(dom) {
 	return index;
 }
 
+// display error messages
+function showError(errorTitle, errorMessage) {
+	var dialog = document.createElement('dialog');
+	var id = 0;
+	while(document.getElementById('tw_err' + id) != null) {
+		++id;
+	}
+	dialog.id = 'tw_err' + id;
+	dialog.open = true;
+	dialog.classList.add(twAlertDialogClass);
+	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
+	<hr>\
+	<p>' + errorMessage + '</p>\
+	<p style="text-align:center;"><input type="button" style="padding:0.5em;" onclick="document.getElementsByClassName(\'' + twAlertDialogClass + '\')[0].remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
+	document.getElementsByTagName('BODY')[0].insertBefore(dialog, document.getElementsByTagName('BODY')[0].firstChild);
+}
+
 // TW highlights cells with given value
 function tw_highlight(dom) {
 	if(!['TD', 'TH'].includes(dom.tagName)) {
-		alert(); //TODO
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-
 	var targetField = dom.innerHTML.trim();
 	while(dom.tagName != 'TABLE') {
 		dom = dom.parentNode;
@@ -124,10 +143,9 @@ function tw_rowdel(dom) {
 // TW delete rows with selected cell's text
 function tw_rowdelbyfield(dom) {
 	if(!['TD', 'TH'].includes(dom.tagName)) {
-		alert(); //TODO
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-
 	var targetField = dom.innerHTML.trim();
 	do {
 		dom = dom.parentNode;
@@ -143,10 +161,9 @@ function tw_rowdelbyfield(dom) {
 // TW delete selected column
 function tw_coldel(dom) {
 	if(!['TD', 'TH'].includes(dom.tagName)) {
-		alert(); //TODO
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-
 	var index = getColIndex(dom);
 	do {
 		dom = dom.parentNode;
@@ -161,15 +178,13 @@ function tw_coldel(dom) {
 // TW delete columns with selected cell's text
 function tw_coldelbyfield(dom) {
 	if(!['TD', 'TH'].includes(dom.tagName)) {
-		alert(); //TODO
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-
 	var targetField = dom.innerHTML.trim();
 	var index = getColIndex(dom);
 	var indexList = [index];
 	tw_coldel(dom);
-
 	do {
 		dom = dom.parentNode;
 	} while(dom.tagName != 'TABLE');
@@ -197,7 +212,6 @@ function tw_exportprint(dom) {
 	while(dom.tagName != 'TABLE') {
 		dom = dom.parentNode;
 	}
-	//dom = dom.parentNode;
 	while(dom.tagName != 'BODY') {
 		checkNeighboursAddClass(dom, twPrintHiddenClass);
 		dom = dom.parentNode;

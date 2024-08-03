@@ -42,5 +42,17 @@
 	"dropdownReset": {
 		"message": "Reset",
 		"description": "Reset all changes."
+	},
+		"errorTitle": {
+		"message": "TableWizard - Error",
+		"description": "Titelline for error messages."
+	},
+	"errorButton": {
+		"message": "OK",
+		"description": "Button text for error messages."
+	},
+	"errorNoCellFound": {
+		"message": "No table cell has been targeted, please click on a table cell and try again!",
+		"description": "Error message: no table cell clicked."
 	}
 }
