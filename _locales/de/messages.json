@@ -7,6 +7,22 @@
 		"message": "Erlaubt Live-Manipulation von HTML-Tabellen.",
 		"description": "Beschreibung der Erweiterung."
 	},
+	"optionsLabelHighlightColor": {
+		"message": "Farbe für Hervorhebungen (Hex-Werte)",
+		"description": "Optionen: Eingabebeschreibung Hervorhebungsfarbe."
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd",
+		"description": "Optionen: Standardwert Hervorhebungsfarbe."
+	},
+	"optionsSave": {
+		"message": "Speichern",
+		"description": "Optionen: Optionen speichern."
+	},
+	"optionsReset": {
+		"message": "Auf Standardwerte zurücksetzen",
+		"description": "Optionen: Optionen zurücksetzen."
+	},
 	"dropdownMain": {
 		"message": "TableWizard",
 		"description": "Text des Einstiegs-Dropdowns."

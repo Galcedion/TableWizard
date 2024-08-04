@@ -1,0 +1,4 @@
+input[type="text"] {width: 7em; margin-left: auto; margin-right: auto; }
+td {text-align: center; padding-bottom: 1em; padding-left: 2em; }
+#display_color {border: 0; width: 1.5em; margin-left: 2em; border-radius: 0.25em; }
+.incomplete {box-shadow: 0 0 3px 3px crimson; }

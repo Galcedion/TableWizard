@@ -24,6 +24,15 @@
 	"content_security_policy": "script-src 'self'; object-src 'self'",
 	"permissions": [
 		"menus",
-		"activeTab"
-	]
+		"activeTab",
+		"storage"
+	],
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "tablewizard@galcedion.de"
+		}
+	},
+	"options_ui": {
+		"page": "settings/options.html"
+	}
 }

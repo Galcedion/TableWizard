@@ -8,8 +8,11 @@ tw_check();
 
 // check if the page contains tables
 function tw_check() {
-	if((document.getElementsByTagName("table").length > 0))
-		tw_attach();
+	if((document.getElementsByTagName("table").length == 0))
+		return;
+	tw_attach();
+	var getHightlightColor = browser.storage.sync.get("highlightColor");
+	getHightlightColor.then(loadSettingsHighlightColor);
 }
 
 // attach event handlers to tables
@@ -32,6 +35,16 @@ function tw_attach() {
 			});
 		});
 	}
+}
+
+function loadSettingsHighlightColor(storage) {
+	var tmp = browser.i18n.getMessage('optionsDefaultHighlightColor');
+	if(storage.highlightColor)
+		tmp = storage.highlightColor;
+	var injectCSS = document.createElement('style');
+	injectCSS.type = 'text/css';
+	injectCSS.innerHTML = '.' + twHightlightClass + '{background-color: ' + tmp + ' !important; }';
+	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 }
 
 // check if text is contained in children or not

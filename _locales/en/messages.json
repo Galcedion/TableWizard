@@ -7,6 +7,22 @@
 		"message": "Allows for live manipulation of HTML tables.",
 		"description": "Description of the extension."
 	},
+	"optionsLabelHighlightColor": {
+		"message": "Highlighing Color (Hex Values)",
+		"description": "Options: input description for highlighting color."
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd",
+		"description": "Options: default value of highlighting color."
+	},
+	"optionsSave": {
+		"message": "Save",
+		"description": "Options: save options."
+	},
+	"optionsReset": {
+		"message": "Reset to default",
+		"description": "Optionen: reset options."
+	},
 	"dropdownMain": {
 		"message": "TableWizard",
 		"description": "Entry dropdown text."
