@@ -3,6 +3,10 @@
 	"name": "__MSG_extensionName__",
 	"version": "1.0",
 	"description": "__MSG_extensionDescription__",
+	"developer": {
+		"name": "Galcedion",
+		"url": "https://galcedion.de"
+	},
 	"icons": {},
 	"default_locale": "en",
 	"background": {

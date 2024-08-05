@@ -165,28 +165,26 @@ browser.menus.create({
 	}
 });
 
+// handling of content script messages
 function messageListener(listener) {
 	switch(listener.task) {
-		case 'enableCM':
+		case 'enableCM': // context menu display
 			messageListenerDisplayCM(listener);
 			break;
-		case 'exportNewTab':
+		case 'exportNewTab': // data handler for newtab
 			exportNewTab(listener);
 			break;
 	}
 }
 
+// toggle the display of TableWizard within the context menu
 function messageListenerDisplayCM(listener) {
-	if(listener.enableCM) {
-		browser.menus.update(TABLEWIZARD_MENU_ITEM, {
-			visible: true,
-		});
-	}
-	else
-		browser.menus.update(TABLEWIZARD_MENU_ITEM, {visible: false});
+	if(listener.enableCM)
+		browser.menus.update(TABLEWIZARD_MENU_ITEM, {visible: true});
 	browser.menus.refresh();
 }
 
+// create a new tab with given table data
 function exportNewTab(listener) {
 	browser.tabs.create({
 		url: '/tabletab.html?table=' + listener.tabledata,
@@ -194,10 +192,11 @@ function exportNewTab(listener) {
 	});
 }
 
+// hide TableWizard in context menu
 function messageListenerHideCM() {
 	browser.menus.update(TABLEWIZARD_MENU_ITEM, {visible: false});
 	browser.menus.refresh();
 }
 
-browser.runtime.onMessage.addListener(messageListener);
-browser.menus.onHidden.addListener(messageListenerHideCM);
+browser.runtime.onMessage.addListener(messageListener); // listener for content script messages
+browser.menus.onHidden.addListener(messageListenerHideCM); // listener for when context menu is closed

@@ -37,6 +37,7 @@ function tw_attach() {
 	}
 }
 
+// initial load of settings - highlighting color
 function loadSettingsHighlightColor(storage) {
 	var tmp = browser.i18n.getMessage('optionsDefaultHighlightColor');
 	if(storage.highlightColor)

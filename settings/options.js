@@ -9,6 +9,7 @@ document.getElementById('set_color').addEventListener('keyup', updateColor);
 document.getElementById('button_save').addEventListener('click', saveSettings);
 document.getElementById('button_reset').addEventListener('click', resetSettings);
 
+// initial load of settings - highlighting color
 function loadSettingsHighlightColor(storage) {
 	var tmp = browser.i18n.getMessage('optionsDefaultHighlightColor');
 	if(storage.highlightColor)
@@ -17,6 +18,7 @@ function loadSettingsHighlightColor(storage) {
 	updateColor();
 }
 
+// save all settings
 function saveSettings() {
 	var selectedColor = document.getElementById('set_color').value.toLowerCase();
 	if(!colorRegex.test(selectedColor)) {
@@ -27,12 +29,14 @@ function saveSettings() {
 	});
 }
 
+// reset all settings to default (provided by lang)
 function resetSettings() {
 	document.getElementById('set_color').value = browser.i18n.getMessage('optionsDefaultHighlightColor');
 	saveSettings()
 	updateColor();
 }
 
+// update the color preview and check input for Hex-conformity
 function updateColor() {
 	var setColor = document.getElementById('set_color');
 	var selectedColor = setColor.value.toLowerCase();
