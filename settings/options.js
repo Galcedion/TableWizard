@@ -1,7 +1,7 @@
 document.getElementById('l_set_color').innerHTML = browser.i18n.getMessage('optionsLabelHighlightColor');
 document.getElementById('button_save').value = browser.i18n.getMessage('optionsSave');
 document.getElementById('button_reset').value = browser.i18n.getMessage('optionsReset');
-const colorRegex = /^#?[0-9a-f]{3,8}$/;
+const colorRegex = /^#[0-9a-f]{3,8}$/;
 var getHightlightColor = browser.storage.sync.get("highlightColor");
 getHightlightColor.then(loadSettingsHighlightColor);
 
@@ -40,6 +40,10 @@ function resetSettings() {
 function updateColor() {
 	var setColor = document.getElementById('set_color');
 	var selectedColor = setColor.value.toLowerCase();
+	if(selectedColor.charAt(0) != '#') {
+		selectedColor = '#' + selectedColor;
+		setColor.value = selectedColor;
+	}
 	if(!colorRegex.test(selectedColor)) {
 		setColor.classList.add('incomplete');
 	} else {
