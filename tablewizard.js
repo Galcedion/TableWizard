@@ -19,8 +19,7 @@ function tw_check() {
 function tw_attach() {
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
-	injectCSS.innerHTML = '.' + twHightlightClass + '{background-color: #FF0000AA !important; }\
-	.' + twHiddenClass + '{display: none !important; }\
+	injectCSS.innerHTML = '.' + twHiddenClass + '{display: none !important; }\
 	.' + twAlertDialogClass + '{z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);

@@ -15,6 +15,22 @@
 		"message": "#ff8080dd",
 		"description": "Options: default value of highlighting color."
 	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Design of tables opened in new tab",
+		"description": "Options: input description for table display in new tab."
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Without design elements",
+		"description": "Options: input description for table display in new tab; version 1."
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Border only",
+		"description": "Options: input description for table display in new tab; version 2."
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Border and grayscale background",
+		"description": "Options: input description for table display in new tab; version 3."
+	},
 	"optionsSave": {
 		"message": "Save",
 		"description": "Options: save options."
@@ -70,5 +86,9 @@
 	"errorNoCellFound": {
 		"message": "No table cell has been targeted, please click on a table cell and try again!",
 		"description": "Error message: no table cell clicked."
+	},
+	"errorNoTableGiven": {
+		"message": "No table has been given or selected. This is an internal error and cannot be fixed.",
+		"description": "Error message: no table given."
 	}
 }

@@ -15,6 +15,22 @@
 		"message": "#ff8080dd",
 		"description": "Optionen: Standardwert Hervorhebungsfarbe."
 	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Gestaltung der in neuem Tab geöffneten Tabellen",
+		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab."
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Ohne Gestaltungselemente",
+		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 1."
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Nur Rahmen",
+		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 2."
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Rahmen und Hintergrund-Graustufen",
+		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 3."
+	},
 	"optionsSave": {
 		"message": "Speichern",
 		"description": "Optionen: Optionen speichern."
@@ -70,5 +86,9 @@
 	"errorNoCellFound": {
 		"message": "Es wurde keine Tabellenzelle anvisiert, bitte klicken Sie auf eine Tabellenzelle und versuchen Sie es erneut!",
 		"description": "Fehlernachricht: Keine Tabellenzelle angeklickt."
+	},
+	"errorNoTableGiven": {
+		"message": "Es wurde keine Tablle übergeben oder angewählt. Dies ist ein interner Fehler und kann nicht behoben werden.",
+		"description": "Fehlernachricht: Keine Tabelle übergeben."
 	}
 }
