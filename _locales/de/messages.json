@@ -63,6 +63,22 @@
 		"message": "Zeilen mit diesem Feld löschen",
 		"description": "Dropdown-Text Zeile nach Feld löschen."
 	},
+	"dropdownSortColumnsASC": {
+		"message": "Tabellenspalten aufsteigend sortieren ▼",
+		"description": "Dropdown-Text Sortierung der Tabellenspalten aufsteigend."
+	},
+	"dropdownSortColumnsDESC": {
+		"message": "Tabellenspalten absteigend sortieren ▲",
+		"description": "Dropdown-Text Sortierung der Tabellenspalten absteigend."
+	},
+	"dropdownSortRowsASC": {
+		"message": "Tabellenzeilen aufsteigend sortieren ▶",
+		"description": "Dropdown-Text Sortierung der Tabellenzeilen aufsteigend."
+	},
+	"dropdownSortRowsDESC": {
+		"message": "Tabellenzeilen absteigend sortieren ◀",
+		"description": "Dropdown-Text Sortierung der Tabellenzeilen absteigend."
+	},
 	"dropdownExportNewtab": {
 		"message": "Tabelle in neuem Tab öffnen",
 		"description": "Dropdown-Text Tabelle in neuem Tab."

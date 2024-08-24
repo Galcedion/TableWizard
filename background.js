@@ -102,9 +102,78 @@ browser.menus.create({
 	}
 });
 
-// MENU spacer colexport
+// MENU spacer colsort
 browser.menus.create({
-	id: 'tw_spacer_colexport',
+	id: 'tw_spacer_colsort',
+	contexts: ["page"],
+	type: 'separator',
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM
+});
+
+// MENU sort columns asc
+browser.menus.create({
+	id: 'tw_sortcolumns_asc',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownSortColumnsASC"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_sortcolumns(browser.menus.getTargetElement(${info.targetElementId}), false);`,
+		});
+	}
+});
+
+// MENU sort columns desc
+browser.menus.create({
+	id: 'tw_sortcolumns_desc',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownSortColumnsDESC"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_sortcolumns(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
+// MENU sort rows asc
+browser.menus.create({
+	id: 'tw_sortrows_asc',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownSortRowsASC"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_sortrows(browser.menus.getTargetElement(${info.targetElementId}), false);`,
+		});
+	}
+});
+
+// MENU sort rows
+browser.menus.create({
+	id: 'tw_sortrows_desc',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownSortRowsDESC"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_sortrows(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
+// MENU spacer sortexport
+browser.menus.create({
+	id: 'tw_spacer_sortexport',
 	contexts: ["page"],
 	type: 'separator',
 	visible: true,

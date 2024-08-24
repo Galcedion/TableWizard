@@ -101,15 +101,28 @@ function checkNeighboursAddClass(element, addClass) {
 	}
 }
 
-// get index of a cell within a column
-function getColIndex(dom) {
-	var chain = dom;
+// get index of cell
+// colum index when a TD / TH is given, row index when TR is given
+function getCellPositionIndex(dom) {
 	var index = 0;
 	while((dom = dom.previousSibling) != null) {
 		if(typeof(dom.tagName) != 'undefined')
 			++index;
 	}
 	return index;
+}
+
+// gets cell within a row by given index
+function getCellByIndex(dom, index) {
+	if(dom.tagName == 'TR')
+		dom = dom.firstChild;
+	while((dom = dom.nextSibling) != null) {
+		if(typeof(dom.tagName) != 'undefined')
+			--index;
+		if(index < 0)
+			break;
+	}
+	return dom;
 }
 
 // display error messages
@@ -177,7 +190,7 @@ function tw_coldel(dom) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-	var index = getColIndex(dom);
+	var index = getCellPositionIndex(dom);
 	do {
 		dom = dom.parentNode;
 	} while(dom.tagName != 'TABLE');
@@ -195,7 +208,7 @@ function tw_coldelbyfield(dom) {
 		return;
 	}
 	var targetField = dom.innerHTML.trim();
-	var index = getColIndex(dom);
+	var index = getCellPositionIndex(dom);
 	var indexList = [index];
 	tw_coldel(dom);
 	do {
@@ -205,6 +218,78 @@ function tw_coldelbyfield(dom) {
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
 		indexList = checkChildrenReturnIndexList(trList[tl].childNodes, targetField, indexList);
+	}
+}
+
+// TW sort by columns
+function tw_sortcolumns(dom, descending) {
+	if(!['TD', 'TH'].includes(dom.tagName)) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
+		return;
+	}
+	var referenceCell = dom;
+	while(dom.tagName != 'TABLE') {
+		dom = dom.parentNode;
+	}
+	var referenceIndex = getCellPositionIndex(referenceCell);
+	var tr = dom.getElementsByTagName('tr');
+	var iterationStop = tr.length;
+
+	for(let i = 1; i < tr.length; ++i) { // loop the sort
+		--iterationStop;
+		for(let j = 0; j < iterationStop; ++j) { // swap rows if necessary for sort
+			var a = getCellByIndex(tr[j], referenceIndex);
+			if(a == null || a.tagName == 'TH')
+				continue;
+			var tmpCnt = 0;
+			do {
+				++tmpCnt;
+				var b = getCellByIndex(tr[j+tmpCnt], referenceIndex);
+				if(j + tmpCnt > tr.length)
+					break;
+			} while(b == null || b.tagName == 'TH');
+			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
+			if(!descending && strComp == 1)
+				tr[j].parentNode.insertBefore(tr[j+tmpCnt], tr[j]);
+			else if(descending && strComp == -1)
+				tr[j].parentNode.insertBefore(tr[j+tmpCnt], tr[j]);
+		}
+	}
+}
+
+// TW sort by rows
+function tw_sortrows(dom, descending) {
+	if(!['TD', 'TH'].includes(dom.tagName)) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
+		return;
+	}
+	var referenceCell = dom;
+	while(dom.tagName != 'TABLE') {
+		if(dom.tagName == 'TR')
+			var referenceRowIndex = getCellPositionIndex(dom);
+		dom = dom.parentNode;
+	}
+	var referenceColIndex = getCellPositionIndex(referenceCell);
+	var tr = dom.getElementsByTagName('TR');
+	var iterationStop = tr[0].querySelectorAll('td,th').length; // colspan danger, should give a warning
+
+	for(let i = 1; i < tr[0].querySelectorAll('td,th').length; ++i) { // loop the sort
+		--iterationStop;
+		for(let j = 0; j < iterationStop; ++j) {
+			var a = getCellByIndex(tr[referenceRowIndex], j); // replacable with tr[referenceRowIndex].querySelectorAll('td,th')[j]
+			var b = getCellByIndex(tr[referenceRowIndex], j + 1);
+			if(a == null || b == null)
+				continue;
+			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
+			if(!descending && strComp == 1) {
+				for(let k = 0; k < tr.length; ++k)
+					tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);
+			}
+			else if(descending && strComp == -1) {
+				for(let k = 0; k < tr.length; ++k)
+					tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);
+			}
+		}
 	}
 }
 

@@ -63,6 +63,22 @@
 		"message": "Delete rows with this field",
 		"description": "Dropdown text delete rows by field."
 	},
+	"dropdownSortColumnsASC": {
+		"message": "Sort table columns ascending ▼",
+		"description": "Dropdown text sort table columns ascending."
+	},
+	"dropdownSortColumnsDESC": {
+		"message": "Sort table columns descending ▲",
+		"description": "Dropdown text sort table columns descending."
+	},
+	"dropdownSortRowsASC": {
+		"message": "Sort table rows ascending ▶",
+		"description": "Dropdown text sort table rows ascending."
+	},
+	"dropdownSortRowsDESC": {
+		"message": "Sort table rows descending ◀",
+		"description": "Dropdown text sort table rows descending."
+	},
 	"dropdownExportNewtab": {
 		"message": "Open table in new tab",
 		"description": "Dropdown text table new tab."
