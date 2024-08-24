@@ -221,8 +221,8 @@ function tw_coldelbyfield(dom) {
 	}
 }
 
-// TW sort by columns
-function tw_sortcolumns(dom, descending) {
+// TW sort by rows
+function tw_sortrows(dom, descending) {
 	if(!['TD', 'TH'].includes(dom.tagName)) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
@@ -249,16 +249,14 @@ function tw_sortcolumns(dom, descending) {
 					break;
 			} while(b == null || b.tagName == 'TH');
 			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
-			if(!descending && strComp == 1)
-				tr[j].parentNode.insertBefore(tr[j+tmpCnt], tr[j]);
-			else if(descending && strComp == -1)
+			if((!descending && strComp == 1) || (descending && strComp == -1))
 				tr[j].parentNode.insertBefore(tr[j+tmpCnt], tr[j]);
 		}
 	}
 }
 
-// TW sort by rows
-function tw_sortrows(dom, descending) {
+// TW sort by columns
+function tw_sortcolumns(dom, descending) {
 	if(!['TD', 'TH'].includes(dom.tagName)) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
@@ -281,11 +279,7 @@ function tw_sortrows(dom, descending) {
 			if(a == null || b == null)
 				continue;
 			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
-			if(!descending && strComp == 1) {
-				for(let k = 0; k < tr.length; ++k)
-					tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);
-			}
-			else if(descending && strComp == -1) {
+			if((!descending && strComp == 1) || (descending && strComp == -1)) {
 				for(let k = 0; k < tr.length; ++k)
 					tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);
 			}

@@ -111,11 +111,41 @@ browser.menus.create({
 	parentId: TABLEWIZARD_MENU_ITEM
 });
 
+// MENU sort rows asc
+browser.menus.create({
+	id: 'tw_sortrows_asc',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownSortByRowsASC"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_sortrows(browser.menus.getTargetElement(${info.targetElementId}), false);`,
+		});
+	}
+});
+
+// MENU sort rows desc
+browser.menus.create({
+	id: 'tw_sortrows_desc',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownSortByRowsDESC"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_sortrows(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
 // MENU sort columns asc
 browser.menus.create({
-	id: 'tw_sortcolumns_asc',
+	id: 'tw_sortbycolumns_asc',
 	contexts: ["page"],
-	title: browser.i18n.getMessage("dropdownSortColumnsASC"),
+	title: browser.i18n.getMessage("dropdownSortByColumnsASC"),
 	visible: true,
 	parentId: TABLEWIZARD_MENU_ITEM,
 	onclick(info, tab) {
@@ -128,45 +158,15 @@ browser.menus.create({
 
 // MENU sort columns desc
 browser.menus.create({
-	id: 'tw_sortcolumns_desc',
+	id: 'tw_sortbycolumns_desc',
 	contexts: ["page"],
-	title: browser.i18n.getMessage("dropdownSortColumnsDESC"),
+	title: browser.i18n.getMessage("dropdownSortByColumnsDESC"),
 	visible: true,
 	parentId: TABLEWIZARD_MENU_ITEM,
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
 			code: `tw_sortcolumns(browser.menus.getTargetElement(${info.targetElementId}), true);`,
-		});
-	}
-});
-
-// MENU sort rows asc
-browser.menus.create({
-	id: 'tw_sortrows_asc',
-	contexts: ["page"],
-	title: browser.i18n.getMessage("dropdownSortRowsASC"),
-	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
-	onclick(info, tab) {
-		browser.tabs.executeScript(tab.id, {
-			frameId: info.frameId,
-			code: `tw_sortrows(browser.menus.getTargetElement(${info.targetElementId}), false);`,
-		});
-	}
-});
-
-// MENU sort rows
-browser.menus.create({
-	id: 'tw_sortrows_desc',
-	contexts: ["page"],
-	title: browser.i18n.getMessage("dropdownSortRowsDESC"),
-	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
-	onclick(info, tab) {
-		browser.tabs.executeScript(tab.id, {
-			frameId: info.frameId,
-			code: `tw_sortrows(browser.menus.getTargetElement(${info.targetElementId}), true);`,
 		});
 	}
 });
