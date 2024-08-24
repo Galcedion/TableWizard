@@ -106,5 +106,13 @@
 	"errorNoTableGiven": {
 		"message": "No table has been given or selected. This is an internal error and cannot be fixed.",
 		"description": "Error message: no table given."
+	},
+	"errorCantSortRowspan": {
+		"message": "Unable to sort by table row. Some cells stretch across multiple rows.",
+		"description": "Error message: Can't sort becaus of rowspan."
+	},
+	"errorCantSortColspan": {
+		"message": "Unable to sort by table columns. Some cells stretch across multiple columns.",
+		"description": "Error message: Can't sort becaus of colspan."
 	}
 }

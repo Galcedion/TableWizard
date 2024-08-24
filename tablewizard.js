@@ -20,7 +20,7 @@ function tw_attach() {
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
 	injectCSS.innerHTML = '.' + twHiddenClass + '{display: none !important; }\
-	.' + twAlertDialogClass + '{z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson}\
+	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson;}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 	var tableList = document.getElementsByTagName("table");
@@ -137,8 +137,8 @@ function showError(errorTitle, errorMessage) {
 	dialog.classList.add(twAlertDialogClass);
 	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
 	<hr>\
-	<p>' + errorMessage + '</p>\
-	<p style="text-align:center;"><input type="button" style="padding:0.5em;" onclick="document.getElementsByClassName(\'' + twAlertDialogClass + '\')[0].remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
+	<p style="text-align:justify;">' + errorMessage + '</p>\
+	<p style="text-align:center;"><input type="button" style="padding:0.5em;font-weight:bold;" onclick="document.getElementsByClassName(\'' + twAlertDialogClass + '\')[0].remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
 	document.getElementsByTagName('BODY')[0].insertBefore(dialog, document.getElementsByTagName('BODY')[0].firstChild);
 }
 
@@ -231,6 +231,10 @@ function tw_sortrows(dom, descending) {
 	while(dom.tagName != 'TABLE') {
 		dom = dom.parentNode;
 	}
+	if(dom.querySelectorAll('[rowspan]').length > 0) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCantSortRowspan"));
+		return;
+	}
 	var referenceIndex = getCellPositionIndex(referenceCell);
 	var tr = dom.getElementsByTagName('tr');
 	var iterationStop = tr.length;
@@ -267,9 +271,13 @@ function tw_sortcolumns(dom, descending) {
 			var referenceRowIndex = getCellPositionIndex(dom);
 		dom = dom.parentNode;
 	}
+	if(dom.querySelectorAll('[colspan]').length > 0) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCantSortColspan"));
+		return;
+	}
 	var referenceColIndex = getCellPositionIndex(referenceCell);
 	var tr = dom.getElementsByTagName('TR');
-	var iterationStop = tr[0].querySelectorAll('td,th').length; // colspan danger, should give a warning
+	var iterationStop = tr[0].querySelectorAll('td,th').length;
 
 	for(let i = 1; i < tr[0].querySelectorAll('td,th').length; ++i) { // loop the sort
 		--iterationStop;

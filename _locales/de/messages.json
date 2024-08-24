@@ -106,5 +106,13 @@
 	"errorNoTableGiven": {
 		"message": "Es wurde keine Tablle übergeben oder angewählt. Dies ist ein interner Fehler und kann nicht behoben werden.",
 		"description": "Fehlernachricht: Keine Tabelle übergeben."
+	},
+	"errorCantSortRowspan": {
+		"message": "Sortierung nach Tabellenzeilen nicht möglich, da einige Zellen über mehrere Zeilen verlaufen.",
+		"description": "Fehlernachricht: Keine Sortierung aufgrund von rowspan."
+	},
+	"errorCantSortColspan": {
+		"message": "Sortierung nach Tabellenspalten nicht möglich, da einige Zellen über mehrere Spalten verlaufen.",
+		"description": "Fehlernachricht: Keine Sortierung aufgrund von colspan."
 	}
 }
