@@ -3,6 +3,8 @@ var twHightlightClass = 'tw_highlight_' + currentDate;
 var twHiddenClass = 'tw_hidden_' + currentDate;
 var twPrintHiddenClass = 'tw_print_' + currentDate;
 var twAlertDialogClass = 'tw_alert_' + currentDate;
+var twTableSortMarker = 'tw_sort_' + currentDate;
+var twTableIndices = {};
 
 tw_check();
 
@@ -239,6 +241,21 @@ function tw_sortrows(dom, descending) {
 	var tr = dom.getElementsByTagName('tr');
 	var iterationStop = tr.length;
 
+	var tableClass = null;
+	for(let i = 0; i < dom.classList.length; ++i) {
+		if(dom.classList[i].includes(twTableSortMarker)) {
+			tableClass = dom.classList[i];
+			break;
+		}
+	}
+	if(tableClass == null) {
+		tableClass = twTableSortMarker + Object.keys(twTableIndices).length.toString();
+		dom.classList.add(tableClass);
+		twTableIndices[tableClass] = {'row': Array.from(Array(iterationStop).keys())};
+	}
+	else if(typeof twTableIndices[tableClass]['row'] == 'undefined')
+		twTableIndices[tableClass]['row'] = Array.from(Array(iterationStop).keys());
+
 	for(let i = 1; i < tr.length; ++i) { // loop the sort
 		--iterationStop;
 		for(let j = 0; j < iterationStop; ++j) { // swap rows if necessary for sort
@@ -253,8 +270,12 @@ function tw_sortrows(dom, descending) {
 					break;
 			} while(b == null || b.tagName == 'TH');
 			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
-			if((!descending && strComp == 1) || (descending && strComp == -1))
+			if((!descending && strComp == 1) || (descending && strComp == -1)) {
 				tr[j].parentNode.insertBefore(tr[j+tmpCnt], tr[j]);
+				var swap = twTableIndices[tableClass]['row'][j];
+				twTableIndices[tableClass]['row'][j] = twTableIndices[tableClass]['row'][j+tmpCnt];
+				twTableIndices[tableClass]['row'][j+tmpCnt] = swap;
+			}
 		}
 	}
 }
@@ -279,6 +300,21 @@ function tw_sortcolumns(dom, descending) {
 	var tr = dom.getElementsByTagName('TR');
 	var iterationStop = tr[0].querySelectorAll('td,th').length;
 
+	var tableClass = null;
+	for(let i = 0; i < dom.classList.length; ++i) {
+		if(dom.classList[i].includes(twTableSortMarker)) {
+			tableClass = dom.classList[i];
+			break;
+		}
+	}
+	if(tableClass == null) {
+		tableClass = twTableSortMarker + Object.keys(twTableIndices).length.toString();
+		dom.classList.add(tableClass);
+		twTableIndices[tableClass] = {'col': Array.from(Array(iterationStop).keys())};
+	}
+	else if(typeof twTableIndices[tableClass]['col'] == 'undefined')
+		twTableIndices[tableClass]['col'] = Array.from(Array(iterationStop).keys());
+
 	for(let i = 1; i < tr[0].querySelectorAll('td,th').length; ++i) { // loop the sort
 		--iterationStop;
 		for(let j = 0; j < iterationStop; ++j) {
@@ -288,8 +324,12 @@ function tw_sortcolumns(dom, descending) {
 				continue;
 			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
 			if((!descending && strComp == 1) || (descending && strComp == -1)) {
-				for(let k = 0; k < tr.length; ++k)
+				for(let k = 0; k < tr.length; ++k) {
 					tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);
+				}
+				var swap = twTableIndices[tableClass]['col'][j];
+				twTableIndices[tableClass]['col'][j] = twTableIndices[tableClass]['col'][j + 1];
+				twTableIndices[tableClass]['col'][j + 1] = swap;
 			}
 		}
 	}
@@ -338,4 +378,49 @@ function tw_reset(dom) {
 	while(highlightList.length > 0) {
 		highlightList[0].classList.remove(twHightlightClass);
 	}
+
+	var tableClass = null;
+	for(let i = 0; i < dom.classList.length; ++i) {
+		if(dom.classList[i].includes(twTableSortMarker)) {
+			tableClass = dom.classList[i];
+			dom.classList.remove(tableClass);
+			break;
+		}
+	}
+	if(tableClass == null)
+		return;
+
+	if(typeof twTableIndices[tableClass]['row'] != 'undefined') {
+		var tr = dom.getElementsByTagName('tr');
+		var iterationStop = tr.length;
+		for(let i = 1; i < tr.length; ++i) { // loop the sort
+			--iterationStop;
+			for(let j = 0; j < iterationStop; ++j) { // swap rows back if necessary
+				if(twTableIndices[tableClass]['row'][j] > twTableIndices[tableClass]['row'][j+1]) {
+					tr[j].parentNode.insertBefore(tr[j+1], tr[j]);
+					var swap = twTableIndices[tableClass]['row'][j];
+					twTableIndices[tableClass]['row'][j] = twTableIndices[tableClass]['row'][j+1];
+					twTableIndices[tableClass]['row'][j+1] = swap;
+				}
+			}
+		}
+	}
+	if(typeof twTableIndices[tableClass]['col'] != 'undefined') {
+		var tr = dom.getElementsByTagName('tr');
+		var iterationStop = tr[0].querySelectorAll('td,th').length;
+		for(let i = 1; i < tr[0].querySelectorAll('td,th').length; ++i) { // loop the sort
+			--iterationStop;
+			for(let j = 0; j < iterationStop; ++j) {
+				if(twTableIndices[tableClass]['col'][j] > twTableIndices[tableClass]['col'][j+1]) {
+					for(let k = 0; k < tr.length; ++k) {
+						tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);
+					}
+					var swap = twTableIndices[tableClass]['col'][j];
+					twTableIndices[tableClass]['col'][j] = twTableIndices[tableClass]['col'][j + 1];
+					twTableIndices[tableClass]['col'][j + 1] = swap;
+				}
+			}
+		}
+	}
+	delete twTableIndices[tableClass];
 }
