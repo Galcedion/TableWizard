@@ -8,7 +8,7 @@
 		"description": "Description of the extension."
 	},
 	"optionsLabelHighlightColor": {
-		"message": "Highlighing Color (Hex Values)",
+		"message": "Highlighing Color (Values either Hex, RGB or Firefox Colors)",
 		"description": "Options: input description for highlighting color."
 	},
 	"optionsDefaultHighlightColor": {
@@ -118,5 +118,9 @@
 	"errorCantSortColspan": {
 		"message": "Unable to sort by table columns. Some cells stretch across multiple columns.",
 		"description": "Error message: Can't sort becaus of colspan."
+	},
+	"errorOptionsInvalid": {
+		"message": "Unable to save settings. Please check if your input data is correct!",
+		"description": "Error message: Settings not saved because of invalid values."
 	}
 }

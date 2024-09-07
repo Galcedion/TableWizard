@@ -3,7 +3,29 @@ document.getElementById('l_set_ignoreHTML').innerHTML = browser.i18n.getMessage(
 document.getElementById('l_set_tabtable').innerHTML = browser.i18n.getMessage('optionsLabelTabTableDisplay');
 document.getElementById('button_save').value = browser.i18n.getMessage('optionsSave');
 document.getElementById('button_reset').value = browser.i18n.getMessage('optionsReset');
-const colorRegex = /^#[0-9a-f]{3,8}$/;
+const colorArrayFF = [
+	'aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure',
+	'beige', 'bisque', 'black', 'blanchedalmond', 'blue', 'blueviolet', 'brown', 'burlywood',
+	'cadetblue', 'chartreuse', 'chocolate', 'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan',
+	'darkblue', 'darkcyan', 'darkgoldenrod', 'darkgray', 'darkgreen', 'darkgrey', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred', 'darksalmon', 'darkseagreen', 'darkslateblue', 'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dimgrey', 'dodgerblue',
+	'firebrick', 'floralwhite', 'forestgreen', 'fuchsia',
+	'gainsboro', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'greenyellow', 'grey',
+	'honeydew', 'hotpink',
+	'indianred', 'indigo', 'ivory',
+	'khaki',
+	'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightgrey', 'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray', 'lightslategrey', 'lightsteelblue', 'lightyellow', 'lime', 'limegreen', 'linen',
+	'magenta', 'maroon', 'mediumaquamarine', 'mediumblue', 'mediumorchid', 'mediumpurple', 'mediumseagreen', 'mediumslateblue', 'mediumspringgreen', 'mediumturquoise', 'mediumvioletred', 'midnightblue', 'mintcream', 'mistyrose', 'moccasin',
+	'navajowhite', 'navy',
+	'oldlace', 'olive', 'olivedrab', 'orange', 'orangered', 'orchid',
+	'palegoldenrod', 'palegreen', 'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink', 'plum', 'powderblue', 'purple',
+	'rebeccapurple', 'red', 'rosybrown', 'royalblue',
+	'saddlebrown', 'salmon', 'sandybrown', 'seagreen', 'seashell', 'sienna', 'silver', 'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen', 'steelblue',
+	'tan', 'teal', 'thistle', 'tomato', 'turquoise',
+	'violet',
+	'wheat', 'white', 'whitesmoke',
+	'yellow', 'yellowgreen']; // detect firefox default colors
+const colorRegexHex = /^#?[0-9a-f]{3,8}$/; // detect Hex input
+const colorRegexRGBA = /^rgba?\(\d{1,3}, ?\d{1,3}, ?\d{1,3}(, ?[0-1](\.\d)?)?\)$/; // detect RGB(A) input; however: RGB with spaces are not supported
 var getHightlightColor = browser.storage.sync.get("highlightColor");
 getHightlightColor.then(loadSettingsHighlightColor);
 var getIgnoreHTML = browser.storage.sync.get("ignoreHTML");
@@ -65,7 +87,8 @@ function loadSettingsTabTableDisplay(storage) {
 // save all settings
 function saveSettings() {
 	var selectedColor = document.getElementById('set_color').value.toLowerCase();
-	if(!colorRegex.test(selectedColor)) {
+	if(!validateColor(selectedColor)) {
+		showErrorLine(true, browser.i18n.getMessage('errorOptionsInvalid'));
 		return;
 	}
 	var selectedIgnoreHTML = document.getElementById('set_ignoreHTML').checked;
@@ -77,6 +100,7 @@ function saveSettings() {
 		ignoreHTML: selectedIgnoreHTML,
 		tabTableDisplay: TTDObj
 	});
+	showErrorLine(false, null);
 }
 
 // reset all settings to default (provided by lang)
@@ -88,18 +112,43 @@ function resetSettings() {
 	updateColor();
 }
 
+function validateColor(testColor) {
+	validColor = false;
+	if(colorArrayFF.includes(testColor))
+		validColor = true;
+	else if(colorRegexHex.test(testColor)) {
+		if(testColor.charAt(0) != '#')
+			testColor = '#' + testColor;
+		if([4, 5, 7, 9].includes(testColor.length))
+			validColor = true;
+	}
+	else if(colorRegexRGBA.test(testColor)) {
+		var colorValues = testColor.substring(testColor.indexOf('(') + 1, testColor.indexOf(')')).split(',');
+		if(colorValues[0] >= 0 && colorValues[0] <= 255 && colorValues[1] >= 0 && colorValues[1] <= 255 && colorValues[2] >= 0 && colorValues[2] <= 255 && (colorValues.length == 3 || (colorValues.length == 4 && colorValues[3] >= 0 && colorValues[3] <= 1)))
+			validColor = true;
+	}
+	return validColor;
+}
+
 // update the color preview and check input for Hex-conformity
 function updateColor() {
 	var setColor = document.getElementById('set_color');
 	var selectedColor = setColor.value.toLowerCase();
-	if(selectedColor.charAt(0) != '#') {
-		selectedColor = '#' + selectedColor;
+	if(validateColor(selectedColor)) {
 		setColor.value = selectedColor;
-	}
-	if(!colorRegex.test(selectedColor)) {
-		setColor.classList.add('incomplete');
-	} else {
 		document.getElementById('display_color').style.backgroundColor = selectedColor;
 		setColor.classList.remove('incomplete');
+	} else {
+		setColor.classList.add('incomplete');
+	}
+}
+
+function showErrorLine(display, errMsg) {
+	var errElem = document.getElementById('error_display');
+	if(display) {
+		errElem.classList.remove('hidden');
+		errElem.innerHTML = errMsg;
+	} else {
+		errElem.classList.add('hidden');
 	}
 }

@@ -8,7 +8,7 @@
 		"description": "Beschreibung der Erweiterung."
 	},
 	"optionsLabelHighlightColor": {
-		"message": "Farbe für Hervorhebungen (Hex-Werte)",
+		"message": "Farbe für Hervorhebungen (Werte entweder Hex, RGB oder Firefox-Farben)",
 		"description": "Optionen: Eingabebeschreibung Hervorhebungsfarbe."
 	},
 	"optionsDefaultHighlightColor": {
@@ -118,5 +118,9 @@
 	"errorCantSortColspan": {
 		"message": "Sortierung nach Tabellenspalten nicht möglich, da einige Zellen über mehrere Spalten verlaufen.",
 		"description": "Fehlernachricht: Keine Sortierung aufgrund von colspan."
+	},
+	"errorOptionsInvalid": {
+		"message": "Die Einstellungen konnten nicht gespeichert werden. Bitte prüfen Sie, ob Ihre Eingaben korrekt sind!",
+		"description": "Fehlernachricht: Einstellungen nicht gespeichert aufgrund falscher Werte."
 	}
 }
