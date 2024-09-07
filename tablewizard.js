@@ -5,6 +5,7 @@ var twPrintHiddenClass = 'tw_print_' + currentDate;
 var twAlertDialogClass = 'tw_alert_' + currentDate;
 var twTableSortMarker = 'tw_sort_' + currentDate;
 var twTableIndices = {};
+var ignoreHTML = true;
 
 tw_check();
 
@@ -15,6 +16,8 @@ function tw_check() {
 	tw_attach();
 	var getHightlightColor = browser.storage.sync.get("highlightColor");
 	getHightlightColor.then(loadSettingsHighlightColor);
+	var getIgnoreHTML = browser.storage.sync.get("ignoreHTML");
+	getIgnoreHTML.then(loadSettingsIgnoreHTML);
 }
 
 // attach event handlers to tables
@@ -49,12 +52,21 @@ function loadSettingsHighlightColor(storage) {
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 }
 
+// initial load of settings - ignore HTML
+function loadSettingsIgnoreHTML(storage) {
+	var tmp = ignoreHTML;
+	if(typeof storage.ignoreHTML != 'undefined')
+		tmp = storage.ignoreHTML;
+	ignoreHTML = tmp;
+}
+
 // check if text is contained in children or not
 function checkChildren(children, value) {
 	for(let c = 0; c < children.length; ++c) {
 		if(typeof(children[c].tagName) == 'undefined')
 			continue;
-		if(children[c].innerHTML.trim() == value)
+		var comp = ignoreHTML ? removeHTMLFromString(children[c].innerHTML.trim()) : children[c].innerHTML.trim();
+		if(comp == value)
 			return true;
 	}
 	return false;
@@ -66,7 +78,8 @@ function checkChildrenReturnIndexList(children, value, indexList) {
 	for(let c = 0; c < children.length; ++c) {
 		if(typeof(children[c].tagName) == 'undefined')
 			continue;
-		if(children[c].innerHTML.trim() == value && !indexList.includes(index)) {
+		var comp = ignoreHTML ? removeHTMLFromString(children[c].innerHTML.trim()) : children[c].innerHTML.trim();
+		if(comp == value && !indexList.includes(index)) {
 			tw_coldel(children[c]);
 			indexList.push(index);
 		}
@@ -127,6 +140,10 @@ function getCellByIndex(dom, index) {
 	return dom;
 }
 
+function removeHTMLFromString(str) {
+	return str.replace(/<[^>]*>?/g, '');
+}
+
 // display error messages
 function showError(errorTitle, errorMessage) {
 	var dialog = document.createElement('dialog');
@@ -151,14 +168,16 @@ function tw_highlight(dom) {
 		return;
 	}
 	var targetField = dom.innerHTML.trim();
+	if(ignoreHTML)
+		targetField = removeHTMLFromString(targetField);
 	while(dom.tagName != 'TABLE') {
 		dom = dom.parentNode;
 	}
 
-	dom.querySelectorAll('td, th').forEach((elem) => {if(elem.innerHTML.trim() == targetField) {elem.classList.add(twHightlightClass);}});
+	dom.querySelectorAll('td, th').forEach((elem) => {if((ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()) == targetField) {elem.classList.add(twHightlightClass);}});
 }
 
-// TW delete selected tow
+// TW delete selected row
 function tw_rowdel(dom) {
 	if(dom.tagName != 'TR') {
 		do {
@@ -175,6 +194,8 @@ function tw_rowdelbyfield(dom) {
 		return;
 	}
 	var targetField = dom.innerHTML.trim();
+	if(ignoreHTML)
+		targetField = removeHTMLFromString(targetField);
 	do {
 		dom = dom.parentNode;
 	} while(dom.tagName != 'TABLE');
@@ -210,6 +231,8 @@ function tw_coldelbyfield(dom) {
 		return;
 	}
 	var targetField = dom.innerHTML.trim();
+	if(ignoreHTML)
+		targetField = removeHTMLFromString(targetField);
 	var index = getCellPositionIndex(dom);
 	var indexList = [index];
 	tw_coldel(dom);
@@ -269,7 +292,10 @@ function tw_sortrows(dom, descending) {
 				if(j + tmpCnt > tr.length)
 					break;
 			} while(b == null || b.tagName == 'TH');
-			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
+			if(ignoreHTML)
+				var strComp = removeHTMLFromString(a.innerHTML).toLowerCase().localeCompare(removeHTMLFromString(b.innerHTML).toLowerCase());
+			else
+				var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
 			if((!descending && strComp == 1) || (descending && strComp == -1)) {
 				tr[j].parentNode.insertBefore(tr[j+tmpCnt], tr[j]);
 				var swap = twTableIndices[tableClass]['row'][j];
@@ -322,7 +348,10 @@ function tw_sortcolumns(dom, descending) {
 			var b = getCellByIndex(tr[referenceRowIndex], j + 1);
 			if(a == null || b == null)
 				continue;
-			var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
+			if(ignoreHTML)
+				var strComp = removeHTMLFromString(a.innerHTML).toLowerCase().localeCompare(removeHTMLFromString(b.innerHTML).toLowerCase());
+			else
+				var strComp = a.innerHTML.toLowerCase().localeCompare(b.innerHTML.toLowerCase());
 			if((!descending && strComp == 1) || (descending && strComp == -1)) {
 				for(let k = 0; k < tr.length; ++k) {
 					tr[k].insertBefore(tr[k].querySelectorAll('td,th')[j + 1], tr[k].querySelectorAll('td,th')[j]);

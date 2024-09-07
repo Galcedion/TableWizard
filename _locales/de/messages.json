@@ -15,6 +15,10 @@
 		"message": "#ff8080dd",
 		"description": "Optionen: Standardwert Hervorhebungsfarbe."
 	},
+	"optionsLabelIgnoreHTML": {
+		"message": "HTML in Zellen bei Vergleichen (wie z.B. Löschen und Sortieren) ignorieren?",
+		"description": "Optionen: Eingabebeschreibung HTML ignorieren."
+	},
 	"optionsLabelTabTableDisplay": {
 		"message": "Gestaltung der in neuem Tab geöffneten Tabellen",
 		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab."

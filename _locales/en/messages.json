@@ -15,6 +15,10 @@
 		"message": "#ff8080dd",
 		"description": "Options: default value of highlighting color."
 	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignore HTML within cell when comparing (e.g. delete and sort)?",
+		"description": "Optionen: input description for ignore HTML."
+	},
 	"optionsLabelTabTableDisplay": {
 		"message": "Design of tables opened in new tab",
 		"description": "Options: input description for table display in new tab."
