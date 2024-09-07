@@ -1,5 +1,6 @@
 var currentDate = Date.now().toString()
 var twHightlightClass = 'tw_highlight_' + currentDate;
+var twGridClass = 'tw_grid_' + currentDate;
 var twHiddenClass = 'tw_hidden_' + currentDate;
 var twPrintHiddenClass = 'tw_print_' + currentDate;
 var twAlertDialogClass = 'tw_alert_' + currentDate;
@@ -26,7 +27,8 @@ function tw_attach() {
 	injectCSS.type = 'text/css';
 	injectCSS.innerHTML = '.' + twHiddenClass + '{display: none !important; }\
 	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson;}\
-	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}';
+	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}\
+	.' + twGridClass + ' tr:nth-child(even),.' + twGridClass + ' td:nth-child(even) {background-color: #AAA5; }';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 	var tableList = document.getElementsByTagName("table");
 	for(let t = 0; t < tableList.length; ++t) {
@@ -175,6 +177,16 @@ function tw_highlight(dom) {
 	}
 
 	dom.querySelectorAll('td, th').forEach((elem) => {if((ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()) == targetField) {elem.classList.add(twHightlightClass);}});
+}
+
+// TW creates grid in table by marking cells alternatingly
+function tw_tablegrid(dom) {
+	if(dom.tagName != 'TABLE') {
+		do {
+			dom = dom.parentNode;
+		} while(dom.tagName != 'TABLE');
+	}
+	dom.classList.add(twGridClass);
 }
 
 // TW delete selected row
@@ -399,6 +411,7 @@ function tw_reset(dom) {
 			dom = dom.parentNode;
 		} while(dom.tagName != 'TABLE');
 	}
+	dom.classList.remove(twGridClass);
 	var hiddenList = dom.getElementsByClassName(twHiddenClass);
 	while(hiddenList.length > 0) {
 		hiddenList[0].classList.remove(twHiddenClass);

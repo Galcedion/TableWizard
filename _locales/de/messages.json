@@ -51,6 +51,10 @@
 		"message": "Felder mit diesem Text markieren",
 		"description": "Dropdown-Text Felder markieren."
 	},
+	"dropdownMarkGrid": {
+		"message": "Grafisches Raster erzeugen",
+		"description": "Dropdown-Text Raster Erzeugen."
+	},
 	"dropdownColDel": {
 		"message": "Spalte löschen",
 		"description": "Dropdown-Text Spalte löschen."

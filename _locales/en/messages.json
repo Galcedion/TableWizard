@@ -51,6 +51,10 @@
 		"message": "Mark fields with this text",
 		"description": "Dropdown text mark fields."
 	},
+	"dropdownMarkGrid": {
+		"message": "Create graphic grid",
+		"description": "Dropdown test create grid."
+	},
 	"dropdownColDel": {
 		"message": "Delete column",
 		"description": "Dropdown text delete column."

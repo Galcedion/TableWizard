@@ -23,6 +23,21 @@ browser.menus.create({
 	}
 });
 
+// MENU markgrid
+browser.menus.create({
+	id: 'tw_markgrid',
+	contexts: ["page"],
+	title: browser.i18n.getMessage("dropdownMarkGrid"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_tablegrid(browser.menus.getTargetElement(${info.targetElementId}));`,
+		});
+	}
+});
+
 // MENU spacer markrow
 browser.menus.create({
 	id: 'tw_spacer_markrow',
