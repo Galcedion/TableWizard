@@ -112,6 +112,7 @@ function resetSettings() {
 	updateColor();
 }
 
+// check if color string matches hex, rgba or FF colors
 function validateColor(testColor) {
 	validColor = false;
 	if(colorArrayFF.includes(testColor))
@@ -143,6 +144,7 @@ function updateColor() {
 	}
 }
 
+// function to show config errors
 function showErrorLine(display, errMsg) {
 	var errElem = document.getElementById('error_display');
 	if(display) {

@@ -142,6 +142,7 @@ function getCellByIndex(dom, index) {
 	return dom;
 }
 
+// regex function to remove HTML from given string
 function removeHTMLFromString(str) {
 	return str.replace(/<[^>]*>?/g, '');
 }
