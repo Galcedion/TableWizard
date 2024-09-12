@@ -38,6 +38,6 @@ function showError(errorTitle, errorMessage) {
 	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
 	<hr>\
 	<p>' + errorMessage + '</p>\
-	<p style="text-align:center;"><input type="button" style="padding:0.5em;" onclick="document.getElementsByClassName(\'' + twAlertDialogClass + '\')[0].remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
+	<p style="text-align:center;"><input type="button" style="padding:0.5em;" onclick="document.getElementById(\'tw_err' + id + '\').remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
 	document.getElementsByTagName('BODY')[0].insertBefore(dialog, document.getElementsByTagName('BODY')[0].firstChild);
 }

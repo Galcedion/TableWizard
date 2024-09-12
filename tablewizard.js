@@ -1,4 +1,4 @@
-var currentDate = Date.now().toString()
+var currentDate = Date.now().toString();
 var twHightlightClass = 'tw_highlight_' + currentDate;
 var twGridClass = 'tw_grid_' + currentDate;
 var twHiddenClass = 'tw_hidden_' + currentDate;
@@ -14,11 +14,11 @@ tw_check();
 function tw_check() {
 	if((document.getElementsByTagName("table").length == 0))
 		return;
-	tw_attach();
 	var getHightlightColor = browser.storage.sync.get("highlightColor");
 	getHightlightColor.then(loadSettingsHighlightColor);
 	var getIgnoreHTML = browser.storage.sync.get("ignoreHTML");
 	getIgnoreHTML.then(loadSettingsIgnoreHTML);
+	tw_attach();
 }
 
 // attach event handlers to tables
@@ -32,8 +32,6 @@ function tw_attach() {
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 	var tableList = document.getElementsByTagName("table");
 	for(let t = 0; t < tableList.length; ++t) {
-		if(tableList[t].tagName.toLowerCase() != 'table')
-			continue;
 		tableList[t].addEventListener("contextmenu", function() {
 			browser.runtime.sendMessage({
 				task: 'enableCM',
@@ -97,7 +95,8 @@ function checkChildrenIndex(children, index) {
 			continue;
 		if(children[c].hasAttribute('colspan'))
 			index -= children[c].colSpan;
-		else index -= 1;
+		else
+			index -= 1;
 		if(index < 0) {
 			if(index == -1 && !children[c].hasAttribute('colspan'))
 				children[c].classList.add(twHiddenClass);
@@ -160,7 +159,7 @@ function showError(errorTitle, errorMessage) {
 	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
 	<hr>\
 	<p style="text-align:justify;">' + errorMessage + '</p>\
-	<p style="text-align:center;"><input type="button" style="padding:0.5em;font-weight:bold;" onclick="document.getElementsByClassName(\'' + twAlertDialogClass + '\')[0].remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
+	<p style="text-align:center;"><input type="button" style="padding:0.5em;font-weight:bold;" onclick="document.getElementById(\'tw_err' + id + '\').remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
 	document.getElementsByTagName('BODY')[0].insertBefore(dialog, document.getElementsByTagName('BODY')[0].firstChild);
 }
 
@@ -170,9 +169,7 @@ function tw_highlight(dom) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-	var targetField = dom.innerHTML.trim();
-	if(ignoreHTML)
-		targetField = removeHTMLFromString(targetField);
+	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
 	while(dom.tagName != 'TABLE') {
 		dom = dom.parentNode;
 	}
@@ -206,9 +203,7 @@ function tw_rowdelbyfield(dom) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-	var targetField = dom.innerHTML.trim();
-	if(ignoreHTML)
-		targetField = removeHTMLFromString(targetField);
+	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
 	do {
 		dom = dom.parentNode;
 	} while(dom.tagName != 'TABLE');
@@ -243,11 +238,8 @@ function tw_coldelbyfield(dom) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
-	var targetField = dom.innerHTML.trim();
-	if(ignoreHTML)
-		targetField = removeHTMLFromString(targetField);
-	var index = getCellPositionIndex(dom);
-	var indexList = [index];
+	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
+	var indexList = [getCellPositionIndex(dom)];
 	tw_coldel(dom);
 	do {
 		dom = dom.parentNode;
@@ -266,10 +258,10 @@ function tw_sortrows(dom, descending) {
 		return;
 	}
 	var referenceCell = dom;
-	while(dom.tagName != 'TABLE') {
+	do {
 		dom = dom.parentNode;
-	}
-	if(dom.querySelectorAll('[rowspan]').length > 0) {
+	} while(dom.tagName != 'TABLE');
+	if(dom.querySelectorAll('[rowspan]').length > 0) { // don't sort when rowspan in table
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCantSortRowspan"));
 		return;
 	}
@@ -326,12 +318,12 @@ function tw_sortcolumns(dom, descending) {
 		return;
 	}
 	var referenceCell = dom;
-	while(dom.tagName != 'TABLE') {
+	do {
 		if(dom.tagName == 'TR')
 			var referenceRowIndex = getCellPositionIndex(dom);
 		dom = dom.parentNode;
-	}
-	if(dom.querySelectorAll('[colspan]').length > 0) {
+	} while(dom.tagName != 'TABLE');
+	if(dom.querySelectorAll('[colspan]').length > 0) { // don't sort when colspan in table
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCantSortColspan"));
 		return;
 	}
@@ -357,7 +349,7 @@ function tw_sortcolumns(dom, descending) {
 	for(let i = 1; i < tr[0].querySelectorAll('td,th').length; ++i) { // loop the sort
 		--iterationStop;
 		for(let j = 0; j < iterationStop; ++j) {
-			var a = getCellByIndex(tr[referenceRowIndex], j); // replacable with tr[referenceRowIndex].querySelectorAll('td,th')[j]
+			var a = getCellByIndex(tr[referenceRowIndex], j);
 			var b = getCellByIndex(tr[referenceRowIndex], j + 1);
 			if(a == null || b == null)
 				continue;
@@ -407,10 +399,8 @@ function tw_exportprint(dom) {
 
 // TW reset all modifications of the selected table
 function tw_reset(dom) {
-	if(dom.tagName != 'TABLE') {
-		do {
-			dom = dom.parentNode;
-		} while(dom.tagName != 'TABLE');
+	while(dom.tagName != 'TABLE') {
+		dom = dom.parentNode;
 	}
 	dom.classList.remove(twGridClass);
 	var hiddenList = dom.getElementsByClassName(twHiddenClass);

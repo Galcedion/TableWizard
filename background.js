@@ -47,7 +47,6 @@ browser.menus.create({
 	parentId: TABLEWIZARD_MENU_ITEM
 });
 
-
 // MENU rowdel
 browser.menus.create({
 	id: 'tw_rowdel',

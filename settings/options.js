@@ -114,7 +114,7 @@ function resetSettings() {
 
 // check if color string matches hex, rgba or FF colors
 function validateColor(testColor) {
-	validColor = false;
+	var validColor = false;
 	if(colorArrayFF.includes(testColor))
 		validColor = true;
 	else if(colorRegexHex.test(testColor)) {
