@@ -111,6 +111,10 @@
 		"message": "No table cell has been targeted, please click on a table cell and try again!",
 		"description": "Error message: no table cell clicked."
 	},
+	"errorNoTableFound": {
+		"message": "No table has been targeted, please click on a table and try again!",
+		"description": "Error message: no table clicked."
+	},
 	"errorNoTableGiven": {
 		"message": "No table has been given or selected. This is an internal error and cannot be fixed.",
 		"description": "Error message: no table given."

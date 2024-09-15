@@ -111,6 +111,10 @@
 		"message": "Es wurde keine Tabellenzelle anvisiert, bitte klicken Sie auf eine Tabellenzelle und versuchen Sie es erneut!",
 		"description": "Fehlernachricht: Keine Tabellenzelle angeklickt."
 	},
+	"errorNoTableFound": {
+		"message": "Es wurde keine Tabelle anvisiert, bitte klicken Sie auf eine Tabelle und versuchen Sie es erneut!",
+		"description": "Fehlernachricht: Keine Tabelle angeklickt."
+	},
 	"errorNoTableGiven": {
 		"message": "Es wurde keine Tablle übergeben oder angewählt. Dies ist ein interner Fehler und kann nicht behoben werden.",
 		"description": "Fehlernachricht: Keine Tabelle übergeben."

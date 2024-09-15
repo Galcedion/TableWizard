@@ -141,6 +141,21 @@ function getCellByIndex(dom, index) {
 	return dom;
 }
 
+// goes up the node tree until a certain tag is reached | returns false if the requested tag is not found
+function getParentNodeByTag(dom, node) {
+	var tableBreaker = 'TABLE'; // stop if end of table is reached
+	if(!Array.isArray(node))
+		node = [node];
+	while(!node.includes(dom.tagName)) {
+		dom = dom.parentNode;
+		if(dom.tagName == 'HTML')
+			return false;
+		else if(!node.includes(tableBreaker) && dom.tagName == tableBreaker)
+			return false;
+	}
+	return dom;
+}
+
 // regex function to remove HTML from given string
 function removeHTMLFromString(str) {
 	return str.replace(/<[^>]*>?/g, '');
@@ -165,48 +180,45 @@ function showError(errorTitle, errorMessage) {
 
 // TW highlights cells with given value
 function tw_highlight(dom) {
-	if(!['TD', 'TH'].includes(dom.tagName)) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
-	while(dom.tagName != 'TABLE') {
-		dom = dom.parentNode;
-	}
-
+	dom = getParentNodeByTag(dom, ['TABLE']);
 	dom.querySelectorAll('td, th').forEach((elem) => {if((ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()) == targetField) {elem.classList.add(twHightlightClass);}});
 }
 
 // TW creates grid in table by marking cells alternatingly
 function tw_tablegrid(dom) {
-	if(dom.tagName != 'TABLE') {
-		do {
-			dom = dom.parentNode;
-		} while(dom.tagName != 'TABLE');
+	dom = getParentNodeByTag(dom, ['TABLE']);
+	if(dom === false) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoTableFound"));
+		return;
 	}
 	dom.classList.add(twGridClass);
 }
 
 // TW delete selected row
 function tw_rowdel(dom) {
-	if(dom.tagName != 'TR') {
-		do {
-			dom = dom.parentNode;
-		} while(dom.tagName != 'TR');
+	dom = getParentNodeByTag(dom, ['TR']);
+	if(dom === false) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
+		return;
 	}
 	dom.classList.add(twHiddenClass);
 }
 
 // TW delete rows with selected cell's text
 function tw_rowdelbyfield(dom) {
-	if(!['TD', 'TH'].includes(dom.tagName)) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
-	do {
-		dom = dom.parentNode;
-	} while(dom.tagName != 'TABLE');
+	dom = getParentNodeByTag(dom, ['TABLE']);
 
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
@@ -217,14 +229,13 @@ function tw_rowdelbyfield(dom) {
 
 // TW delete selected column
 function tw_coldel(dom) {
-	if(!['TD', 'TH'].includes(dom.tagName)) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
 	var index = getCellPositionIndex(dom);
-	do {
-		dom = dom.parentNode;
-	} while(dom.tagName != 'TABLE');
+	dom = getParentNodeByTag(dom, ['TABLE']);
 
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
@@ -234,16 +245,15 @@ function tw_coldel(dom) {
 
 // TW delete columns with selected cell's text
 function tw_coldelbyfield(dom) {
-	if(!['TD', 'TH'].includes(dom.tagName)) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
 	var indexList = [getCellPositionIndex(dom)];
 	tw_coldel(dom);
-	do {
-		dom = dom.parentNode;
-	} while(dom.tagName != 'TABLE');
+	dom = getParentNodeByTag(dom, ['TABLE']);
 
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
@@ -253,14 +263,13 @@ function tw_coldelbyfield(dom) {
 
 // TW sort by rows
 function tw_sortrows(dom, descending) {
-	if(!['TD', 'TH'].includes(dom.tagName)) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
 	var referenceCell = dom;
-	do {
-		dom = dom.parentNode;
-	} while(dom.tagName != 'TABLE');
+	dom = getParentNodeByTag(dom, ['TABLE']);
 	if(dom.querySelectorAll('[rowspan]').length > 0) { // don't sort when rowspan in table
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCantSortRowspan"));
 		return;
@@ -313,7 +322,8 @@ function tw_sortrows(dom, descending) {
 
 // TW sort by columns
 function tw_sortcolumns(dom, descending) {
-	if(!['TD', 'TH'].includes(dom.tagName)) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
@@ -371,9 +381,7 @@ function tw_sortcolumns(dom, descending) {
 
 // TW export table to new tab
 function tw_exportnewtab(dom) {
-	while(dom.tagName != 'TABLE') {
-		dom = dom.parentNode;
-	}
+	dom = getParentNodeByTag(dom, ['TABLE']);
 	var table = new URLSearchParams(dom.innerHTML).toString();
 	browser.runtime.sendMessage({
 		task: 'exportNewTab',
@@ -383,9 +391,7 @@ function tw_exportnewtab(dom) {
 
 // TW export table to print
 function tw_exportprint(dom) {
-	while(dom.tagName != 'TABLE') {
-		dom = dom.parentNode;
-	}
+	dom = getParentNodeByTag(dom, ['TABLE']);
 	while(dom.tagName != 'BODY') {
 		checkNeighboursAddClass(dom, twPrintHiddenClass);
 		dom = dom.parentNode;
@@ -399,9 +405,7 @@ function tw_exportprint(dom) {
 
 // TW reset all modifications of the selected table
 function tw_reset(dom) {
-	while(dom.tagName != 'TABLE') {
-		dom = dom.parentNode;
-	}
+	dom = getParentNodeByTag(dom, ['TABLE']);
 	dom.classList.remove(twGridClass);
 	var hiddenList = dom.getElementsByClassName(twHiddenClass);
 	while(hiddenList.length > 0) {
