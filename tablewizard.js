@@ -382,7 +382,7 @@ function tw_sortcolumns(dom, descending) {
 // TW export table to new tab
 function tw_exportnewtab(dom) {
 	dom = getParentNodeByTag(dom, ['TABLE']);
-	var table = new URLSearchParams(dom.innerHTML.replace('&nbsp;', ' ').replace(/\u00A0|\u202F/g, ' ')).toString();
+	var table = new URLSearchParams(dom.innerHTML.replace(/&nbsp;|&#160;/g, ' ').replace(/\u00A0|\u202F/g, ' ')).toString();
 	browser.runtime.sendMessage({
 		task: 'exportNewTab',
 		tabledata: table
