@@ -22,10 +22,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="40.25"
-     inkscape:cy="127"
+     showgrid="true"
+     inkscape:zoom="4"
+     inkscape:cx="40.375"
+     inkscape:cy="67.5"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -33,7 +33,11 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      units="px"
-     inkscape:snap-global="false" />
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid483" />
+  </sodipodi:namedview>
   <defs
      id="defs2">
     <rect
@@ -53,67 +57,50 @@
        id="text1593"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect1595);fill:#000000;fill-opacity:1;stroke:none" />
     <rect
-       style="fill:#cccccc;stroke-width:0.244654"
+       style="fill:#cccccc;stroke-width:0.464805;opacity:1"
        id="rect4430"
-       width="12.24584"
-       height="7.8171182"
-       x="13.744713"
-       y="0.78218335"
+       width="18.723921"
+       height="18.453451"
+       x="3.8374851"
+       y="4.0079117"
        ry="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.267126px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 13.031561,-0.44883758 V 26.661112"
-       id="path43" />
+       style="fill:none;stroke:#666666;stroke-width:0.250786px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1"
+       d="M 18.483557,1.3457448 V 25.240643"
+       id="path43-9" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.270258px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 26.65855,9.161032 H -0.39389489"
+       style="fill:none;stroke:#666666;stroke-width:0.250278px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1"
+       d="M 8.0617943,1.4109752 V 25.209049"
+       id="path43-9-6" />
+    <path
+       style="fill:none;stroke:#666666;stroke-width:0.253345px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1"
+       d="M 24.997197,8.1706956 H 1.2247866"
        id="path45" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.26954px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 26.712264,18.121798 H -0.19652057"
+       style="fill:#000000;stroke:#666666;stroke-width:0.253477px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1"
+       d="M 25.193389,18.521657 H 1.3961067"
        id="path45-6" />
-    <rect
-       style="fill:#cccccc;stroke-width:0.242929"
-       id="rect4428"
-       width="11.610151"
-       height="7.6469812"
-       x="0.63511282"
-       y="0.87228507" />
-    <rect
-       style="fill:#ffd5d5;stroke-width:0.23731"
-       id="rect4778"
-       width="11.564401"
-       height="7.5210776"
-       x="0.63511282"
-       y="9.8490238" />
-    <rect
-       style="fill:#aaeeff;stroke-width:0.231235"
-       id="rect4846"
-       width="12.086984"
-       height="7.8032627"
-       x="13.744713"
-       y="9.8999729" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="12.833521"
-       y="17.243025"
+       style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="11.174287"
+       y="17.041615"
        id="text1667"><tspan
          sodipodi:role="line"
          id="tspan1665"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Karumbi;-inkscape-font-specification:'Karumbi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
-         x="12.833521"
-         y="17.243025">W</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Karumbi;-inkscape-font-specification:'Karumbi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;fill:#1a1a1a"
+         x="11.174287"
+         y="17.041615">W</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="0.35677883"
-       y="16.795816"
+       style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="0.69165421"
+       y="16.714415"
        id="text1667-8"><tspan
          sodipodi:role="line"
          id="tspan1665-8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Karumbi;-inkscape-font-specification:'Karumbi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
-         x="0.35677883"
-         y="16.795816">T</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Karumbi;-inkscape-font-specification:'Karumbi, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;fill:#1a1a1a"
+         x="0.69165421"
+         y="16.714415">T</tspan></text>
   </g>
 </svg>
