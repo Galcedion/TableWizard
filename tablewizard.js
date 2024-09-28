@@ -7,6 +7,7 @@ var twAlertDialogClass = 'tw_alert_' + currentDate;
 var twTableSortMarker = 'tw_sort_' + currentDate;
 var twTableIndices = {};
 var ignoreHTML = true;
+var selectedInclude = false;
 
 tw_check();
 
@@ -18,6 +19,8 @@ function tw_check() {
 	getHightlightColor.then(loadSettingsHighlightColor);
 	var getIgnoreHTML = browser.storage.sync.get("ignoreHTML");
 	getIgnoreHTML.then(loadSettingsIgnoreHTML);
+	var getSelectedInclude = browser.storage.sync.get("selectedInclude");
+	getSelectedInclude.then(loadSettingsSelectedInclude);
 	tw_attach();
 }
 
@@ -58,6 +61,14 @@ function loadSettingsIgnoreHTML(storage) {
 	if(typeof storage.ignoreHTML != 'undefined')
 		tmp = storage.ignoreHTML;
 	ignoreHTML = tmp;
+}
+
+// initial load of settings - selected include
+function loadSettingsSelectedInclude(storage) {
+	var tmp = selectedInclude;
+	if(typeof storage.selectedInclude != 'undefined')
+		tmp = storage.selectedInclude;
+	selectedInclude = tmp;
 }
 
 // check if text is contained in children or not
@@ -161,6 +172,16 @@ function removeHTMLFromString(str) {
 	return str.replace(/<[^>]*>?/g, '');
 }
 
+// retrieves the currently selected text and replaces the input if one is found
+function getSelectedText(input) {
+	if(!selectedInclude || !window.getSelection)
+		return input;
+	var tmp = window.getSelection().toString();
+	if(tmp.length > 0)
+		return tmp;
+	return input;
+}
+
 // display error messages
 function showError(errorTitle, errorMessage) {
 	var dialog = document.createElement('dialog');
@@ -186,6 +207,8 @@ function tw_highlight(dom, exact) {
 		return;
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
+	if(!exact)
+		targetField = getSelectedText(targetField);
 	dom = getParentNodeByTag(dom, ['TABLE']);
 	dom.querySelectorAll('td, th').forEach((elem) => {
 		if(exact && (ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()) == targetField) {
@@ -225,6 +248,8 @@ function tw_rowdelbyfield(dom, exact) {
 		return;
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
+	if(!exact)
+		targetField = getSelectedText(targetField);
 	dom = getParentNodeByTag(dom, ['TABLE']);
 
 	var trList = dom.getElementsByTagName('TR');
@@ -258,6 +283,8 @@ function tw_coldelbyfield(dom, exact) {
 		return;
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
+	if(!exact)
+		targetField = getSelectedText(targetField);
 	var indexList = [getCellPositionIndex(dom)];
 	tw_coldel(dom);
 	dom = getParentNodeByTag(dom, ['TABLE']);

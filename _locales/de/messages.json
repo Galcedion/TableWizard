@@ -35,6 +35,10 @@
 		"message": "Rahmen und Hintergrund-Graustufen",
 		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 3."
 	},
+	"optionsLabelSelectedInclude": {
+		"message": "Bei Vergleichen mit teilweiser Übereinstimmung (wie z.B. Hervorheben, Löschen) den markierten Text statt dem Feld verwenden?",
+		"description": "Optionen: Eingabebeschreibung Textauswahl bei teilweiser Übereinstimmung."
+	},
 	"optionsSave": {
 		"message": "Speichern",
 		"description": "Optionen: Optionen speichern."

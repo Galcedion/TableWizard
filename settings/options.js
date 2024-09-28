@@ -1,6 +1,7 @@
 document.getElementById('l_set_color').innerHTML = browser.i18n.getMessage('optionsLabelHighlightColor');
 document.getElementById('l_set_ignoreHTML').innerHTML = browser.i18n.getMessage('optionsLabelIgnoreHTML');
 document.getElementById('l_set_tabtable').innerHTML = browser.i18n.getMessage('optionsLabelTabTableDisplay');
+document.getElementById('l_set_selectedinclude').innerHTML = browser.i18n.getMessage('optionsLabelSelectedInclude');
 document.getElementById('button_save').value = browser.i18n.getMessage('optionsSave');
 document.getElementById('button_reset').value = browser.i18n.getMessage('optionsReset');
 const colorArrayFF = [
@@ -32,6 +33,8 @@ var getIgnoreHTML = browser.storage.sync.get("ignoreHTML");
 getIgnoreHTML.then(loadSettingsIgnoreHTML);
 var getTabTableDisplay = browser.storage.sync.get("tabTableDisplay");
 getTabTableDisplay.then(loadSettingsTabTableDisplay);
+var getSelectedInclude = browser.storage.sync.get("selectedInclude");
+getSelectedInclude.then(loadSettingsSelectedInclude);
 
 // setting default values
 var defaultHighlightColor = browser.i18n.getMessage('optionsDefaultHighlightColor');
@@ -46,6 +49,7 @@ var defaultTabTableDisplay = {
 	tr:nth-child(odd) {background-color: lightgray; }\
 	th, td {padding: 0.25em 0; }',
 }
+var defaultSelectedInclude = false;
 
 // setting event listeners
 document.getElementById('set_color').addEventListener('keyup', updateColor);
@@ -84,6 +88,14 @@ function loadSettingsTabTableDisplay(storage) {
 	document.getElementById('set_tabtable').value = Object.keys(tmp)[0];
 }
 
+// initial load of settings - selected include
+function loadSettingsSelectedInclude(storage) {
+	var tmp = defaultSelectedInclude;
+	if(typeof storage.selectedInclude != 'undefined')
+		tmp = storage.selectedInclude;
+	document.getElementById('set_selectedinclude').checked = tmp;
+}
+
 // save all settings
 function saveSettings() {
 	var selectedColor = document.getElementById('set_color').value.toLowerCase();
@@ -95,10 +107,12 @@ function saveSettings() {
 	var TTDObj = {};
 	var selectedTabTableDisplay = parseInt(document.getElementById('set_tabtable').value);
 	TTDObj[selectedTabTableDisplay] = defaultTabTableDisplay[selectedTabTableDisplay];
+	var selectedSelectedInclude = document.getElementById('set_selectedinclude').checked;
 	browser.storage.sync.set({
 		highlightColor: selectedColor,
 		ignoreHTML: selectedIgnoreHTML,
-		tabTableDisplay: TTDObj
+		tabTableDisplay: TTDObj,
+		selectedInclude: selectedSelectedInclude
 	});
 	showErrorLine(false, null);
 }
@@ -108,6 +122,7 @@ function resetSettings() {
 	document.getElementById('set_color').value = defaultHighlightColor;
 	document.getElementById('set_ignoreHTML').checked = true;
 	document.getElementById('set_tabtable').value = 0;
+	document.getElementById('set_selectedinclude').checked = false;
 	saveSettings()
 	updateColor();
 }

@@ -35,6 +35,10 @@
 		"message": "Border and grayscale background",
 		"description": "Options: input description for table display in new tab; version 3."
 	},
+	"optionsLabelSelectedInclude": {
+		"message": "Use markied text instead of field when partially comparing (e.g. highlight, delete)?",
+		"description": "Options: input description selected text on partial match."
+	},
 	"optionsSave": {
 		"message": "Save",
 		"description": "Options: save options."
