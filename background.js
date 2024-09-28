@@ -87,17 +87,32 @@ browser.menus.create({
 	}
 });
 
-// MENU rowdelbyfield
+// MENU rowdelbyfield exact
 browser.menus.create({
-	id: 'tw_rowdelbyfield',
+	id: 'tw_rowdelbyfieldexact',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
-	title: browser.i18n.getMessage("dropdownRowDelByField"),
+	title: browser.i18n.getMessage("dropdownRowDelByFieldExact"),
 	visible: true,
 	parentId: 'tw_del',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
-			code: `tw_rowdelbyfield(browser.menus.getTargetElement(${info.targetElementId}));`,
+			code: `tw_rowdelbyfield(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
+// MENU rowdelbyfield include
+browser.menus.create({
+	id: 'tw_rowdelbyfieldinclude',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownRowDelByFieldInclude"),
+	visible: true,
+	parentId: 'tw_del',
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_rowdelbyfield(browser.menus.getTargetElement(${info.targetElementId}), false);`,
 		});
 	}
 });
@@ -126,17 +141,32 @@ browser.menus.create({
 	}
 });
 
-// MENU coldelbyfield
+// MENU coldelbyfield exact
 browser.menus.create({
-	id: 'tw_coldelbyfield',
+	id: 'tw_coldelbyfieldexact',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
-	title: browser.i18n.getMessage("dropdownColDelByField"),
+	title: browser.i18n.getMessage("dropdownColDelByFieldExact"),
 	visible: true,
 	parentId: 'tw_del',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
-			code: `tw_coldelbyfield(browser.menus.getTargetElement(${info.targetElementId}));`,
+			code: `tw_coldelbyfield(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
+// MENU coldelbyfield include
+browser.menus.create({
+	id: 'tw_coldelbyfieldinclude',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownColDelByFieldInclude"),
+	visible: true,
+	parentId: 'tw_del',
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_coldelbyfield(browser.menus.getTargetElement(${info.targetElementId}), false);`,
 		});
 	}
 });

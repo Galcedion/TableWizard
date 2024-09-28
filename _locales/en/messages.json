@@ -67,17 +67,25 @@
 		"message": "Delete column",
 		"description": "Dropdown text delete column."
 	},
-	"dropdownColDelByField": {
-		"message": "Delete columns with this field",
-		"description": "Dropdown text delete rows by field."
+	"dropdownColDelByFieldExact": {
+		"message": "Delete columns with this field (exact match)",
+		"description": "Dropdown text delete rows by field (exact match)."
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Delete columns with this field (partial match)",
+		"description": "Dropdown text delete rows by field (including)."
 	},
 	"dropdownRowDel": {
 		"message": "Delete row",
 		"description": "Dropdown text delete row."
 	},
-	"dropdownRowDelByField": {
-		"message": "Delete rows with this field",
-		"description": "Dropdown text delete rows by field."
+	"dropdownRowDelByFieldExact": {
+		"message": "Delete rows with this field (exact match)",
+		"description": "Dropdown text delete rows by field (exact match)."
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Delete rows with this field (partial match)",
+		"description": "Dropdown text delete rows by field (including)."
 	},
 	"dropdownSort": {
 		"message": "Sort table",

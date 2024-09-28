@@ -61,25 +61,25 @@ function loadSettingsIgnoreHTML(storage) {
 }
 
 // check if text is contained in children or not
-function checkChildren(children, value) {
+function checkChildren(children, value, exact) {
 	for(let c = 0; c < children.length; ++c) {
 		if(typeof(children[c].tagName) == 'undefined')
 			continue;
 		var comp = ignoreHTML ? removeHTMLFromString(children[c].innerHTML.trim()) : children[c].innerHTML.trim();
-		if(comp == value)
+		if((exact && comp == value) || (!exact && comp.includes(value)))
 			return true;
 	}
 	return false;
 }
 
 // check if text is contained in a row and calls tw_coldel upon it, returns list of indices 
-function checkChildrenReturnIndexList(children, value, indexList) {
+function checkChildrenReturnIndexList(children, value, indexList, exact) {
 	var index = 0;
 	for(let c = 0; c < children.length; ++c) {
 		if(typeof(children[c].tagName) == 'undefined')
 			continue;
 		var comp = ignoreHTML ? removeHTMLFromString(children[c].innerHTML.trim()) : children[c].innerHTML.trim();
-		if(comp == value && !indexList.includes(index)) {
+		if(!indexList.includes(index) && ((exact && comp == value) || (!exact && comp.includes(value))) ) {
 			tw_coldel(children[c]);
 			indexList.push(index);
 		}
@@ -218,7 +218,7 @@ function tw_rowdel(dom) {
 }
 
 // TW delete rows with selected cell's text
-function tw_rowdelbyfield(dom) {
+function tw_rowdelbyfield(dom, exact) {
 	dom = getParentNodeByTag(dom, ['TD', 'TH']);
 	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
@@ -229,7 +229,7 @@ function tw_rowdelbyfield(dom) {
 
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
-		if(checkChildren(trList[tl].childNodes, targetField))
+		if(checkChildren(trList[tl].childNodes, targetField, exact))
 			trList[tl].classList.add(twHiddenClass);
 	}
 }
@@ -251,7 +251,7 @@ function tw_coldel(dom) {
 }
 
 // TW delete columns with selected cell's text
-function tw_coldelbyfield(dom) {
+function tw_coldelbyfield(dom, exact) {
 	dom = getParentNodeByTag(dom, ['TD', 'TH']);
 	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
@@ -264,7 +264,7 @@ function tw_coldelbyfield(dom) {
 
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
-		indexList = checkChildrenReturnIndexList(trList[tl].childNodes, targetField, indexList);
+		indexList = checkChildrenReturnIndexList(trList[tl].childNodes, targetField, indexList, exact);
 	}
 }
 

@@ -67,17 +67,25 @@
 		"message": "Spalte löschen",
 		"description": "Dropdown-Text Spalte löschen."
 	},
-	"dropdownColDelByField": {
-		"message": "Spalten mit diesem Feld löschen",
-		"description": "Dropdown-Text Spalte nach Feld löschen."
+	"dropdownColDelByFieldExact": {
+		"message": "Spalten mit diesem Feld löschen (exakter Inhalt)",
+		"description": "Dropdown-Text Spalte nach Feld löschen (exakte Übereinstimmung)."
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Spalten mit diesem Feld löschen (teilw. Übereinstimmung)",
+		"description": "Dropdown-Text Spalte nach Feld löschen (beinhaltend)."
 	},
 	"dropdownRowDel": {
 		"message": "Zeile löschen",
 		"description": "Dropdown-Text Zeile löschen."
 	},
-	"dropdownRowDelByField": {
-		"message": "Zeilen mit diesem Feld löschen",
-		"description": "Dropdown-Text Zeile nach Feld löschen."
+	"dropdownRowDelByFieldExact": {
+		"message": "Zeilen mit diesem Feld löschen (exakter Inhalt)",
+		"description": "Dropdown-Text Zeile nach Feld löschen (exakte Übereinstimmung)."
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Zeilen mit diesem Feld löschen (teilw. Übereinstimmung)",
+		"description": "Dropdown-Text Zeile nach Feld löschen (beinhaltend)."
 	},
 	"dropdownSort": {
 		"message": "Tabelle sortieren",
