@@ -39,13 +39,22 @@ browser.menus.create({
 	}
 });
 
-// MENU spacer markrow
+// MENU spacer markdel
 browser.menus.create({
-	id: 'tw_spacer_markrow',
+	id: 'tw_spacer_markdel',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	type: 'separator',
 	visible: true,
 	parentId: TABLEWIZARD_MENU_ITEM
+});
+
+// MENU del submenu anchor
+browser.menus.create({
+	id: 'tw_del',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownDel"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
 });
 
 // MENU rowdel
@@ -54,7 +63,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownRowDel"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_del',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -69,7 +78,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownRowDelByField"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_del',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -84,7 +93,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	type: 'separator',
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM
+	parentId: 'tw_del'
 });
 
 // MENU coldel
@@ -93,7 +102,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownColDel"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_del',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -108,7 +117,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownColDelByField"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_del',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -117,13 +126,13 @@ browser.menus.create({
 	}
 });
 
-// MENU spacer colsort
+// MENU sort submenu anchor
 browser.menus.create({
-	id: 'tw_spacer_colsort',
+	id: 'tw_sort',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
-	type: 'separator',
+	title: browser.i18n.getMessage("dropdownSort"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM
+	parentId: TABLEWIZARD_MENU_ITEM,
 });
 
 // MENU sort rows asc
@@ -132,7 +141,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownSortByRowsASC"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_sort',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -147,7 +156,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownSortByRowsDESC"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_sort',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -162,7 +171,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownSortByColumnsASC"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_sort',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -177,7 +186,7 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownSortByColumnsDESC"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_sort',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,

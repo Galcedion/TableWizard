@@ -55,6 +55,10 @@
 		"message": "Create graphic grid",
 		"description": "Dropdown test create grid."
 	},
+	"dropdownDel": {
+		"message": "Delete row / column",
+		"description": "Dropdown text delete row / column (submenu)."
+	},
 	"dropdownColDel": {
 		"message": "Delete column",
 		"description": "Dropdown text delete column."
@@ -70,6 +74,10 @@
 	"dropdownRowDelByField": {
 		"message": "Delete rows with this field",
 		"description": "Dropdown text delete rows by field."
+	},
+	"dropdownSort": {
+		"message": "Sort table",
+		"description": "Dropdown text sort table (submenu)."
 	},
 	"dropdownSortByColumnsASC": {
 		"message": "Sort table columns ascending ▶",

@@ -55,6 +55,10 @@
 		"message": "Grafisches Raster erzeugen",
 		"description": "Dropdown-Text Raster Erzeugen."
 	},
+	"dropdownDel": {
+		"message": "Zeilen / Spalten löschen",
+		"description": "Dropdown-Text Zeile / Spalte löschen (Untermenü)."
+	},
 	"dropdownColDel": {
 		"message": "Spalte löschen",
 		"description": "Dropdown-Text Spalte löschen."
@@ -70,6 +74,10 @@
 	"dropdownRowDelByField": {
 		"message": "Zeilen mit diesem Feld löschen",
 		"description": "Dropdown-Text Zeile nach Feld löschen."
+	},
+	"dropdownSort": {
+		"message": "Tabelle sortieren",
+		"description": "Dropdown-Text Tabelle sortieren (Untermenü)."
 	},
 	"dropdownSortByColumnsASC": {
 		"message": "Tabellenspalten aufsteigend sortieren ▶",
