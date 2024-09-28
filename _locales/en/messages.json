@@ -47,9 +47,13 @@
 		"message": "TableWizard",
 		"description": "Entry dropdown text."
 	},
-	"dropdownMarkFields": {
-		"message": "Mark fields with this text",
-		"description": "Dropdown text mark fields."
+	"dropdownMarkFieldsExact": {
+		"message": "Mark fields with exactly this text",
+		"description": "Dropdown text mark fields (exact match)."
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Mark fields that include this text",
+		"description": "Dropdown text mark fields (including)."
 	},
 	"dropdownMarkGrid": {
 		"message": "Create graphic grid",

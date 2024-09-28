@@ -47,9 +47,13 @@
 		"message": "TableWizard",
 		"description": "Text des Einstiegs-Dropdowns."
 	},
-	"dropdownMarkFields": {
-		"message": "Felder mit diesem Text markieren",
-		"description": "Dropdown-Text Felder markieren."
+	"dropdownMarkFieldsExact": {
+		"message": "Felder mit exakt diesem Text markieren",
+		"description": "Dropdown-Text Felder markieren (exakte Übereinstimmung)."
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Felder, die diesen Text beinhalten, markieren",
+		"description": "Dropdown-Text Felder markieren (beinhaltend)."
 	},
 	"dropdownMarkGrid": {
 		"message": "Grafisches Raster erzeugen",

@@ -179,7 +179,7 @@ function showError(errorTitle, errorMessage) {
 }
 
 // TW highlights cells with given value
-function tw_highlight(dom) {
+function tw_highlight(dom, exact) {
 	dom = getParentNodeByTag(dom, ['TD', 'TH']);
 	if(dom === false) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
@@ -187,7 +187,14 @@ function tw_highlight(dom) {
 	}
 	var targetField = ignoreHTML ? removeHTMLFromString(dom.innerHTML.trim()) : dom.innerHTML.trim();
 	dom = getParentNodeByTag(dom, ['TABLE']);
-	dom.querySelectorAll('td, th').forEach((elem) => {if((ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()) == targetField) {elem.classList.add(twHightlightClass);}});
+	dom.querySelectorAll('td, th').forEach((elem) => {
+		if(exact && (ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()) == targetField) {
+			elem.classList.add(twHightlightClass);
+		}
+		else if(!exact && (ignoreHTML ? removeHTMLFromString(elem.innerHTML.trim()) : elem.innerHTML.trim()).includes(targetField)) {
+			elem.classList.add(twHightlightClass);
+		}
+	});
 }
 
 // TW creates grid in table by marking cells alternatingly

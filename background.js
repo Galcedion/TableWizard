@@ -9,17 +9,32 @@ browser.menus.create({
 	visible: false
 });
 
-// MENU markfields
+// MENU markfields exact
 browser.menus.create({
-	id: 'tw_markfields',
+	id: 'tw_markfieldsexact',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
-	title: browser.i18n.getMessage("dropdownMarkFields"),
+	title: browser.i18n.getMessage("dropdownMarkFieldsExact"),
 	visible: true,
 	parentId: TABLEWIZARD_MENU_ITEM,
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
-			code: `tw_highlight(browser.menus.getTargetElement(${info.targetElementId}));`,
+			code: `tw_highlight(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
+// MENU markfields include
+browser.menus.create({
+	id: 'tw_markfieldsinclude',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownMarkFieldsInclude"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_highlight(browser.menus.getTargetElement(${info.targetElementId}), false);`,
 		});
 	}
 });
