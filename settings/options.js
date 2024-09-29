@@ -120,9 +120,9 @@ function saveSettings() {
 // reset all settings to default (provided by lang)
 function resetSettings() {
 	document.getElementById('set_color').value = defaultHighlightColor;
-	document.getElementById('set_ignoreHTML').checked = true;
+	document.getElementById('set_ignoreHTML').checked = defaultIgnoreHTML;
 	document.getElementById('set_tabtable').value = 0;
-	document.getElementById('set_selectedinclude').checked = false;
+	document.getElementById('set_selectedinclude').checked = defaultSelectedInclude;
 	saveSettings()
 	updateColor();
 }
