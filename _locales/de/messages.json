@@ -1,158 +1,119 @@
 {
 	"extensionName": {
-		"message": "TableWizard",
-		"description": "Name der Erweiterung."
+		"message": "TableWizard"
 	},
 	"extensionDescription": {
-		"message": "Erlaubt Live-Manipulation von HTML-Tabellen.",
-		"description": "Beschreibung der Erweiterung."
+		"message": "Erlaubt Live-Manipulation von HTML-Tabellen."
 	},
 	"optionsLabelHighlightColor": {
-		"message": "Farbe für Hervorhebungen (Werte entweder Hex, RGB oder Firefox-Farben)",
-		"description": "Optionen: Eingabebeschreibung Hervorhebungsfarbe."
+		"message": "Farbe für Hervorhebungen (Werte entweder Hex, RGB oder Firefox-Farben)"
 	},
 	"optionsDefaultHighlightColor": {
-		"message": "#ff8080dd",
-		"description": "Optionen: Standardwert Hervorhebungsfarbe."
+		"message": "#ff8080dd"
 	},
 	"optionsLabelIgnoreHTML": {
-		"message": "HTML in Zellen bei Vergleichen (wie z.B. Löschen und Sortieren) ignorieren?",
-		"description": "Optionen: Eingabebeschreibung HTML ignorieren."
+		"message": "HTML in Zellen bei Vergleichen (wie z.B. Löschen und Sortieren) ignorieren?"
 	},
 	"optionsLabelTabTableDisplay": {
-		"message": "Gestaltung der in neuem Tab geöffneten Tabellen",
-		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab."
+		"message": "Gestaltung der in neuem Tab geöffneten Tabellen"
 	},
 	"optionsLabelTabTableDisplay-0": {
-		"message": "Ohne Gestaltungselemente",
-		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 1."
+		"message": "Ohne Gestaltungselemente"
 	},
 	"optionsLabelTabTableDisplay-1": {
-		"message": "Nur Rahmen",
-		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 2."
+		"message": "Nur Rahmen"
 	},
 	"optionsLabelTabTableDisplay-2": {
-		"message": "Rahmen und Hintergrund-Graustufen",
-		"description": "Optionen: Eingabebeschreibung Anzeige Tabellen neuer Tab; Version 3."
+		"message": "Rahmen und Hintergrund-Graustufen"
 	},
 	"optionsLabelSelectedInclude": {
-		"message": "Bei Vergleichen mit teilweiser Übereinstimmung (wie z.B. Hervorheben, Löschen) den markierten Text statt dem Feld verwenden?",
-		"description": "Optionen: Eingabebeschreibung Textauswahl bei teilweiser Übereinstimmung."
+		"message": "Bei Vergleichen mit teilweiser Übereinstimmung (wie z.B. Hervorheben, Löschen) den markierten Text statt dem Feld verwenden?"
 	},
 	"optionsSave": {
-		"message": "Speichern",
-		"description": "Optionen: Optionen speichern."
+		"message": "Speichern"
 	},
 	"optionsReset": {
-		"message": "Auf Standardwerte zurücksetzen",
-		"description": "Optionen: Optionen zurücksetzen."
+		"message": "Auf Standardwerte zurücksetzen"
 	},
 	"dropdownMain": {
-		"message": "TableWizard",
-		"description": "Text des Einstiegs-Dropdowns."
+		"message": "TableWizard"
 	},
 	"dropdownMarkFieldsExact": {
-		"message": "Felder mit exakt diesem Text markieren",
-		"description": "Dropdown-Text Felder markieren (exakte Übereinstimmung)."
+		"message": "Felder mit exakt diesem Text markieren"
 	},
 	"dropdownMarkFieldsInclude": {
-		"message": "Felder, die diesen Text beinhalten, markieren",
-		"description": "Dropdown-Text Felder markieren (beinhaltend)."
+		"message": "Felder, die diesen Text beinhalten, markieren"
 	},
 	"dropdownMarkGrid": {
-		"message": "Grafisches Raster erzeugen",
-		"description": "Dropdown-Text Raster Erzeugen."
+		"message": "Grafisches Raster erzeugen"
 	},
 	"dropdownDel": {
-		"message": "Zeilen / Spalten löschen",
-		"description": "Dropdown-Text Zeile / Spalte löschen (Untermenü)."
+		"message": "Zeilen / Spalten löschen"
 	},
 	"dropdownColDel": {
-		"message": "Spalte löschen",
-		"description": "Dropdown-Text Spalte löschen."
+		"message": "Spalte löschen"
 	},
 	"dropdownColDelByFieldExact": {
-		"message": "Spalten mit diesem Feld löschen (exakter Inhalt)",
-		"description": "Dropdown-Text Spalte nach Feld löschen (exakte Übereinstimmung)."
+		"message": "Spalten mit diesem Feld löschen (exakter Inhalt)"
 	},
 	"dropdownColDelByFieldInclude": {
-		"message": "Spalten mit diesem Feld löschen (teilw. Übereinstimmung)",
-		"description": "Dropdown-Text Spalte nach Feld löschen (beinhaltend)."
+		"message": "Spalten mit diesem Feld löschen (teilw. Übereinstimmung)"
 	},
 	"dropdownRowDel": {
-		"message": "Zeile löschen",
-		"description": "Dropdown-Text Zeile löschen."
+		"message": "Zeile löschen"
 	},
 	"dropdownRowDelByFieldExact": {
-		"message": "Zeilen mit diesem Feld löschen (exakter Inhalt)",
-		"description": "Dropdown-Text Zeile nach Feld löschen (exakte Übereinstimmung)."
+		"message": "Zeilen mit diesem Feld löschen (exakter Inhalt)"
 	},
 	"dropdownRowDelByFieldInclude": {
-		"message": "Zeilen mit diesem Feld löschen (teilw. Übereinstimmung)",
-		"description": "Dropdown-Text Zeile nach Feld löschen (beinhaltend)."
+		"message": "Zeilen mit diesem Feld löschen (teilw. Übereinstimmung)"
 	},
 	"dropdownSort": {
-		"message": "Tabelle sortieren",
-		"description": "Dropdown-Text Tabelle sortieren (Untermenü)."
+		"message": "Tabelle sortieren"
 	},
 	"dropdownSortByColumnsASC": {
-		"message": "Tabellenspalten aufsteigend sortieren ▶",
-		"description": "Dropdown-Text Sortierung der Tabellenspalten aufsteigend."
+		"message": "▶ Tabellenspalten aufsteigend sortieren"
 	},
 	"dropdownSortByColumnsDESC": {
-		"message": "Tabellenspalten absteigend sortieren ◀",
-		"description": "Dropdown-Text Sortierung der Tabellenspalten absteigend."
+		"message": "◀ Tabellenspalten absteigend sortieren"
 	},
 	"dropdownSortByRowsASC": {
-		"message": "Tabellenzeilen aufsteigend sortieren ▼",
-		"description": "Dropdown-Text Sortierung der Tabellenzeilen aufsteigend."
+		"message": "▼ Tabellenzeilen aufsteigend sortieren"
 	},
 	"dropdownSortByRowsDESC": {
-		"message": "Tabellenzeilen absteigend sortieren ▲",
-		"description": "Dropdown-Text Sortierung der Tabellenzeilen absteigend."
+		"message": "▲ Tabellenzeilen absteigend sortieren"
 	},
 	"dropdownExportNewtab": {
-		"message": "Tabelle in neuem Tab öffnen",
-		"description": "Dropdown-Text Tabelle in neuem Tab."
+		"message": "Tabelle in neuem Tab öffnen"
 	},
 	"dropdownExportPrint": {
-		"message": "Tabelle drucken",
-		"description": "Dropdown-Text Tabelle drucken."
+		"message": "Tabelle drucken"
 	},
 	"dropdownReset": {
-		"message": "Zurücksetzen",
-		"description": "Alle Änderungen zurücksetzen."
+		"message": "Zurücksetzen"
 	},
 	"errorTitle": {
-		"message": "TableWizard - Fehler",
-		"description": "Titelzeile für Fehlermeldungen."
+		"message": "TableWizard - Fehler"
 	},
 	"errorButton": {
-		"message": "OK",
-		"description": "Buttontext für Fehlermeldungen."
+		"message": "OK"
 	},
 	"errorNoCellFound": {
-		"message": "Es wurde keine Tabellenzelle anvisiert, bitte klicken Sie auf eine Tabellenzelle und versuchen Sie es erneut!",
-		"description": "Fehlernachricht: Keine Tabellenzelle angeklickt."
+		"message": "Es wurde keine Tabellenzelle anvisiert, bitte klicken Sie auf eine Tabellenzelle und versuchen Sie es erneut!"
 	},
 	"errorNoTableFound": {
-		"message": "Es wurde keine Tabelle anvisiert, bitte klicken Sie auf eine Tabelle und versuchen Sie es erneut!",
-		"description": "Fehlernachricht: Keine Tabelle angeklickt."
+		"message": "Es wurde keine Tabelle anvisiert, bitte klicken Sie auf eine Tabelle und versuchen Sie es erneut!"
 	},
 	"errorNoTableGiven": {
-		"message": "Es wurde keine Tablle übergeben oder angewählt. Dies ist ein interner Fehler und kann nicht behoben werden.",
-		"description": "Fehlernachricht: Keine Tabelle übergeben."
+		"message": "Es wurde keine Tabelle übergeben oder angewählt. Dies ist ein interner Fehler und kann nicht behoben werden."
 	},
 	"errorCantSortRowspan": {
-		"message": "Sortierung nach Tabellenzeilen nicht möglich, da einige Zellen über mehrere Zeilen verlaufen.",
-		"description": "Fehlernachricht: Keine Sortierung aufgrund von rowspan."
+		"message": "Sortierung nach Tabellenzeilen nicht möglich, da einige Zellen über mehrere Zeilen verlaufen."
 	},
 	"errorCantSortColspan": {
-		"message": "Sortierung nach Tabellenspalten nicht möglich, da einige Zellen über mehrere Spalten verlaufen.",
-		"description": "Fehlernachricht: Keine Sortierung aufgrund von colspan."
+		"message": "Sortierung nach Tabellenspalten nicht möglich, da einige Zellen über mehrere Spalten verlaufen."
 	},
 	"errorOptionsInvalid": {
-		"message": "Die Einstellungen konnten nicht gespeichert werden. Bitte prüfen Sie, ob Ihre Eingaben korrekt sind!",
-		"description": "Fehlernachricht: Einstellungen nicht gespeichert aufgrund falscher Werte."
+		"message": "Die Einstellungen konnten nicht gespeichert werden. Bitte prüfen Sie, ob Ihre Eingaben korrekt sind!"
 	}
 }

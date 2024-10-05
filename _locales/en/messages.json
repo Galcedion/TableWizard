@@ -8,7 +8,7 @@
 		"description": "Description of the extension."
 	},
 	"optionsLabelHighlightColor": {
-		"message": "Highlighing Color (Values either Hex, RGB or Firefox Colors)",
+		"message": "Highlighting Color (Values either Hex, RGB or Firefox Colors)",
 		"description": "Options: input description for highlighting color."
 	},
 	"optionsDefaultHighlightColor": {
@@ -17,7 +17,7 @@
 	},
 	"optionsLabelIgnoreHTML": {
 		"message": "Ignore HTML within cell when comparing (e.g. delete and sort)?",
-		"description": "Optionen: input description for ignore HTML."
+		"description": "Options: input description for ignore HTML."
 	},
 	"optionsLabelTabTableDisplay": {
 		"message": "Design of tables opened in new tab",
@@ -36,7 +36,7 @@
 		"description": "Options: input description for table display in new tab; version 3."
 	},
 	"optionsLabelSelectedInclude": {
-		"message": "Use markied text instead of field when partially comparing (e.g. highlight, delete)?",
+		"message": "Use marked text instead of field when partially comparing (e.g. highlight, delete)?",
 		"description": "Options: input description selected text on partial match."
 	},
 	"optionsSave": {
@@ -45,7 +45,7 @@
 	},
 	"optionsReset": {
 		"message": "Reset to default",
-		"description": "Optionen: reset options."
+		"description": "Options: reset options."
 	},
 	"dropdownMain": {
 		"message": "TableWizard",
@@ -96,19 +96,19 @@
 		"description": "Dropdown text sort table (submenu)."
 	},
 	"dropdownSortByColumnsASC": {
-		"message": "Sort table columns ascending ▶",
+		"message": "▶ Sort table columns ascending",
 		"description": "Dropdown text sort table columns ascending."
 	},
 	"dropdownSortByColumnsDESC": {
-		"message": "Sort table columns descending ◀",
+		"message": "◀ Sort table columns descending",
 		"description": "Dropdown text sort table columns descending."
 	},
 	"dropdownSortByRowsASC": {
-		"message": "Sort table rows ascending ▼",
+		"message": "▼ Sort table rows ascending",
 		"description": "Dropdown text sort table rows ascending."
 	},
 	"dropdownSortByRowsDESC": {
-		"message": "Sort table rows descending ▲",
+		"message": "▲ Sort table rows descending",
 		"description": "Dropdown text sort table rows descending."
 	},
 	"dropdownExportNewtab": {
@@ -125,7 +125,7 @@
 	},
 		"errorTitle": {
 		"message": "TableWizard - Error",
-		"description": "Titelline for error messages."
+		"description": "Title line for error messages."
 	},
 	"errorButton": {
 		"message": "OK",
@@ -145,11 +145,11 @@
 	},
 	"errorCantSortRowspan": {
 		"message": "Unable to sort by table row. Some cells stretch across multiple rows.",
-		"description": "Error message: Can't sort becaus of rowspan."
+		"description": "Error message: Can't sort because of rowspan."
 	},
 	"errorCantSortColspan": {
 		"message": "Unable to sort by table columns. Some cells stretch across multiple columns.",
-		"description": "Error message: Can't sort becaus of colspan."
+		"description": "Error message: Can't sort because of colspan."
 	},
 	"errorOptionsInvalid": {
 		"message": "Unable to save settings. Please check if your input data is correct!",
