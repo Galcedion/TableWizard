@@ -29,15 +29,17 @@ function loadSettingsTabTableDisplay(storage) {
 function showError(errorTitle, errorMessage) {
 	var dialog = document.createElement('dialog');
 	var id = 0;
-	while(document.getElementById('tw_err' + id) != null) {
-		++id;
-	}
-	dialog.id = 'tw_err' + id;
 	dialog.open = true;
-	dialog.classList.add(twAlertDialogClass);
+	dialog.style.position = "fixed";
+	dialog.style.top = "calc(50% - 5em)";
+	dialog.style.padding = "0.5em 1em";
+	dialog.style.width = "20em";
+	dialog.style.background = "white";
+	dialog.style.border = "0";
+	dialog.style.borderRadius = "1em";
+	dialog.style.boxShadow = "0 0 0.5em 0.5em crimson";
 	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
 	<hr>\
-	<p>' + errorMessage + '</p>\
-	<p style="text-align:center;"><input type="button" style="padding:0.5em;" onclick="document.getElementById(\'tw_err' + id + '\').remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
+	<p>' + errorMessage + '</p>';
 	document.getElementsByTagName('BODY')[0].insertBefore(dialog, document.getElementsByTagName('BODY')[0].firstChild);
 }

@@ -325,7 +325,7 @@ function messageListenerDisplayCM(listener) {
 // create a new tab with given table data
 function exportNewTab(listener) {
 	browser.tabs.create({
-		url: '/tabletab.html?table=' + listener.tabledata,
+		url: '/tabletab.html?' + listener.tabledata,
 		active: true,
 	});
 }
