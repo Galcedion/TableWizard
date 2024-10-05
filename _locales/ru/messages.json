@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Расширение для редактирования в реальном времени и манипулирования таблицами HTML."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Цвет подсветки (ценности Hex, RGB или Firefox)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Игнорировать HTML в ячейке при сравнении (например, удалять и сортировать)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Дизайн столов открыт в новой вкладке"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Без элементов дизайна"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Только граница"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Граница и серый фон"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Использовать помеченный текст вместо поля при частичном сравнении (например, выделить, удалить)?"
+	},
+	"optionsSave": {
+		"message": "Спасти"
+	},
+	"optionsReset": {
+		"message": "Перезагрузить по умолчанию"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Марк поля с точно таким текстом"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Поля, содержащие этот текст"
+	},
+	"dropdownMarkGrid": {
+		"message": "Создание графической сетки"
+	},
+	"dropdownDel": {
+		"message": "Исключить строку/столбец"
+	},
+	"dropdownColDel": {
+		"message": "Исключить колонку"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Удалить колонки с этим полем (точный матч)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Удалить колонки с этим полем (частичный матч)"
+	},
+	"dropdownRowDel": {
+		"message": "Исключить строку"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Удалить ряды с этим полем (точный матч)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Удалить ряды с этого поля (частичный матч)"
+	},
+	"dropdownSort": {
+		"message": "Сортировать стол"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Сортировать столбцы восходящие"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Сортировать столбцы, спускающиеся"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Сортировать столовые ряды восходящими"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Сортировать строки стола вниз"
+	},
+	"dropdownExportNewtab": {
+		"message": "Открытый стол в новой вкладке"
+	},
+	"dropdownExportPrint": {
+		"message": "Печатный стол"
+	},
+	"dropdownReset": {
+		"message": "Сброс"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Ошибка"
+	},
+	"errorButton": {
+		"message": "ХОРОШО"
+	},
+	"errorNoCellFound": {
+		"message": "Ни одна ячейка стола не была нацелена, пожалуйста, нажмите на ячейку стола и попробуйте еще раз!"
+	},
+	"errorNoTableFound": {
+		"message": "Ни один стол не был выбран, пожалуйста, нажмите на стол и попробуйте еще раз!"
+	},
+	"errorNoTableGiven": {
+		"message": "Таблица не была предоставлена или выбрана. Это внутренняя ошибка, которую невозможно исправить."
+	},
+	"errorCantSortRowspan": {
+		"message": "Невозможно сортировать по столу. Некоторые клетки растягиваются на несколько рядов."
+	},
+	"errorCantSortColspan": {
+		"message": "Невозможно сортировать по столбцам. Некоторые клетки растягиваются по нескольким столбцам."
+	},
+	"errorOptionsInvalid": {
+		"message": "Не удается сохранить настройки. Пожалуйста, проверьте, правильны ли ваши входные данные!"
+	}
+}

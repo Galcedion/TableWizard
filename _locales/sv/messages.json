@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Förlängning för levande redigering och manipulation av HTML-bord."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Belysning av färg (värden antingen Hex, RGB eller Firefox färger)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignorera HTML i cellen när du jämför (t.ex. ta bort och sortera)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Design av tabeller öppnade i ny flik"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Utan designelement"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Border endast"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Gräns och gråskala bakgrund"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Använd markerad text istället för fält när du delvis jämför (t.ex. markera, ta bort)?"
+	},
+	"optionsSave": {
+		"message": "Spara"
+	},
+	"optionsReset": {
+		"message": "Återställ till standard"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Markera fält med exakt denna text"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Markfält som innehåller denna text"
+	},
+	"dropdownMarkGrid": {
+		"message": "Skapa grafiskt rutnät"
+	},
+	"dropdownDel": {
+		"message": "Radera rad / kolumn"
+	},
+	"dropdownColDel": {
+		"message": "Radera kolumn"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Ta bort kolumner med detta fält (exakt match)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Ta bort kolumner med detta fält (partiell match)"
+	},
+	"dropdownRowDel": {
+		"message": "Radera rad"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Radera rader med detta fält (exakt match)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Radera rader med detta fält (partiell match)"
+	},
+	"dropdownSort": {
+		"message": "Sortera bord"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Sortera bord kolumner uppstigande"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Sortera bord kolumner nedåt"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Sortera tabell rader uppstigande"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Sortera tabell rader nedåt"
+	},
+	"dropdownExportNewtab": {
+		"message": "Öppet bord i ny flik"
+	},
+	"dropdownExportPrint": {
+		"message": "Skrivbord"
+	},
+	"dropdownReset": {
+		"message": "Återställ"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Fel"
+	},
+	"errorButton": {
+		"message": "OK"
+	},
+	"errorNoCellFound": {
+		"message": "Ingen tabellcell har riktats, vänligen klicka på en tabellcell och försök igen!"
+	},
+	"errorNoTableFound": {
+		"message": "Ingen tabell har riktats, vänligen klicka på en tabell och försök igen!"
+	},
+	"errorNoTableGiven": {
+		"message": "Ingen tabell har givits eller valts. Detta är ett internt fel och kan inte åtgärdas."
+	},
+	"errorCantSortRowspan": {
+		"message": "Kan inte sortera efter bordsrad. Vissa celler sträcker sig över flera rader."
+	},
+	"errorCantSortColspan": {
+		"message": "Kan inte sortera efter bordskolumner. Vissa celler sträcker sig över flera kolumner."
+	},
+	"errorOptionsInvalid": {
+		"message": "Kan inte spara inställningar. Kontrollera om dina indata är korrekt!"
+	}
+}

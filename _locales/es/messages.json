@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Extensión para la edición en vivo y manipulación de tablas HTML."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Color destacado (Valores ya sea Hex, RGB o Firefox colores)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignorar HTML dentro de la célula cuando se compara (por ejemplo, eliminar y ordenar)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Diseño de tablas abiertas en nueva pestaña"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Sin elementos de diseño"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Fronteras"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Antecedentes fronterizos y a escala de grises"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Use texto marcado en lugar de campo cuando se compara parcialmente (por ejemplo, resaltar, eliminar)?"
+	},
+	"optionsSave": {
+		"message": "Guardar"
+	},
+	"optionsReset": {
+		"message": "Reiniciar por defecto"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Marcos campos con exactamente este texto"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Marcos campos que incluyen este texto"
+	},
+	"dropdownMarkGrid": {
+		"message": "Crear red gráfica"
+	},
+	"dropdownDel": {
+		"message": "Borrar fila / columna"
+	},
+	"dropdownColDel": {
+		"message": "Suprimir la columna"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Eliminar columnas con este campo (exacto partido)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Eliminar columnas con este campo (concordancia parcial)"
+	},
+	"dropdownRowDel": {
+		"message": "Borrar la fila"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Eliminar filas con este campo (exacto partido)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Eliminar filas con este campo (contrato parcial)"
+	},
+	"dropdownSort": {
+		"message": "Mesa tipo"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Ordenar columnas de mesa ascendiendo"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Ordenar columnas de mesa descendiendo"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Ordenar filas de mesa ascendiendo"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Ordenar filas de mesa descendiendo"
+	},
+	"dropdownExportNewtab": {
+		"message": "Mesa abierta en nueva pestaña"
+	},
+	"dropdownExportPrint": {
+		"message": "Imprimir tabla"
+	},
+	"dropdownReset": {
+		"message": "Reset"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Error"
+	},
+	"errorButton": {
+		"message": "OK"
+	},
+	"errorNoCellFound": {
+		"message": "No hay celda de mesa ha sido apuntada, por favor haga clic en una celda de mesa y vuelva a intentarlo!"
+	},
+	"errorNoTableFound": {
+		"message": "Ninguna tabla ha sido apuntada, por favor haga clic en una tabla e inténtelo de nuevo!"
+	},
+	"errorNoTableGiven": {
+		"message": "No se ha dado ni seleccionado ninguna tabla. Este es un error interno y no se puede fijar."
+	},
+	"errorCantSortRowspan": {
+		"message": "Incapaz de ordenar en fila de mesa. Algunas células se extienden por varias filas."
+	},
+	"errorCantSortColspan": {
+		"message": "Incapaz de ordenar por columnas de mesa. Algunas células se extienden a través de múltiples columnas."
+	},
+	"errorOptionsInvalid": {
+		"message": "Incapaz de guardar la configuración. Por favor, compruebe si sus datos de entrada son correctos!"
+	}
+}

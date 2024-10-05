@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "HTMLテーブルのライブ編集と操作のための拡張."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "ハイライトカラー(ヘックス、RGB、またはFirefoxの色)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "比較(削除やソートなど)時に、セル内のHTMLを無視しますか?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "新しいタブにテーブルをデザインする"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "デザイン要素なし"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "ボーダーのみ"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "ボーダーとグレースケールの背景"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "部分的に比較するときにフィールドの代わりにマークされたテキストを使用します(ハイライト、削除など)?"
+	},
+	"optionsSave": {
+		"message": "保存する"
+	},
+	"optionsReset": {
+		"message": "デフォルトへのリセット"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "このテキストを正確にマークフィールド"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "このテキストを含むマークフィールド"
+	},
+	"dropdownMarkGrid": {
+		"message": "グラフィックグリッドを作成する"
+	},
+	"dropdownDel": {
+		"message": "行/列の削除"
+	},
+	"dropdownColDel": {
+		"message": "カラムの削除"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "このフィールドでカラムを削除する(正確なマッチ)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "このフィールドでカラムを削除する(部分的なマッチ)"
+	},
+	"dropdownRowDel": {
+		"message": "行の削除"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "このフィールドで行を削除する(正確なマッチ)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "このフィールドで行を削除する(部分的なマッチ)"
+	},
+	"dropdownSort": {
+		"message": "ソートテーブル"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ テーブルの列を昇順ソート"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ テーブル列の降下をソートする"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ テーブル行を昇順ソート"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ テーブル行の降下をソートする"
+	},
+	"dropdownExportNewtab": {
+		"message": "新しいタブでテーブルを開く"
+	},
+	"dropdownExportPrint": {
+		"message": "プリントテーブル"
+	},
+	"dropdownReset": {
+		"message": "リセット"
+	},
+	"errorTitle": {
+		"message": "TableWizard - エラー"
+	},
+	"errorButton": {
+		"message": "お問い合わせ"
+	},
+	"errorNoCellFound": {
+		"message": "テーブルセルは対象外で、テーブルセルをクリックし、もう一度お試しください!"
+	},
+	"errorNoTableFound": {
+		"message": "テーブルは対象外で、テーブルをクリックし、もう一度お試しください!"
+	},
+	"errorNoTableGiven": {
+		"message": "テーブルが指定されていない、または選択されていない。 内部エラーであり、修正できません."
+	},
+	"errorCantSortRowspan": {
+		"message": "テーブル行でソートできません。 複数の行を横切るセルがいくつかあります."
+	},
+	"errorCantSortColspan": {
+		"message": "テーブル列でソートできない。 複数の列を横切るセルがあります."
+	},
+	"errorOptionsInvalid": {
+		"message": "設定を保存できません。 入力データが正しいかご確認ください!"
+	}
+}

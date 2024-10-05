@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Розширення для редагування та маніпуляції таблиць HTML."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Виділити колір (включає як Hex, RGB або Firefox кольори)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ігнорувати HTML в комірці при порівнянні (наприклад, видалення та сортування)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Дизайн столів відкрито в новій вкладці"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Без елементів конструкції"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Прикордонний"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Прикордонний і сірий фон"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Використовуйте позначений текст замість поля, коли часткове порівняння (наприклад, виділення, видалення)?"
+	},
+	"optionsSave": {
+		"message": "Зберегти"
+	},
+	"optionsReset": {
+		"message": "За замовчуванням"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Маркові поля з точно цим текстом"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Відмітити поля, які включають цей текст"
+	},
+	"dropdownMarkGrid": {
+		"message": "Створення графічної сітки"
+	},
+	"dropdownDel": {
+		"message": "Видалити ряд / стовпчик"
+	},
+	"dropdownColDel": {
+		"message": "Видалити стовпчик"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Видалити стовпчики з цим полем (exact match)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Видалити стовпчики з цим полем (частковий матч)"
+	},
+	"dropdownRowDel": {
+		"message": "Видалити ряд"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Видалити ряди з цим полем (виключний матч)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Видалити ряди з цим полем (частковий матч)"
+	},
+	"dropdownSort": {
+		"message": "Таблиця розмірів"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Сортувати таблиці стовпчики, що закріплюють"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Сортувати таблиці стовпців, що спускаються"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Сортувати ряди столів, що закінчуються"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Сортувати заголовки таблиці"
+	},
+	"dropdownExportNewtab": {
+		"message": "Відкритий стіл в новій вкладці"
+	},
+	"dropdownExportPrint": {
+		"message": "Друк таблиці"
+	},
+	"dropdownReset": {
+		"message": "Зареєструватися"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Помилка"
+	},
+	"errorButton": {
+		"message": "ЗАРЕЄСТРУВАТИСЯ"
+	},
+	"errorNoCellFound": {
+		"message": "Немає настільних комірок, будь ласка, натисніть на таблицю комірок і спробуйте знову!"
+	},
+	"errorNoTableFound": {
+		"message": "Немає таблиці, будь ласка, натисніть на таблицю і спробуйте знову!"
+	},
+	"errorNoTableGiven": {
+		"message": "Немає таблиці було надано або вибрано. Це внутрішня помилка і не можна виправити."
+	},
+	"errorCantSortRowspan": {
+		"message": "Не можна сортувати за допомогою настільного ряду. Деякі клітинки розтягують через кілька рядків."
+	},
+	"errorCantSortColspan": {
+		"message": "Вимкнено до сортування за стовпчиками таблиці. Деякі клітинки розтягують через кілька стовпчиків."
+	},
+	"errorOptionsInvalid": {
+		"message": "Неможливо зберегти налаштування. Будь ласка, перевірте, чи правильні дані вводу!"
+	}
+}

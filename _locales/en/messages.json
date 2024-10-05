@@ -4,11 +4,11 @@
 		"description": "Name of the extension."
 	},
 	"extensionDescription": {
-		"message": "Allows for live manipulation of HTML tables.",
+		"message": "Extension for live editing and manipulation of HTML tables.",
 		"description": "Description of the extension."
 	},
 	"optionsLabelHighlightColor": {
-		"message": "Highlighting Color (Values either Hex, RGB or Firefox Colors)",
+		"message": "Highlighting Color (Values either Hex, RGB or Firefox colors)",
 		"description": "Options: input description for highlighting color."
 	},
 	"optionsDefaultHighlightColor": {
@@ -123,7 +123,7 @@
 		"message": "Reset",
 		"description": "Reset all changes."
 	},
-		"errorTitle": {
+	"errorTitle": {
 		"message": "TableWizard - Error",
 		"description": "Title line for error messages."
 	},

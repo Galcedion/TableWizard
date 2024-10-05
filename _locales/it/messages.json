@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Estensione per la modifica dal vivo e la manipolazione delle tabelle HTML.."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Colore in evidenza (Valori sia Hex, RGB o Firefox colori)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignorare l'HTML nella cella quando si confronta (ad esempio eliminare e ordinare)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Progettazione di tavoli aperti in nuova scheda"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Senza elementi di design"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Solo"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Sfondo di confine e scala di grigi"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Utilizzare il testo contrassegnato invece di campo quando si confronta parzialmente (ad esempio evidenziare, eliminare)?"
+	},
+	"optionsSave": {
+		"message": "Salva"
+	},
+	"optionsReset": {
+		"message": "Ripristino di default"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Mark campi con esattamente questo testo"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Segna i campi che includono questo testo"
+	},
+	"dropdownMarkGrid": {
+		"message": "Creare una griglia grafica"
+	},
+	"dropdownDel": {
+		"message": "Elimina riga / colonna"
+	},
+	"dropdownColDel": {
+		"message": "Elimina la colonna"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Eliminare le colonne con questo campo (esatta corrispondenza)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Eliminare le colonne con questo campo (partial match)"
+	},
+	"dropdownRowDel": {
+		"message": "Cancella la riga"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Eliminare le righe con questo campo (incontro esatto)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Elimina le righe con questo campo (partial match)"
+	},
+	"dropdownSort": {
+		"message": "Ordina il tavolo"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Ordina colonne tabella ascendente"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Ordinare colonne di tabella in discesa"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Ordina righe di tabella ascendente"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Ordina righe di tabella decrescente"
+	},
+	"dropdownExportNewtab": {
+		"message": "Tavolo aperto nella nuova scheda"
+	},
+	"dropdownExportPrint": {
+		"message": "Tabella di stampa"
+	},
+	"dropdownReset": {
+		"message": "Ripristino"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Errore"
+	},
+	"errorButton": {
+		"message": "OK"
+	},
+	"errorNoCellFound": {
+		"message": "Nessuna cella di tabella è stata mirata, fare clic su una cella di tabella e riprovare!"
+	},
+	"errorNoTableFound": {
+		"message": "Nessun tavolo è stato preso di mira, si prega di fare clic su un tavolo e riprovare!"
+	},
+	"errorNoTableGiven": {
+		"message": "Nessuna tabella è stata data o selezionata. Questo è un errore interno e non può essere risolto."
+	},
+	"errorCantSortRowspan": {
+		"message": "Incapace di ordinare per riga di tabella. Alcune cellule si estendono su più righe."
+	},
+	"errorCantSortColspan": {
+		"message": "Non è possibile ordinare per colonne di tabella. Alcune celle si estendono su più colonne."
+	},
+	"errorOptionsInvalid": {
+		"message": "Non è possibile salvare le impostazioni. Si prega di verificare se i dati di input sono corretti!"
+	}
+}

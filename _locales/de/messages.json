@@ -3,7 +3,7 @@
 		"message": "TableWizard"
 	},
 	"extensionDescription": {
-		"message": "Erlaubt Live-Manipulation von HTML-Tabellen."
+		"message": "Erweiterung zur Live-Bearbeitung und -Manipulation von HTML-Tabellen."
 	},
 	"optionsLabelHighlightColor": {
 		"message": "Farbe für Hervorhebungen (Werte entweder Hex, RGB oder Firefox-Farben)"

@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Rozszerzenie do edycji na żywo i manipulacji tabelami HTML."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Podświetlanie koloru (Wartości albo Hex, RGB lub Firefox kolorów)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignorować HTML wewnątrz komórki podczas porównywania (np. usunąć i sortować)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Projekt tabel otwartych w nowej zakładce"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Bez elementów konstrukcyjnych"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Tylko granica"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Tło graniczne i skala szarości"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Używać zaznaczonego tekstu zamiast pola podczas częściowego porównywania (np. podświetlanie, usuwanie)?"
+	},
+	"optionsSave": {
+		"message": "Zapisz"
+	},
+	"optionsReset": {
+		"message": "Przywróć domyślne"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Zaznacz pola dokładnie tym tekstem"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Zaznacz pola zawierające ten tekst"
+	},
+	"dropdownMarkGrid": {
+		"message": "Tworzenie siatki graficznej"
+	},
+	"dropdownDel": {
+		"message": "Usuń wiersz / kolumnę"
+	},
+	"dropdownColDel": {
+		"message": "Usuń kolumnę"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Usuń kolumny z tym polem (dokładne dopasowanie)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Usuń kolumny z tym polem (dopasowanie częściowe)"
+	},
+	"dropdownRowDel": {
+		"message": "Usuń wiersz"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Usuń wiersze z tym polem (dokładne dopasowanie)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Usuń wiersze z tym polem (dopasowanie częściowe)"
+	},
+	"dropdownSort": {
+		"message": "Sortuj tabelę"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Sortuj kolumny tabeli wznoszące"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Sortuj kolumny tabeli zstępujące"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Sortuj wiersze tabeli wznoszące się"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Sortuj wiersze tabeli zstępujące"
+	},
+	"dropdownExportNewtab": {
+		"message": "Otwórz tabelę w nowej karcie"
+	},
+	"dropdownExportPrint": {
+		"message": "Tabela wydruku"
+	},
+	"dropdownReset": {
+		"message": "Reset"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Błąd"
+	},
+	"errorButton": {
+		"message": "OK"
+	},
+	"errorNoCellFound": {
+		"message": "Żadna komórka stołowa nie została skierowana, proszę kliknąć na komórkę stołową i spróbować ponownie!"
+	},
+	"errorNoTableFound": {
+		"message": "Żaden stół nie został wybrany, proszę kliknąć na stół i spróbować ponownie!"
+	},
+	"errorNoTableGiven": {
+		"message": "Nie podano ani nie wybrano tabeli. Jest to błąd wewnętrzny i nie można go naprawić."
+	},
+	"errorCantSortRowspan": {
+		"message": "Nie można sortować według wiersza tabeli. Niektóre komórki rozciągają się po wielu rzędach."
+	},
+	"errorCantSortColspan": {
+		"message": "Nie można sortować według kolumn tabeli. Niektóre komórki rozciągają się przez wiele kolumn."
+	},
+	"errorOptionsInvalid": {
+		"message": "Nie można zapisać ustawień. Proszę sprawdzić, czy dane wejściowe są poprawne!"
+	}
+}

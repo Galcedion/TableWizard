@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Extension pour l'édition en direct et la manipulation de tables HTML."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Couleur de mise en valeur (valeur soit Hex, RGB ou Firefox couleurs)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignorer le HTML dans la cellule lors de la comparaison (p. ex. supprimer et trier)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Conception des tables ouvertes dans un nouvel onglet"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Sans éléments de conception"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Bordure seulement"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Bordure et fond gris"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Utiliser du texte marqué au lieu du champ lors de la comparaison partielle (p. ex., mettre en évidence, supprimer)?"
+	},
+	"optionsSave": {
+		"message": "Enregistrer"
+	},
+	"optionsReset": {
+		"message": "Réinitialiser par défaut"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Marquer les champs avec exactement ce texte"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Marquer les champs qui incluent ce texte"
+	},
+	"dropdownMarkGrid": {
+		"message": "Créer une grille graphique"
+	},
+	"dropdownDel": {
+		"message": "Supprimer la ligne / colonne"
+	},
+	"dropdownColDel": {
+		"message": "Supprimer la colonne"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Supprimer les colonnes avec ce champ (comparaison exacte)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Supprimer les colonnes avec ce champ (comparaison partielle)"
+	},
+	"dropdownRowDel": {
+		"message": "Supprimer la ligne"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Supprimer les lignes avec ce champ (correspondance exacte)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Supprimer les lignes avec ce champ (comparaison partielle)"
+	},
+	"dropdownSort": {
+		"message": "Tableau de classement"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Tri des colonnes de table ascendantes"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Tri des colonnes du tableau descendant"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Tri des lignes de table ascendantes"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Classer les lignes des tableaux en descendant"
+	},
+	"dropdownExportNewtab": {
+		"message": "Ouvrir la table dans un nouvel onglet"
+	},
+	"dropdownExportPrint": {
+		"message": "Tableau d'impression"
+	},
+	"dropdownReset": {
+		"message": "Réinitialiser"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Erreur"
+	},
+	"errorButton": {
+		"message": "TRÈS BIEN"
+	},
+	"errorNoCellFound": {
+		"message": "Aucune cellule de table n'a été ciblée, s'il vous plaît cliquez sur une cellule de table et essayez à nouveau!"
+	},
+	"errorNoTableFound": {
+		"message": "Aucune table n'a été ciblée, s'il vous plaît cliquez sur une table et essayez à nouveau!"
+	},
+	"errorNoTableGiven": {
+		"message": "Aucune table n'a été donnée ou sélectionnée. C'est une erreur interne qui ne peut être corrigée."
+	},
+	"errorCantSortRowspan": {
+		"message": "Impossible de trier par rangée de table. Certaines cellules s'étendent sur plusieurs rangées."
+	},
+	"errorCantSortColspan": {
+		"message": "Impossible de trier par colonnes de table. Certaines cellules s'étendent sur plusieurs colonnes."
+	},
+	"errorOptionsInvalid": {
+		"message": "Impossible d'enregistrer les paramètres. Veuillez vérifier si vos données d'entrée sont correctes!"
+	}
+}

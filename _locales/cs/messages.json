@@ -1,0 +1,120 @@
+// localization from en generated with LibreTranslate
+{
+	"extensionName": {
+		"message": "TableWizard"
+	},
+	"extensionDescription": {
+		"message": "Rozšíření pro live editaci a manipulaci HTML tabulek."
+	},
+	"optionsLabelHighlightColor": {
+		"message": "Zvýraznění barev (Hodnoty buď Hex, RGB nebo Firefox barvy)"
+	},
+	"optionsDefaultHighlightColor": {
+		"message": "#ff8080dd"
+	},
+	"optionsLabelIgnoreHTML": {
+		"message": "Ignorovat HTML v buňce při porovnávání (např. odstranit a třídit)?"
+	},
+	"optionsLabelTabTableDisplay": {
+		"message": "Návrh tabulek otevřených v nové kartě"
+	},
+	"optionsLabelTabTableDisplay-0": {
+		"message": "Bez konstrukčních prvků"
+	},
+	"optionsLabelTabTableDisplay-1": {
+		"message": "Pouze hranice"
+	},
+	"optionsLabelTabTableDisplay-2": {
+		"message": "Ohraničení a šedé pozadí"
+	},
+	"optionsLabelSelectedInclude": {
+		"message": "Použít označený text místo pole při částečném porovnání (např. zvýraznit, odstranit)?"
+	},
+	"optionsSave": {
+		"message": "Uložit"
+	},
+	"optionsReset": {
+		"message": "Obnovit výchozí"
+	},
+	"dropdownMain": {
+		"message": "TableWizard"
+	},
+	"dropdownMarkFieldsExact": {
+		"message": "Označit pole s přesně tímto textem"
+	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Označit pole, která obsahují tento text"
+	},
+	"dropdownMarkGrid": {
+		"message": "Vytvořit grafickou mřížku"
+	},
+	"dropdownDel": {
+		"message": "Smazat řádek / sloupec"
+	},
+	"dropdownColDel": {
+		"message": "Smazat sloupec"
+	},
+	"dropdownColDelByFieldExact": {
+		"message": "Smazat sloupce s tímto polem (přesný zápas)"
+	},
+	"dropdownColDelByFieldInclude": {
+		"message": "Smazat sloupce s tímto polem (částečně zápas)"
+	},
+	"dropdownRowDel": {
+		"message": "Smazat řádek"
+	},
+	"dropdownRowDelByFieldExact": {
+		"message": "Smazat řádky s tímto polem (přesný zápas)"
+	},
+	"dropdownRowDelByFieldInclude": {
+		"message": "Smazat řádky s tímto polem (částečně zápas)"
+	},
+	"dropdownSort": {
+		"message": "Třídit stůl"
+	},
+	"dropdownSortByColumnsASC": {
+		"message": "▶ Třídit sloupce tabulky vzestupně"
+	},
+	"dropdownSortByColumnsDESC": {
+		"message": "◀ Třídit sloupce tabulky sestupně"
+	},
+	"dropdownSortByRowsASC": {
+		"message": "▼ Řádky tabulky nahoru"
+	},
+	"dropdownSortByRowsDESC": {
+		"message": "▲ Řadit řádky tabulky sestupně"
+	},
+	"dropdownExportNewtab": {
+		"message": "Otevřít tabulku v nové kartě"
+	},
+	"dropdownExportPrint": {
+		"message": "Vytisknout tabulku"
+	},
+	"dropdownReset": {
+		"message": "Obnovit"
+	},
+	"errorTitle": {
+		"message": "TableWizard - Chyba"
+	},
+	"errorButton": {
+		"message": "DOBŘE"
+	},
+	"errorNoCellFound": {
+		"message": "Žádný stolní cela nebyla zaměřena, klikněte prosím na stůl cely a zkuste to znovu!"
+	},
+	"errorNoTableFound": {
+		"message": "Žádný stůl nebyl zaměřen, klikněte prosím na stůl a zkuste to znovu!"
+	},
+	"errorNoTableGiven": {
+		"message": "Nebyla uvedena žádná tabulka ani vybrána. Jedná se o vnitřní chybu a nelze ji opravit."
+	},
+	"errorCantSortRowspan": {
+		"message": "Nelze třídit podle tabulky. Některé buňky se protahují po více řadách."
+	},
+	"errorCantSortColspan": {
+		"message": "Nelze třídit podle sloupců tabulky. Některé buňky se roztáhnou přes více sloupů."
+	},
+	"errorOptionsInvalid": {
+		"message": "Nelze uložit nastavení. Zkontrolujte prosím, zda jsou vaše vstupní data správná!"
+	}
+}
