@@ -21,7 +21,7 @@ function loadSettingsTabTableDisplay(storage) {
 		return;
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
-	injectCSS.innerHTML = tmp;
+	injectCSS.textContent = tmp;
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 }
 

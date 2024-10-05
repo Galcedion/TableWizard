@@ -1,7 +1,7 @@
-document.getElementById('l_set_color').innerHTML = browser.i18n.getMessage('optionsLabelHighlightColor');
-document.getElementById('l_set_ignoreHTML').innerHTML = browser.i18n.getMessage('optionsLabelIgnoreHTML');
-document.getElementById('l_set_tabtable').innerHTML = browser.i18n.getMessage('optionsLabelTabTableDisplay');
-document.getElementById('l_set_selectedinclude').innerHTML = browser.i18n.getMessage('optionsLabelSelectedInclude');
+document.getElementById('l_set_color').textContent = browser.i18n.getMessage('optionsLabelHighlightColor');
+document.getElementById('l_set_ignoreHTML').textContent = browser.i18n.getMessage('optionsLabelIgnoreHTML');
+document.getElementById('l_set_tabtable').textContent = browser.i18n.getMessage('optionsLabelTabTableDisplay');
+document.getElementById('l_set_selectedinclude').textContent = browser.i18n.getMessage('optionsLabelSelectedInclude');
 document.getElementById('button_save').value = browser.i18n.getMessage('optionsSave');
 document.getElementById('button_reset').value = browser.i18n.getMessage('optionsReset');
 const colorArrayFF = [
@@ -79,7 +79,7 @@ function loadSettingsTabTableDisplay(storage) {
 	for(k in Object.keys(defaultTabTableDisplay)) {
 		var option = document.createElement('option');
 		option.value = k;
-		option.innerHTML = browser.i18n.getMessage('optionsLabelTabTableDisplay-' + k.toString());
+		option.textContent = browser.i18n.getMessage('optionsLabelTabTableDisplay-' + k.toString());
 		select.appendChild(option);
 	}
 	var tmp = {0: defaultTabTableDisplay[0]};
@@ -164,7 +164,7 @@ function showErrorLine(display, errMsg) {
 	var errElem = document.getElementById('error_display');
 	if(display) {
 		errElem.classList.remove('hidden');
-		errElem.innerHTML = errMsg;
+		errElem.textContent = errMsg;
 	} else {
 		errElem.classList.add('hidden');
 	}

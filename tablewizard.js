@@ -28,7 +28,7 @@ function tw_check() {
 function tw_attach() {
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
-	injectCSS.innerHTML = '.' + twHiddenClass + '{display: none !important; }\
+	injectCSS.textContent = '.' + twHiddenClass + '{display: none !important; }\
 	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson;}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}\
 	.' + twGridClass + ' tr:nth-child(even),.' + twGridClass + ' td:nth-child(even) {background-color: #AAA5; }';
@@ -51,7 +51,7 @@ function loadSettingsHighlightColor(storage) {
 		tmp = storage.highlightColor;
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
-	injectCSS.innerHTML = '.' + twHightlightClass + '{background-color: ' + tmp + ' !important; }';
+	injectCSS.textContent = '.' + twHightlightClass + '{background-color: ' + tmp + ' !important; }';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 }
 
