@@ -418,7 +418,7 @@ function tw_exportnewtab(dom) {
 	dom = getParentNodeByTag(dom, ['TABLE']);
 	var table = dom.innerHTML.replace(/&nbsp;|&#160;/g, ' ').replace(/\u00A0|\u202F/g, ' ');
 	table = table.replace(/&#60;|&lt;/g, '%3C').replace(/&#62;|&gt;/g, '%3E');
-	table = new URLSearchParams('table=' + table.replace(/&amp;|&#38;|&#x26;/g, '%26')).toString();
+	table = new URLSearchParams('table=' + table.replace(/&amp;|&#38;|&#x26;/g, '%26') + (dom.classList.contains(twGridClass) ? '&grid=true' : '')).toString();
 	browser.runtime.sendMessage({
 		task: 'exportNewTab',
 		tabledata: table

@@ -1,15 +1,27 @@
 var input = new URLSearchParams(window.location.search);
 var table = input.get('table');
+var grid = input.get('grid');
 var getTabTableDisplay = browser.storage.sync.get("tabTableDisplay");
 getTabTableDisplay.then(loadSettingsTabTableDisplay);
+var getHightlightColor = browser.storage.sync.get("highlightColor");
+getHightlightColor.then(loadSettingsHighlightColor);
 
-if(table == 'undefined') {
+if(table === null || table == 'undefined') {
 	showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoTableGiven"));
 } else {
 	input.delete('table');
 	var url = window.location.toString();
 	window.history.replaceState({}, document.title, url.substr(0, url.indexOf("?")));
 	document.getElementsByTagName('table')[0].innerHTML = table;
+	document.getElementsByTagName('table')[0].querySelectorAll('[class^=tw_hidden]').forEach((elem) => {
+		elem.remove();
+	});
+	document.getElementsByTagName('table')[0].querySelectorAll('[class^=tw_highlight]').forEach((elem) => {
+		elem.classList.add('tw_highlight');
+	});
+	if(grid !== 'null' && grid !== 'undefined' && grid == 'true') {
+		document.getElementsByTagName('table')[0].classList.add('tw_grid');
+	}
 }
 
 // initial load of settings - tab table display
@@ -22,6 +34,18 @@ function loadSettingsTabTableDisplay(storage) {
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
 	injectCSS.textContent = tmp;
+	document.getElementsByTagName('head')[0].appendChild(injectCSS);
+}
+
+// initial load of settings - highlighting color
+function loadSettingsHighlightColor(storage) {
+	var tmp = browser.i18n.getMessage('optionsDefaultHighlightColor');
+	if(storage.highlightColor)
+		tmp = storage.highlightColor;
+	var injectCSS = document.createElement('style');
+	injectCSS.type = 'text/css';
+	injectCSS.textContent = '.tw_highlight{background-color: ' + tmp + ' !important; }\
+	.tw_grid tr:nth-child(even),.tw_grid td:nth-child(even) {background-color: #AAA5; }';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 }
 
