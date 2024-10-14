@@ -51,9 +51,21 @@
 		"message": "TableWizard",
 		"description": "Entry dropdown text."
 	},
+	"dropdownHighlighting": {
+		"message": "Mark and highlight",
+		"description": "Dropdown text mark and hightlight."
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Mark fields with exactly this text",
 		"description": "Dropdown text mark fields (exact match)."
+	},
+	"dropdownMarkRow": {
+		"message": "Mark row",
+		"description": "Dropdown text mark row."
+	},
+	"dropdownMarkColumn": {
+		"message": "Mark column",
+		"description": "Dropdown text mark column."
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Mark fields that include this text",

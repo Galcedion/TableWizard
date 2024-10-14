@@ -99,8 +99,8 @@ function checkChildrenReturnIndexList(children, value, indexList, exact) {
 	return indexList;
 }
 
-// hides a given index in a row, ignores colspan
-function checkChildrenIndex(children, index) {
+// adds a class to a given index in a row, ignores colspan
+function checkChildrenIndex(children, index, adclass) {
 	for(let c = 0; c < children.length; ++c) {
 		if(typeof(children[c].tagName) == 'undefined')
 			continue;
@@ -110,7 +110,7 @@ function checkChildrenIndex(children, index) {
 			index -= 1;
 		if(index < 0) {
 			if(index == -1 && !children[c].hasAttribute('colspan'))
-				children[c].classList.add(twHiddenClass);
+				children[c].classList.add(adclass);
 			return;
 		}
 	}
@@ -220,6 +220,27 @@ function tw_highlight(dom, exact) {
 	});
 }
 
+// TW highlights row (x) or column (y)
+function tw_highlight_xy(dom, markrow) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
+		return;
+	}
+	if(markrow) {
+		dom = getParentNodeByTag(dom, ['TR']);
+		dom.classList.add(twHightlightClass);
+	} else {
+		var index = getCellPositionIndex(dom);
+		dom = getParentNodeByTag(dom, ['TABLE']);
+
+		var trList = dom.getElementsByTagName('TR');
+		for(let tl = 0; tl < trList.length; ++tl) {
+			checkChildrenIndex(trList[tl].childNodes, index, twHightlightClass)
+		}
+	}
+}
+
 // TW creates grid in table by marking cells alternatingly
 function tw_tablegrid(dom) {
 	dom = getParentNodeByTag(dom, ['TABLE']);
@@ -271,7 +292,7 @@ function tw_coldel(dom) {
 
 	var trList = dom.getElementsByTagName('TR');
 	for(let tl = 0; tl < trList.length; ++tl) {
-		checkChildrenIndex(trList[tl].childNodes, index)
+		checkChildrenIndex(trList[tl].childNodes, index, twHiddenClass);
 	}
 }
 

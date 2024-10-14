@@ -9,13 +9,22 @@ browser.menus.create({
 	visible: false
 });
 
+// MENU highlight submenu anchor
+browser.menus.create({
+	id: 'tw_highlighting',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownHighlighting"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+});
+
 // MENU markfields exact
 browser.menus.create({
 	id: 'tw_markfieldsexact',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownMarkFieldsExact"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_highlighting',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
@@ -30,11 +39,41 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownMarkFieldsInclude"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_highlighting',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
 			code: `tw_highlight(browser.menus.getTargetElement(${info.targetElementId}), false);`,
+		});
+	}
+});
+
+// MENU markrow
+browser.menus.create({
+	id: 'tw_markrow',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownMarkRow"),
+	visible: true,
+	parentId: 'tw_highlighting',
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_highlight_xy(browser.menus.getTargetElement(${info.targetElementId}), true);`,
+		});
+	}
+});
+
+// MENU markcolumn
+browser.menus.create({
+	id: 'tw_markcolumn',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownMarkColumn"),
+	visible: true,
+	parentId: 'tw_highlighting',
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_highlight_xy(browser.menus.getTargetElement(${info.targetElementId}), false);`,
 		});
 	}
 });
@@ -45,22 +84,13 @@ browser.menus.create({
 	contexts: TABLEWIZARD_MENU_CONTEXT,
 	title: browser.i18n.getMessage("dropdownMarkGrid"),
 	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM,
+	parentId: 'tw_highlighting',
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
 			code: `tw_tablegrid(browser.menus.getTargetElement(${info.targetElementId}));`,
 		});
 	}
-});
-
-// MENU spacer markdel
-browser.menus.create({
-	id: 'tw_spacer_markdel',
-	contexts: TABLEWIZARD_MENU_CONTEXT,
-	type: 'separator',
-	visible: true,
-	parentId: TABLEWIZARD_MENU_ITEM
 });
 
 // MENU del submenu anchor

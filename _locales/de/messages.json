@@ -38,11 +38,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "Markieren und hervorheben"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Felder mit exakt diesem Text markieren"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Felder, die diesen Text beinhalten, markieren"
+	},
+	"dropdownMarkRow": {
+		"message": "Zeile markieren"
+	},
+	"dropdownMarkColumn": {
+		"message": "Spalte markieren"
 	},
 	"dropdownMarkGrid": {
 		"message": "Grafisches Raster erzeugen"
