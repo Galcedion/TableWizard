@@ -2,6 +2,7 @@
 Firefox AddOn for live manipulation of HTML tables
 ## Core functionality
 - highlight matching table cells (exact or partial match)
+- highlight rows / columns
 - create visual grid inside the table
 - delete rows (either single row or multiple depending on exact or partial matches in the target cell)
 - delete columns (either single column or multiple depending on exact or partial matches in the target cell)

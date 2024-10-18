@@ -2,6 +2,23 @@
 
 Version changelog for TableWizard.
 
+## 1.2 - 18.10.2024
+
+### Quality of Life
+
+- Restructuring menu for better overview.
+
+### Added
+
+#### Capabilities
+
+- Highlight rows.
+- Highlight columns.
+
+### Fixes
+
+- Fixing known issue where changes to the table were ignored when exporting to a new tab.
+
 ## 1.1 - 05.10.2024
 
 ### Quality of Life
