@@ -39,11 +39,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "Označit a zvýraznit"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Označit pole s přesně tímto textem"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Označit pole, která obsahují tento text"
+	},
+	"dropdownMarkRow": {
+		"message": "Řádek značek"
+	},
+	"dropdownMarkColumn": {
+		"message": "Sloupec značky"
 	},
 	"dropdownMarkGrid": {
 		"message": "Vytvořit grafickou mřížku"

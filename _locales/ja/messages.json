@@ -39,11 +39,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "マークとハイライト"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "このテキストを正確にマークフィールド"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "このテキストを含むマークフィールド"
+	},
+	"dropdownMarkRow": {
+		"message": "マーク行"
+	},
+	"dropdownMarkColumn": {
+		"message": "マークカラム"
 	},
 	"dropdownMarkGrid": {
 		"message": "グラフィックグリッドを作成する"

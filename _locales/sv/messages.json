@@ -39,11 +39,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "Mark och höjdpunkt"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Markera fält med exakt denna text"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Markfält som innehåller denna text"
+	},
+	"dropdownMarkRow": {
+		"message": "Markera rad"
+	},
+	"dropdownMarkColumn": {
+		"message": "Markera kolumn"
 	},
 	"dropdownMarkGrid": {
 		"message": "Skapa grafiskt rutnät"

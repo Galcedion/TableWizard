@@ -39,11 +39,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "Марк и выделить"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Марк поля с точно таким текстом"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Поля, содержащие этот текст"
+	},
+	"dropdownMarkRow": {
+		"message": "Марк ряд"
+	},
+	"dropdownMarkColumn": {
+		"message": "Марковая колонка"
 	},
 	"dropdownMarkGrid": {
 		"message": "Создание графической сетки"

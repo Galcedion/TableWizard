@@ -39,11 +39,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "Zaznacz i podświetl"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Zaznacz pola dokładnie tym tekstem"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Zaznacz pola zawierające ten tekst"
+	},
+	"dropdownMarkRow": {
+		"message": "Zaznacz wiersz"
+	},
+	"dropdownMarkColumn": {
+		"message": "Zaznacz kolumnę"
 	},
 	"dropdownMarkGrid": {
 		"message": "Tworzenie siatki graficznej"

@@ -39,11 +39,20 @@
 	"dropdownMain": {
 		"message": "TableWizard"
 	},
+	"dropdownHighlighting": {
+		"message": "Mark e evidenziare"
+	},
 	"dropdownMarkFieldsExact": {
 		"message": "Mark campi con esattamente questo testo"
 	},
 	"dropdownMarkFieldsInclude": {
 		"message": "Segna i campi che includono questo testo"
+	},
+	"dropdownMarkRow": {
+		"message": "Marca la riga"
+	},
+	"dropdownMarkColumn": {
+		"message": "Colonna di marca"
 	},
 	"dropdownMarkGrid": {
 		"message": "Creare una griglia grafica"

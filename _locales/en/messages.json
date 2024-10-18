@@ -59,6 +59,10 @@
 		"message": "Mark fields with exactly this text",
 		"description": "Dropdown text mark fields (exact match)."
 	},
+	"dropdownMarkFieldsInclude": {
+		"message": "Mark fields that include this text",
+		"description": "Dropdown text mark fields (including)."
+	},
 	"dropdownMarkRow": {
 		"message": "Mark row",
 		"description": "Dropdown text mark row."
@@ -66,10 +70,6 @@
 	"dropdownMarkColumn": {
 		"message": "Mark column",
 		"description": "Dropdown text mark column."
-	},
-	"dropdownMarkFieldsInclude": {
-		"message": "Mark fields that include this text",
-		"description": "Dropdown text mark fields (including)."
 	},
 	"dropdownMarkGrid": {
 		"message": "Create graphic grid",
