@@ -9,6 +9,7 @@ var twTableSortMarker = 'tw_sort_' + currentDate;
 var tweDataOriginalId = 'tweoriginalid' + currentDate;
 var tweDataOriginalvalue = 'tweoriginalval' + currentDate;
 var twTableIndices = {};
+var highlightColor = browser.i18n.getMessage('optionsDefaultHighlightColor');
 var ignoreHTML = true;
 var selectedInclude = false;
 
@@ -18,13 +19,12 @@ tw_check();
 function tw_check() {
 	if((document.getElementsByTagName("table").length == 0))
 		return;
-	var getHightlightColor = browser.storage.sync.get("highlightColor");
-	getHightlightColor.then(loadSettingsHighlightColor);
-	var getIgnoreHTML = browser.storage.sync.get("ignoreHTML");
-	getIgnoreHTML.then(loadSettingsIgnoreHTML);
-	var getSelectedInclude = browser.storage.sync.get("selectedInclude");
-	getSelectedInclude.then(loadSettingsSelectedInclude);
-	tw_attach();
+	getSettings = browser.storage.sync.get([
+		"highlightColor",
+		"ignoreHTML",
+		"selectedInclude"
+	]);
+	getSettings.then(loadSettings);
 }
 
 // attach event handlers to tables
@@ -35,7 +35,8 @@ function tw_attach() {
 	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson;}\
 	.' + tweDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 50em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em gray;}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}\
-	.' + twGridClass + ' tr:nth-child(even),.' + twGridClass + ' td:nth-child(even) {background-color: #AAA5; }';
+	.' + twGridClass + ' tr:nth-child(even),.' + twGridClass + ' td:nth-child(even) {background-color: #AAA5; }\
+	.' + twHightlightClass + '{background-color: ' + highlightColor + ' !important; }';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
 	var tableList = document.getElementsByTagName("table");
 	for(let t = 0; t < tableList.length; ++t) {
@@ -48,31 +49,19 @@ function tw_attach() {
 	}
 }
 
-// initial load of settings - highlighting color
-function loadSettingsHighlightColor(storage) {
-	var tmp = browser.i18n.getMessage('optionsDefaultHighlightColor');
+// initial load of settings
+function loadSettings(storage) {
+	// highlighting color
+	var tmp = highlightColor;
 	if(storage.highlightColor)
-		tmp = storage.highlightColor;
-	var injectCSS = document.createElement('style');
-	injectCSS.type = 'text/css';
-	injectCSS.textContent = '.' + twHightlightClass + '{background-color: ' + tmp + ' !important; }';
-	document.getElementsByTagName('head')[0].appendChild(injectCSS);
-}
-
-// initial load of settings - ignore HTML
-function loadSettingsIgnoreHTML(storage) {
-	var tmp = ignoreHTML;
+		highlightColor = storage.highlightColor;
+	// ignore HTML
 	if(typeof storage.ignoreHTML != 'undefined')
-		tmp = storage.ignoreHTML;
-	ignoreHTML = tmp;
-}
-
-// initial load of settings - selected include
-function loadSettingsSelectedInclude(storage) {
-	var tmp = selectedInclude;
+		ignoreHTML = storage.ignoreHTML;
+	// selected include
 	if(typeof storage.selectedInclude != 'undefined')
-		tmp = storage.selectedInclude;
-	selectedInclude = tmp;
+		selectedInclude = storage.selectedInclude;
+	tw_attach();
 }
 
 // check if text is contained in children or not
@@ -322,6 +311,7 @@ function tw_coldelbyfield(dom, exact) {
 
 // TW editor
 function tw_editor(dom) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
 	tweShowEditor(dom);
 }
 
