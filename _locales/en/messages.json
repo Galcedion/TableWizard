@@ -131,9 +131,25 @@
 		"message": "Print table",
 		"description": "Dropdown text print table."
 	},
+	"dropdownEditor": {
+		"message": "Editor",
+		"description": "Dropdown text editor."
+	},
 	"dropdownReset": {
 		"message": "Reset",
 		"description": "Reset all changes."
+	},
+	"editorTitle": {
+		"message": "TableWizard",
+		"description": "Editor: Title headline."
+	},
+	"editorButtonSave": {
+		"message": "Save",
+		"description": "Editor: Save changes."
+	},
+	"editorButtonCancel": {
+		"message": "Cancel",
+		"description": "Editor: Dont save changes."
 	},
 	"errorTitle": {
 		"message": "TableWizard - Error",

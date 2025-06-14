@@ -5,6 +5,8 @@ var twHiddenClass = 'tw_hidden_' + currentDate;
 var twPrintHiddenClass = 'tw_print_' + currentDate;
 var twAlertDialogClass = 'tw_alert_' + currentDate;
 var twTableSortMarker = 'tw_sort_' + currentDate;
+var tweDataOriginalId = 'tweoriginalid' + currentDate;
+var tweDataOriginalvalue = 'tweoriginalval' + currentDate;
 var twTableIndices = {};
 var ignoreHTML = true;
 var selectedInclude = false;
@@ -316,6 +318,11 @@ function tw_coldelbyfield(dom, exact) {
 	}
 }
 
+// TW editor
+function tw_editor(dom) {
+	tweShowEditor(dom);
+}
+
 // TW sort by rows
 function tw_sortrows(dom, descending) {
 	dom = getParentNodeByTag(dom, ['TD', 'TH']);
@@ -472,6 +479,11 @@ function tw_reset(dom) {
 	while(highlightList.length > 0) {
 		highlightList[0].classList.remove(twHightlightClass);
 	}
+
+	dom.querySelectorAll('[data-' + tweDataOriginalvalue + ']').forEach((elem) => {
+		elem.innerHTML = elem.dataset[tweDataOriginalvalue];
+		elem.removeAttribute('data-' + tweDataOriginalvalue);
+	});
 
 	var tableClass = null;
 	for(let i = 0; i < dom.classList.length; ++i) {

@@ -98,8 +98,20 @@
 	"dropdownExportPrint": {
 		"message": "Tabelle drucken"
 	},
+	"dropdownEditor": {
+		"message": "Editor"
+	},
 	"dropdownReset": {
 		"message": "Zurücksetzen"
+	},
+	"editorTitle": {
+		"message": "TableWizard - Editor"
+	},
+	"editorButtonSave": {
+		"message": "Speichern"
+	},
+	"editorButtonCancel": {
+		"message": "Abbruch"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Fehler"
