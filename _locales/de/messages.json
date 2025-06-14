@@ -113,6 +113,12 @@
 	"editorButtonCancel": {
 		"message": "Abbruch"
 	},
+	"editorButtonEdit": {
+		"message": "Textbearbeitung"
+	},
+	"editorButtonPreview": {
+		"message": "Vorschau"
+	},
 	"errorTitle": {
 		"message": "TableWizard - Fehler"
 	},

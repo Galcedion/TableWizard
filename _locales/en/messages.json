@@ -151,6 +151,14 @@
 		"message": "Cancel",
 		"description": "Editor: Dont save changes."
 	},
+	"editorButtonEdit": {
+		"message": "Edit Text",
+		"description": "Editor: Select text edit mode."
+	},
+	"editorButtonPreview": {
+		"message": "Preview",
+		"description": "Editor: Select text preview mode."
+	},
 	"errorTitle": {
 		"message": "TableWizard - Error",
 		"description": "Title line for error messages."

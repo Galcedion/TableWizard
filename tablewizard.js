@@ -4,6 +4,7 @@ var twGridClass = 'tw_grid_' + currentDate;
 var twHiddenClass = 'tw_hidden_' + currentDate;
 var twPrintHiddenClass = 'tw_print_' + currentDate;
 var twAlertDialogClass = 'tw_alert_' + currentDate;
+var tweDialogClass = 'tw_editor_' + currentDate;
 var twTableSortMarker = 'tw_sort_' + currentDate;
 var tweDataOriginalId = 'tweoriginalid' + currentDate;
 var tweDataOriginalvalue = 'tweoriginalval' + currentDate;
@@ -32,6 +33,7 @@ function tw_attach() {
 	injectCSS.type = 'text/css';
 	injectCSS.textContent = '.' + twHiddenClass + '{display: none !important; }\
 	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson;}\
+	.' + tweDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 50em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em gray;}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}\
 	.' + twGridClass + ' tr:nth-child(even),.' + twGridClass + ' td:nth-child(even) {background-color: #AAA5; }';
 	document.getElementsByTagName('head')[0].appendChild(injectCSS);
