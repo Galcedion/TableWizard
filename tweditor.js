@@ -2,7 +2,8 @@
 function tweHTML(dom, id) {
 	// defile editor stlyes
 	let style_button = 'padding:0.5em;font-weight:bold;margin:0 auto;';
-	let style_preview = 'height:5rem;border:1px black solid;display:none;'
+	let style_preview = 'height:5rem;border:1px black solid;display:none;';
+	let style_flex_elem = 'flex-basis:0;flex-grow:1;';
 	// define editor JS
 	let js_success = 'let twesuccess = document.getElementById(\'' + dom.id + '\');\
 	twesuccess.innerHTML = twe_c_' + id + '.value;\
@@ -16,22 +17,33 @@ function tweHTML(dom, id) {
 	ta.value = ta.value.slice(0,ta.selectionStart) + \'<i>\' + ta.value.slice(ta.selectionStart,ta.selectionEnd) + \'</i>\' + ta.value.slice(ta.selectionEnd);';
 	let js_underline = 'let ta = document.getElementById(\'twe_c_' + id + '\');\
 	ta.value = ta.value.slice(0,ta.selectionStart) + \'<u>\' + ta.value.slice(ta.selectionStart,ta.selectionEnd) + \'</u>\' + ta.value.slice(ta.selectionEnd);';
+	let js_newline = 'let ta = document.getElementById(\'twe_c_' + id + '\');\
+	ta.value = ta.value.slice(0,ta.selectionEnd) + \'<br>\' + ta.value.slice(ta.selectionEnd);';
 	let js_editmode = 'document.getElementById(\'twe_c_' + id + '\').style.display = \'inherit\';\
 	document.getElementById(\'twe_pv_' + id + '\').style.display = \'none\';';
 	let js_previewmode = 'document.getElementById(\'twe_pv_' + id + '\').innerHTML = document.getElementById(\'twe_c_' + id + '\').value;\
 	document.getElementById(\'twe_c_' + id + '\').style.display = \'none\';\
 	document.getElementById(\'twe_pv_' + id + '\').style.display = \'inherit\';';
+	let js_restore_previous = 'document.getElementById(\'twe_c_' + id + '\').value = this.dataset[\'storage\'];';
+	let js_restore_original = 'document.getElementById(\'twe_c_' + id + '\').value = this.dataset[\'storage\'];';
 	// define editor content
-	let html = '<h3>' + browser.i18n.getMessage("editorTitle") + '</h3>\
+	let html = '<h3 style="text-align:center;">' + browser.i18n.getMessage("editorTitle") + '</h3>\
 	<hr>\
 	<div>\
 	<input type="button" style="font-weight:bold;" onclick="' + js_bold + '" value="B">\
 	<input type="button" style="font-style:italic;" onclick="' + js_italic +'" value="I">\
 	<input type="button" style="text-decoration:underline;" onclick="' + js_underline + '" value="U">\
+	<input type="button" onclick="' + js_newline + '" value="↵">\
 	</div>\
-	<div>\
+	<div style="display:flex;">\
+	<div style="' + style_flex_elem + '">\
 	<input type="button" onclick="' + js_editmode + '" value="' + browser.i18n.getMessage("editorButtonEdit") + '">\
 	<input type="button" onclick="' + js_previewmode + '" value="' + browser.i18n.getMessage("editorButtonPreview") + '">\
+	</div>\
+	<div style="' + style_flex_elem + '">\
+	<input type="button" onclick="' + js_restore_previous + '" data-storage="' + dom.innerHTML + '" value="' + browser.i18n.getMessage("editorButtonRestorePrevious") + '">\
+	<input type="button" onclick="' + js_restore_original + '" data-storage="' + dom.dataset[tweDataOriginalvalue] + '" value="' + browser.i18n.getMessage("editorButtonRestoreOriginal") + '">\
+	</div>\
 	</div>\
 	<textarea id="twe_c_' + id + '" rows="5">' + dom.innerHTML + '</textarea>\
 	<div id="twe_pv_' + id + '" style="' + style_preview + '">' + dom.innerHTML + '</div>\

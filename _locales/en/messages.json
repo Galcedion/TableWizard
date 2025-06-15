@@ -159,6 +159,14 @@
 		"message": "Preview",
 		"description": "Editor: Select text preview mode."
 	},
+	"editorButtonRestorePrevious": {
+		"message": "Restore previous",
+		"description": "Editor: Reset edit to previous content."
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Restore original",
+		"description": "Editor: Reset edit to original content."
+	},
 	"errorTitle": {
 		"message": "TableWizard - Error",
 		"description": "Title line for error messages."

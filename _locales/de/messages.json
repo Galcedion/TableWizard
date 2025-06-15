@@ -119,6 +119,12 @@
 	"editorButtonPreview": {
 		"message": "Vorschau"
 	},
+	"editorButtonRestorePrevious": {
+		"message": "Letzte Version wiederherstellen"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Original wiederherstellen"
+	},
 	"errorTitle": {
 		"message": "TableWizard - Fehler"
 	},
