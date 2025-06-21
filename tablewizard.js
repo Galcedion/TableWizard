@@ -315,6 +315,69 @@ function tw_editor(dom) {
 	tweShowEditor(dom);
 }
 
+// TW cellspan (rowspan + colspan)
+function tw_cellspan(dom) {
+	dom = getParentNodeByTag(dom, ['TABLE']);
+	var userSelected = window.getSelection();
+	if(!dom.contains(userSelected.anchorNode) || userSelected.anchorNode.tagName != 'TR')
+		return;
+	var selectedList = [];
+	var colspan = 1;
+	var rowspan = 1;
+	let curColIndex = null;
+	let minColIndex = null;
+	let maxColIndex = null;
+	let rowReference = null;
+	// get the selected elements
+	// NOTE: testing indicates that the selection is already sorted by occurance in the DOM!
+	for(let i = 0; i < userSelected.rangeCount; ++i) {
+		let tmp = userSelected.getRangeAt(i);
+		tmp = tmp.startContainer.childNodes[tmp.startOffset];
+		if(curColIndex == null) {
+			curColIndex = getCellPositionIndex(tmp);
+			minColIndex = curColIndex;
+			rowReference = getParentNodeByTag(tmp, 'TR');
+		} else {
+			let tmpColIndex = getCellPositionIndex(tmp);
+			if(tmpColIndex != minColIndex && tmpColIndex != curColIndex + 1) {
+				console.log('skip within row');
+				return;
+			}
+			if(tmpColIndex == minColIndex) { // indicate new row
+				if(maxColIndex == null) {
+					maxColIndex = curColIndex;
+				} else if(maxColIndex > curColIndex) {
+					console.log('mismatch max-index');
+					return;
+				}
+				let tmpParentRow = getParentNodeByTag(tmp, 'TR');
+				if(rowReference != tmpParentRow.previousElementSibling) {
+					console.log('skip between rows');
+					return;
+				}
+				rowReference = tmpParentRow;
+				rowspan += 1;
+			}
+			curColIndex = tmpColIndex;
+			if(maxColIndex == null)
+				colspan += 1;
+		}
+		selectedList.push(tmp);
+	}
+	if(maxColIndex != null && curColIndex != maxColIndex) {
+		console.log('mismatch in col select');
+		return;
+	}
+	if(colspan == 1 && rowspan == 1)
+		return;
+	console.log('Finished');
+	selectedList[0].colSpan = colspan;
+	selectedList[0].rowSpan = rowspan;
+	for(let i = 1; i < selectedList.length; ++i) {
+		selectedList[i].style.display = 'none';
+	}
+}
+
 // TW sort by rows
 function tw_sortrows(dom, descending) {
 	dom = getParentNodeByTag(dom, ['TD', 'TH']);

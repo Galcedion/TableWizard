@@ -135,6 +135,10 @@
 		"message": "Editor",
 		"description": "Dropdown text editor."
 	},
+	"dropdownCellSpan": {
+		"message": "Merge cells",
+		"description": "Dropdown merge multiple adjacent cells."
+	},
 	"dropdownReset": {
 		"message": "Reset",
 		"description": "Reset all changes."

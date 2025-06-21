@@ -298,7 +298,7 @@ browser.menus.create({
 browser.menus.create({
 	id: 'tw_exportprint',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
-	title: browser.i18n.getMessage("dropdownexportprint"),
+	title: browser.i18n.getMessage("dropdownExportPrint"),
 	visible: true,
 	parentId: TABLEWIZARD_MENU_ITEM,
 	onclick(info, tab) {
@@ -313,13 +313,28 @@ browser.menus.create({
 browser.menus.create({
 	id: 'tw_editor',
 	contexts: TABLEWIZARD_MENU_CONTEXT,
-	title: browser.i18n.getMessage("dropdowneditor"),
+	title: browser.i18n.getMessage("dropdownEditor"),
 	visible: true,
 	parentId: TABLEWIZARD_MENU_ITEM,
 	onclick(info, tab) {
 		browser.tabs.executeScript(tab.id, {
 			frameId: info.frameId,
 			code: `tw_editor(browser.menus.getTargetElement(${info.targetElementId}));`,
+		});
+	}
+});
+
+// MENU cellspan (rowspan + colspan)
+browser.menus.create({
+	id: 'tw_cellspan',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownCellSpan"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_cellspan(browser.menus.getTargetElement(${info.targetElementId}));`,
 		});
 	}
 });

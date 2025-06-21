@@ -101,6 +101,9 @@
 	"dropdownEditor": {
 		"message": "Editor"
 	},
+	"dropdownCellSpan": {
+		"message": "Zellen verbinden"
+	},
 	"dropdownReset": {
 		"message": "Zurücksetzen"
 	},
