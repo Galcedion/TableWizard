@@ -7,7 +7,8 @@ var twAlertDialogClass = 'tw_alert_' + currentDate;
 var tweDialogClass = 'tw_editor_' + currentDate;
 var twTableSortMarker = 'tw_sort_' + currentDate;
 var tweDataOriginalId = 'tweoriginalid' + currentDate;
-var tweDataOriginalvalue = 'tweoriginalval' + currentDate;
+var tweDataOriginalValue = 'tweoriginalval' + currentDate;
+var tweCellSpanOriginalValue = 'tw_cellspan_' + currentDate;
 var twTableIndices = {};
 var highlightColor = browser.i18n.getMessage('optionsDefaultHighlightColor');
 var ignoreHTML = true;
@@ -333,6 +334,10 @@ function tw_cellspan(dom) {
 	for(let i = 0; i < userSelected.rangeCount; ++i) {
 		let tmp = userSelected.getRangeAt(i);
 		tmp = tmp.startContainer.childNodes[tmp.startOffset];
+		if(tmp.colSpan > 1 || tmp.rowSpan > 1) {
+			console.log('contains merged cols or rows');
+			return;
+		}
 		if(curColIndex == null) {
 			curColIndex = getCellPositionIndex(tmp);
 			minColIndex = curColIndex;
@@ -371,11 +376,13 @@ function tw_cellspan(dom) {
 	if(colspan == 1 && rowspan == 1)
 		return;
 	console.log('Finished');
+	selectedList[0].dataset[tweCellSpanOriginalValue] = (selectedList[0].hasAttribute("colSpan") ? selectedList[0].colSpan : 0) + ' ' + (selectedList[0].hasAttribute("rowSpan") ? selectedList[0].rowSpan : 0);
 	selectedList[0].colSpan = colspan;
 	selectedList[0].rowSpan = rowspan;
 	for(let i = 1; i < selectedList.length; ++i) {
-		selectedList[i].style.display = 'none';
+		selectedList[i].classList.add(twHiddenClass);
 	}
+	userSelected.removeAllRanges();
 }
 
 // TW sort by rows
@@ -535,9 +542,16 @@ function tw_reset(dom) {
 		highlightList[0].classList.remove(twHightlightClass);
 	}
 
-	dom.querySelectorAll('[data-' + tweDataOriginalvalue + ']').forEach((elem) => {
-		elem.innerHTML = elem.dataset[tweDataOriginalvalue];
-		elem.removeAttribute('data-' + tweDataOriginalvalue);
+	dom.querySelectorAll('[data-' + tweDataOriginalValue + ']').forEach((elem) => {
+		elem.innerHTML = elem.dataset[tweDataOriginalValue];
+		elem.removeAttribute('data-' + tweDataOriginalValue);
+	});
+
+	dom.querySelectorAll('[data-' + tweCellSpanOriginalValue + ']').forEach((elem) => {
+		let colRowSpan = elem.dataset[tweCellSpanOriginalValue].split(' ');
+		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
+		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
+		elem.removeAttribute('data-' + tweCellSpanOriginalValue);
 	});
 
 	var tableClass = null;

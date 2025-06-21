@@ -42,7 +42,7 @@ function tweHTML(dom, id) {
 	</div>\
 	<div style="' + style_flex_elem + '">\
 	<input type="button" onclick="' + js_restore_previous + '" data-storage="' + dom.innerHTML + '" value="' + browser.i18n.getMessage("editorButtonRestorePrevious") + '">\
-	<input type="button" onclick="' + js_restore_original + '" data-storage="' + dom.dataset[tweDataOriginalvalue] + '" value="' + browser.i18n.getMessage("editorButtonRestoreOriginal") + '">\
+	<input type="button" onclick="' + js_restore_original + '" data-storage="' + dom.dataset[tweDataOriginalValue] + '" value="' + browser.i18n.getMessage("editorButtonRestoreOriginal") + '">\
 	</div>\
 	</div>\
 	<textarea id="twe_c_' + id + '" rows="5">' + dom.innerHTML + '</textarea>\
@@ -57,8 +57,8 @@ function tweHTML(dom, id) {
 // display editor
 function tweShowEditor(dom) {
 	var id = 0;
-	if(!dom.hasAttribute('data-' + tweDataOriginalvalue)) {
-		dom.dataset[tweDataOriginalvalue] = dom.innerHTML;
+	if(!dom.hasAttribute('data-' + tweDataOriginalValue)) {
+		dom.dataset[tweDataOriginalValue] = dom.innerHTML;
 	}
 	if(!dom.hasAttribute('id')) {
 		dom.dataset[tweDataOriginalId] = false;
