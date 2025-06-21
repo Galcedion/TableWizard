@@ -320,8 +320,10 @@ function tw_editor(dom) {
 function tw_cellspan(dom) {
 	dom = getParentNodeByTag(dom, ['TABLE']);
 	var userSelected = window.getSelection();
-	if(!dom.contains(userSelected.anchorNode) || userSelected.anchorNode.tagName != 'TR')
+	if(!dom.contains(userSelected.anchorNode) || userSelected.anchorNode.tagName != 'TR') {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanNoSelect"));
 		return;
+	}
 	var selectedList = [];
 	var colspan = 1;
 	var rowspan = 1;
@@ -335,7 +337,7 @@ function tw_cellspan(dom) {
 		let tmp = userSelected.getRangeAt(i);
 		tmp = tmp.startContainer.childNodes[tmp.startOffset];
 		if(tmp.colSpan > 1 || tmp.rowSpan > 1) {
-			console.log('contains merged cols or rows');
+			showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanAlreadyMerged"));
 			return;
 		}
 		if(curColIndex == null) {
@@ -345,19 +347,19 @@ function tw_cellspan(dom) {
 		} else {
 			let tmpColIndex = getCellPositionIndex(tmp);
 			if(tmpColIndex != minColIndex && tmpColIndex != curColIndex + 1) {
-				console.log('skip within row');
+				showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanCantMerge"));
 				return;
 			}
 			if(tmpColIndex == minColIndex) { // indicate new row
 				if(maxColIndex == null) {
 					maxColIndex = curColIndex;
 				} else if(maxColIndex > curColIndex) {
-					console.log('mismatch max-index');
+					showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanCantMerge"));
 					return;
 				}
 				let tmpParentRow = getParentNodeByTag(tmp, 'TR');
 				if(rowReference != tmpParentRow.previousElementSibling) {
-					console.log('skip between rows');
+					showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanCantMerge"));
 					return;
 				}
 				rowReference = tmpParentRow;
@@ -370,12 +372,11 @@ function tw_cellspan(dom) {
 		selectedList.push(tmp);
 	}
 	if(maxColIndex != null && curColIndex != maxColIndex) {
-		console.log('mismatch in col select');
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanCantMerge"));
 		return;
 	}
 	if(colspan == 1 && rowspan == 1)
 		return;
-	console.log('Finished');
 	selectedList[0].dataset[tweCellSpanOriginalValue] = (selectedList[0].hasAttribute("colSpan") ? selectedList[0].colSpan : 0) + ' ' + (selectedList[0].hasAttribute("rowSpan") ? selectedList[0].rowSpan : 0);
 	selectedList[0].colSpan = colspan;
 	selectedList[0].rowSpan = rowspan;

@@ -151,5 +151,14 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Die Einstellungen konnten nicht gespeichert werden. Bitte prüfen Sie, ob Ihre Eingaben korrekt sind!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Keine Zellen ausgewählt. Um Zellen auszuwählen, halten Sie \"Strg\" gedrückt und klicken einzelne Zellen an oder ziehen einen Bereich mit der linken Maustaste."
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "Die Auswahl enthält verbundene Zellen! Eine verschachtelte Verbindung wird derzeit nicht unterstützt."
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Aus der Auswahl kann keine verbundene Zelle geschaffen werden. Es muss eine zusammenhängende rechteckige Auswahl getroffen werden."
 	}
 }

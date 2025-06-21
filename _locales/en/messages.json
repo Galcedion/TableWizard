@@ -202,5 +202,17 @@
 	"errorOptionsInvalid": {
 		"message": "Unable to save settings. Please check if your input data is correct!",
 		"description": "Error message: Settings not saved because of invalid values."
+	},
+	"errorCellSpanNoSelect": {
+		"message": "No cells selected. To select cells, hold \"Ctrl\" and click on individual cells or draw a square with the left mouse button.",
+		"description": "Error message: No cells have been selected for merge."
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "The selection contains merged cells! A nested merging is currently not supported.",
+		"description": "Error message: Merged cells within merge area."
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Can't create merged cell from selection. A continuous rectangular area has to be selected.",
+		"description": "Error message: Issues in selection for merging cells."
 	}
 }
