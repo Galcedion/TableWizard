@@ -104,6 +104,9 @@
 	"dropdownCellSpan": {
 		"message": "Zellen verbinden"
 	},
+	"dropdownCellSplit": {
+		"message": "Zellen trennen"
+	},
 	"dropdownReset": {
 		"message": "Zurücksetzen"
 	},
@@ -160,5 +163,8 @@
 	},
 	"errorCellSpanCantMerge": {
 		"message": "Aus der Auswahl kann keine verbundene Zelle geschaffen werden. Es muss eine zusammenhängende rechteckige Auswahl getroffen werden."
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Keine verbundene Zelle ausgewählt."
 	}
 }

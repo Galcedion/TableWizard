@@ -339,6 +339,21 @@ browser.menus.create({
 	}
 });
 
+// MENU cellsplit
+browser.menus.create({
+	id: 'tw_cellsplit',
+	contexts: TABLEWIZARD_MENU_CONTEXT,
+	title: browser.i18n.getMessage("dropdownCellSplit"),
+	visible: true,
+	parentId: TABLEWIZARD_MENU_ITEM,
+	onclick(info, tab) {
+		browser.tabs.executeScript(tab.id, {
+			frameId: info.frameId,
+			code: `tw_cellsplit(browser.menus.getTargetElement(${info.targetElementId}));`,
+		});
+	}
+});
+
 // MENU spacer rowreset
 browser.menus.create({
 	id: 'tw_spacer_rowreset',

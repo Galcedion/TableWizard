@@ -9,6 +9,8 @@ var twTableSortMarker = 'tw_sort_' + currentDate;
 var tweDataOriginalId = 'tweoriginalid' + currentDate;
 var tweDataOriginalValue = 'tweoriginalval' + currentDate;
 var tweCellSpanOriginalValue = 'tw_cellspan_' + currentDate;
+var tweCellSplitOriginalValue = 'tw_cellsplit_' + currentDate;
+var twInjectedCellClass = 'tw_ic_' + currentDate;
 var twTableIndices = {};
 var highlightColor = browser.i18n.getMessage('optionsDefaultHighlightColor');
 var ignoreHTML = true;
@@ -386,6 +388,43 @@ function tw_cellspan(dom) {
 	userSelected.removeAllRanges();
 }
 
+// TW cellsplit
+function tw_cellsplit(dom) {
+	dom = getParentNodeByTag(dom, ['TD', 'TH']);
+	if(dom === false) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
+		return;
+	}
+	if(!(dom.colSpan > 1) && !(dom.rowSpan > 1)) {
+		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanCantMerge"));
+		return;
+	}
+	var colspan = dom.colSpan;
+	var rowspan = dom.rowSpan;
+	var index = getCellPositionIndex(dom);
+	dom.dataset[tweCellSplitOriginalValue] = (dom.hasAttribute("colSpan") ? dom.colSpan : 0) + ' ' + (dom.hasAttribute("rowSpan") ? dom.rowSpan : 0);
+	dom.colSpan = 1;
+	dom.rowSpan = 1;
+	let curRow = null;
+	let firstCell = null;
+	for(let row = 0; row < rowspan; ++row) {
+		let col = 1;
+		if(curRow == null) {
+			curRow = getParentNodeByTag(dom, ['TR']);
+			firstCell = getCellByIndex(curRow, index);
+		} else {
+			curRow = curRow.nextElementSibling;
+			firstCell = getCellByIndex(curRow, index - 1);
+			col = 0;
+		}
+		for(col; col < colspan; ++col) {
+			let tmp = document.createElement(dom.tagName);
+			tmp.classList.add(twInjectedCellClass);
+			firstCell.parentNode.insertBefore(tmp, firstCell.nextSibling);
+		}
+	}
+}
+
 // TW sort by rows
 function tw_sortrows(dom, descending) {
 	dom = getParentNodeByTag(dom, ['TD', 'TH']);
@@ -543,6 +582,11 @@ function tw_reset(dom) {
 		highlightList[0].classList.remove(twHightlightClass);
 	}
 
+	var injectedCellList = dom.getElementsByClassName(twInjectedCellClass);
+	while(injectedCellList.length > 0) {
+		injectedCellList[0].remove();
+	}
+
 	dom.querySelectorAll('[data-' + tweDataOriginalValue + ']').forEach((elem) => {
 		elem.innerHTML = elem.dataset[tweDataOriginalValue];
 		elem.removeAttribute('data-' + tweDataOriginalValue);
@@ -553,6 +597,13 @@ function tw_reset(dom) {
 		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
 		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
 		elem.removeAttribute('data-' + tweCellSpanOriginalValue);
+	});
+
+	dom.querySelectorAll('[data-' + tweCellSplitOriginalValue + ']').forEach((elem) => {
+		let colRowSpan = elem.dataset[tweCellSplitOriginalValue].split(' ');
+		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
+		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
+		elem.removeAttribute('data-' + tweCellSplitOriginalValue);
 	});
 
 	var tableClass = null;

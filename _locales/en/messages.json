@@ -139,6 +139,10 @@
 		"message": "Merge cells",
 		"description": "Dropdown merge multiple adjacent cells."
 	},
+	"dropdownCellSplit": {
+		"message": "Split cells",
+		"description": "Dropdown split a merged cell into multiple cells."
+	},
 	"dropdownReset": {
 		"message": "Reset",
 		"description": "Reset all changes."
@@ -214,5 +218,9 @@
 	"errorCellSpanCantMerge": {
 		"message": "Can't create merged cell from selection. A continuous rectangular area has to be selected.",
 		"description": "Error message: Issues in selection for merging cells."
+	},
+	"errorCellSplitCantSplit": {
+		"message": "No merged cell selected.",
+		"description": "Error message: The cell needs to be merged (colspan and / or rowspan)."
 	}
 }
