@@ -2,7 +2,7 @@
 function tweHTML(dom, id) {
 	// defile editor stlyes
 	let style_button = 'padding:0.5em;font-weight:bold;margin:0 auto;';
-	let style_preview = 'height:5rem;border:1px black solid;display:none;';
+	let style_preview = 'height:inherit;border:1px black solid;display:none;background-color:#eee;overflow:scroll;';
 	let style_flex_elem = 'flex-basis:0;flex-grow:1;';
 	// define editor JS
 	let js_success = 'let twesuccess = document.getElementById(\'' + dom.id + '\');\
@@ -40,13 +40,15 @@ function tweHTML(dom, id) {
 	<input type="button" onclick="' + js_editmode + '" value="' + browser.i18n.getMessage("editorButtonEdit") + '">\
 	<input type="button" onclick="' + js_previewmode + '" value="' + browser.i18n.getMessage("editorButtonPreview") + '">\
 	</div>\
-	<div style="' + style_flex_elem + '">\
+	<div style="' + style_flex_elem + 'text-align:right;">\
 	<input type="button" onclick="' + js_restore_previous + '" data-storage="' + dom.innerHTML + '" value="' + browser.i18n.getMessage("editorButtonRestorePrevious") + '">\
 	<input type="button" onclick="' + js_restore_original + '" data-storage="' + dom.dataset[tweDataOriginalValue] + '" value="' + browser.i18n.getMessage("editorButtonRestoreOriginal") + '">\
 	</div>\
 	</div>\
-	<textarea id="twe_c_' + id + '" rows="5">' + dom.innerHTML + '</textarea>\
+	<div style="height:5em;">\
+	<textarea id="twe_c_' + id + '" rows="5" style="resize:none;">' + dom.innerHTML + '</textarea>\
 	<div id="twe_pv_' + id + '" style="' + style_preview + '">' + dom.innerHTML + '</div>\
+	</div>\
 	<p style="display:flex;">\
 	<input type="button" style="' + style_button + '" onclick="' + js_success + 'document.getElementById(\'twe_' + id + '\').remove();" value="' + browser.i18n.getMessage("editorButtonSave") + '">\
 	<input type="button" style="' + style_button + '" onclick="document.getElementById(\'twe_' + id + '\').remove();" value="' + browser.i18n.getMessage("editorButtonCancel") + '">\

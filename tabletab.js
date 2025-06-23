@@ -61,7 +61,7 @@ function showError(errorTitle, errorMessage) {
 	dialog.style.background = "white";
 	dialog.style.border = "0";
 	dialog.style.borderRadius = "1em";
-	dialog.style.boxShadow = "0 0 0.5em 0.5em crimson";
+	dialog.style.boxShadow = "inset 0 0 0.5em 0.5em crimson";
 	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
 	<hr>\
 	<p>' + errorMessage + '</p>';

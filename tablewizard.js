@@ -35,8 +35,9 @@ function tw_attach() {
 	var injectCSS = document.createElement('style');
 	injectCSS.type = 'text/css';
 	injectCSS.textContent = '.' + twHiddenClass + '{display: none !important; }\
-	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em crimson;}\
-	.' + tweDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 50em; background-color: white; border: 0; border-radius: 1em; box-shadow: 0 0 0.5em 0.5em gray;}\
+	.' + twAlertDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 20em; background-color: white; border: 0; border-radius: 1em; box-shadow: inset 0 0 0.5em 0.25em crimson;}\
+	.' + tweDialogClass + '{position: fixed; z-index: 100; top: calc(50% - 5em); padding: 0.5em 1em; width: 50em; background-color: white; border: 0; border-radius: 1em; box-shadow: inset 0 0 0.5em 0.25em gray;}\
+	.' + tweDialogClass + '>div{margin: 0.25em 0;}\
 	@media print {.' + twPrintHiddenClass + ' {display: none!important; }}\
 	.' + twGridClass + ' tr:nth-child(even),.' + twGridClass + ' td:nth-child(even) {background-color: #AAA5; }\
 	.' + twHightlightClass + '{background-color: ' + highlightColor + ' !important; }';
@@ -188,7 +189,7 @@ function showError(errorTitle, errorMessage) {
 	dialog.id = 'tw_err' + id;
 	dialog.open = true;
 	dialog.classList.add(twAlertDialogClass);
-	dialog.innerHTML = '<h3>' + errorTitle + '</h3>\
+	dialog.innerHTML = '<h3 style="text-align:center;">' + errorTitle + '</h3>\
 	<hr>\
 	<p style="text-align:justify;">' + errorMessage + '</p>\
 	<p style="text-align:center;"><input type="button" style="padding:0.5em;font-weight:bold;" onclick="document.getElementById(\'tw_err' + id + '\').remove();" value="' + browser.i18n.getMessage("errorButton") + '"></p>';
@@ -592,18 +593,18 @@ function tw_reset(dom) {
 		elem.removeAttribute('data-' + tweDataOriginalValue);
 	});
 
-	dom.querySelectorAll('[data-' + tweCellSpanOriginalValue + ']').forEach((elem) => {
-		let colRowSpan = elem.dataset[tweCellSpanOriginalValue].split(' ');
-		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
-		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
-		elem.removeAttribute('data-' + tweCellSpanOriginalValue);
-	});
-
 	dom.querySelectorAll('[data-' + tweCellSplitOriginalValue + ']').forEach((elem) => {
 		let colRowSpan = elem.dataset[tweCellSplitOriginalValue].split(' ');
 		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
 		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
 		elem.removeAttribute('data-' + tweCellSplitOriginalValue);
+	});
+
+	dom.querySelectorAll('[data-' + tweCellSpanOriginalValue + ']').forEach((elem) => {
+		let colRowSpan = elem.dataset[tweCellSpanOriginalValue].split(' ');
+		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
+		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
+		elem.removeAttribute('data-' + tweCellSpanOriginalValue);
 	});
 
 	var tableClass = null;
