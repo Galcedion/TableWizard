@@ -576,11 +576,17 @@ function tw_reset(dom) {
 	dom.classList.remove(twGridClass);
 	var hiddenList = dom.getElementsByClassName(twHiddenClass);
 	while(hiddenList.length > 0) {
-		hiddenList[0].classList.remove(twHiddenClass);
+		if(hiddenList[0].classList.length == 1)
+			hiddenList[0].removeAttribute('class');
+		else
+			hiddenList[0].classList.remove(twHiddenClass);
 	}
 	var highlightList = dom.getElementsByClassName(twHightlightClass);
 	while(highlightList.length > 0) {
-		highlightList[0].classList.remove(twHightlightClass);
+		if(highlightList[0].classList.length == 1)
+			highlightList[0].removeAttribute('class');
+		else
+			highlightList[0].classList.remove(twHightlightClass);
 	}
 
 	var injectedCellList = dom.getElementsByClassName(twInjectedCellClass);
@@ -611,7 +617,10 @@ function tw_reset(dom) {
 	for(let i = 0; i < dom.classList.length; ++i) {
 		if(dom.classList[i].includes(twTableSortMarker)) {
 			tableClass = dom.classList[i];
-			dom.classList.remove(tableClass);
+			if(dom.classList.length == 1)
+				dom.removeAttribute('class');
+			else
+				dom.classList.remove(tableClass);
 			break;
 		}
 	}
