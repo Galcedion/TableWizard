@@ -8,8 +8,8 @@ var tweDialogClass = 'tw_editor_' + currentDate;
 var twTableSortMarker = 'tw_sort_' + currentDate;
 var tweDataOriginalId = 'tweoriginalid' + currentDate;
 var tweDataOriginalValue = 'tweoriginalval' + currentDate;
-var tweCellSpanOriginalValue = 'tw_cellspan_' + currentDate;
-var tweCellSplitOriginalValue = 'tw_cellsplit_' + currentDate;
+var twCellSpanOriginalValue = 'tw_cellspan_' + currentDate;
+var twCellSplitOriginalValue = 'tw_cellsplit_' + currentDate;
 var twInjectedCellClass = 'tw_ic_' + currentDate;
 var twTableIndices = {};
 var highlightColor = browser.i18n.getMessage('optionsDefaultHighlightColor');
@@ -177,6 +177,33 @@ function getSelectedText(input) {
 	if(tmp.length > 0)
 		return tmp;
 	return input;
+}
+
+// make cells within a subsection visible that have been hidden by TW
+function showHiddenGrid(dom, cs, rs) {
+	let colRowSpan = dom.dataset[twCellSpanOriginalValue].split(' ');
+	colRowSpan[0] == 0 ? dom.removeAttribute('colSpan') : dom.colSpan = colRowSpan[0];
+	colRowSpan[1] == 0 ? dom.removeAttribute('rowSpan') : dom.rowSpan = colRowSpan[1];
+	dom.removeAttribute('data-' + twCellSpanOriginalValue);
+	var index = getCellPositionIndex(dom);
+	let curRow = null;
+	let hiddenCell = null;
+	for(let row = 0; row < rs; ++row) {
+		let col = 1;
+		if(curRow == null) {
+			curRow = getParentNodeByTag(dom, ['TR']);
+			hiddenCell = getCellByIndex(curRow, index + 1);
+		} else {
+			curRow = curRow.nextElementSibling;
+			hiddenCell = getCellByIndex(curRow, index);
+			col = 0;
+		}
+		for(col; col < cs; ++col) {
+			hiddenCell.classList.length == 1 ? hiddenCell.removeAttribute('class') : hiddenCell.classList.remove(twHiddenClass);
+			if(col + 1 < cs)
+				hiddenCell = hiddenCell.nextElementSibling;
+		}
+	}
 }
 
 // display error messages
@@ -380,7 +407,7 @@ function tw_cellspan(dom) {
 	}
 	if(colspan == 1 && rowspan == 1)
 		return;
-	selectedList[0].dataset[tweCellSpanOriginalValue] = (selectedList[0].hasAttribute("colSpan") ? selectedList[0].colSpan : 0) + ' ' + (selectedList[0].hasAttribute("rowSpan") ? selectedList[0].rowSpan : 0);
+	selectedList[0].dataset[twCellSpanOriginalValue] = (selectedList[0].hasAttribute("colSpan") ? selectedList[0].colSpan : 0) + ' ' + (selectedList[0].hasAttribute("rowSpan") ? selectedList[0].rowSpan : 0);
 	selectedList[0].colSpan = colspan;
 	selectedList[0].rowSpan = rowspan;
 	for(let i = 1; i < selectedList.length; ++i) {
@@ -396,6 +423,9 @@ function tw_cellsplit(dom) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorNoCellFound"));
 		return;
 	}
+	if(dom.hasAttribute('data-' + twCellSpanOriginalValue)) {
+		return showHiddenGrid(dom, dom.colSpan, dom.rowSpan);
+	}
 	if(!(dom.colSpan > 1) && !(dom.rowSpan > 1)) {
 		showError(browser.i18n.getMessage("errorTitle"), browser.i18n.getMessage("errorCellSpanCantMerge"));
 		return;
@@ -403,7 +433,7 @@ function tw_cellsplit(dom) {
 	var colspan = dom.colSpan;
 	var rowspan = dom.rowSpan;
 	var index = getCellPositionIndex(dom);
-	dom.dataset[tweCellSplitOriginalValue] = (dom.hasAttribute("colSpan") ? dom.colSpan : 0) + ' ' + (dom.hasAttribute("rowSpan") ? dom.rowSpan : 0);
+	dom.dataset[twCellSplitOriginalValue] = (dom.hasAttribute("colSpan") ? dom.colSpan : 0) + ' ' + (dom.hasAttribute("rowSpan") ? dom.rowSpan : 0);
 	dom.colSpan = 1;
 	dom.rowSpan = 1;
 	let curRow = null;
@@ -599,18 +629,18 @@ function tw_reset(dom) {
 		elem.removeAttribute('data-' + tweDataOriginalValue);
 	});
 
-	dom.querySelectorAll('[data-' + tweCellSplitOriginalValue + ']').forEach((elem) => {
-		let colRowSpan = elem.dataset[tweCellSplitOriginalValue].split(' ');
+	dom.querySelectorAll('[data-' + twCellSplitOriginalValue + ']').forEach((elem) => {
+		let colRowSpan = elem.dataset[twCellSplitOriginalValue].split(' ');
 		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
 		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
-		elem.removeAttribute('data-' + tweCellSplitOriginalValue);
+		elem.removeAttribute('data-' + twCellSplitOriginalValue);
 	});
 
-	dom.querySelectorAll('[data-' + tweCellSpanOriginalValue + ']').forEach((elem) => {
-		let colRowSpan = elem.dataset[tweCellSpanOriginalValue].split(' ');
+	dom.querySelectorAll('[data-' + twCellSpanOriginalValue + ']').forEach((elem) => {
+		let colRowSpan = elem.dataset[twCellSpanOriginalValue].split(' ');
 		colRowSpan[0] == 0 ? elem.removeAttribute('colSpan') : elem.colSpan = colRowSpan[0];
 		colRowSpan[1] == 0 ? elem.removeAttribute('rowSpan') : elem.rowSpan = colRowSpan[1];
-		elem.removeAttribute('data-' + tweCellSpanOriginalValue);
+		elem.removeAttribute('data-' + twCellSpanOriginalValue);
 	});
 
 	var tableClass = null;
