@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Imprimir tabla"
 	},
+	"dropdownEditor": {
+		"message": "Editor"
+	},
+	"dropdownCellSpan": {
+		"message": "Células de fusión"
+	},
+	"dropdownCellSplit": {
+		"message": "Células divididas"
+	},
 	"dropdownReset": {
 		"message": "Reset"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Guardar"
+	},
+	"editorButtonCancel": {
+		"message": "Cancelar"
+	},
+	"editorButtonEdit": {
+		"message": "Editar texto"
+	},
+	"editorButtonPreview": {
+		"message": "Vista previa"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Restaurar anterior"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Restaurar original"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Error"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Incapaz de guardar la configuración. Por favor, compruebe si sus datos de entrada son correctos!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "No hay células seleccionadas. Para seleccionar las celdas, mantenga \"Ctrl\" y haga clic en las celdas individuales o dibujar una plaza con el botón izquierdo del ratón.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "¡La selección contiene células fusionadas! Actualmente no se admite una fusión anida.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "No puedo crear células fusionadas de la selección. Hay que seleccionar un área rectangular continua.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "No hay celda fusionada seleccionada.",
 	}
 }

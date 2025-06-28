@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "プリントテーブル"
 	},
+	"dropdownEditor": {
+		"message": "編集者"
+	},
+	"dropdownCellSpan": {
+		"message": "マージセル"
+	},
+	"dropdownCellSplit": {
+		"message": "スプリットセル"
+	},
 	"dropdownReset": {
 		"message": "リセット"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "保存する"
+	},
+	"editorButtonCancel": {
+		"message": "キャンセル"
+	},
+	"editorButtonEdit": {
+		"message": "テキストの編集"
+	},
+	"editorButtonPreview": {
+		"message": "プレビュー"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "前の復元"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "オリジナルを復元"
 	},
 	"errorTitle": {
 		"message": "TableWizard - エラー"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "設定を保存できません。 入力データが正しいかご確認ください!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "選択される細胞無し。 セルを選択するには、\"Ctrl\" を押し、個々のセルをクリックするか、左のマウスボタンで四角を描画します.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "選択はマージされた細胞を含んでいます! ネストされたマージは現在サポートされていません.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "選択からマージセルを作成できません。 連続的な長方形区域は選ばれなければなりません.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "結合された細胞は選ばれません.",
 	}
 }

@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Skrivbord"
 	},
+	"dropdownEditor": {
+		"message": "Redaktör"
+	},
+	"dropdownCellSpan": {
+		"message": "Sammanslagna celler"
+	},
+	"dropdownCellSplit": {
+		"message": "Split celler"
+	},
 	"dropdownReset": {
 		"message": "Återställ"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Spara"
+	},
+	"editorButtonCancel": {
+		"message": "Avbokning"
+	},
+	"editorButtonEdit": {
+		"message": "Redigera text"
+	},
+	"editorButtonPreview": {
+		"message": "Förhandsgranskning"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Återställ tidigare"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Återställ original"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Fel"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Kan inte spara inställningar. Kontrollera om dina indata är korrekt!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Inga celler valda. För att välja celler, håll \"Ctrl\" och klicka på enskilda celler eller dra en fyrkant med vänster musknappen.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "Urvalet innehåller sammanslagna celler! En kapslad sammanslagning stöds för närvarande inte.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Kan inte skapa sammanslagen cell från urval. Ett kontinuerligt rektangulärt område måste väljas.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Ingen fusionerad cell vald.",
 	}
 }

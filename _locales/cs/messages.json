@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Vytisknout tabulku"
 	},
+	"dropdownEditor": {
+		"message": "Editor"
+	},
+	"dropdownCellSpan": {
+		"message": "Sloučené články"
+	},
+	"dropdownCellSplit": {
+		"message": "Rozdělené články"
+	},
 	"dropdownReset": {
 		"message": "Obnovit"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Uložit"
+	},
+	"editorButtonCancel": {
+		"message": "Zrušit"
+	},
+	"editorButtonEdit": {
+		"message": "Upravit text"
+	},
+	"editorButtonPreview": {
+		"message": "Náhled"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Obnovit předchozí"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Obnovit originál"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Chyba"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Nelze uložit nastavení. Zkontrolujte prosím, zda jsou vaše vstupní data správná!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Žádné zvolené buňky. Chcete-li vybrat buňky, podržte \"Ctrl\" a klikněte na jednotlivé buňky nebo nakreslit čtverec levým tlačítkem myši.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "Výběr obsahuje sloučené buňky! V současné době není podporováno spojení.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Nelze vytvořit sloučenou buňku z výběru. Musí být vybrána souvislá obdélníková plocha.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Není zvolena žádná sloučená buňka.",
 	}
 }

@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Друк таблиці"
 	},
+	"dropdownEditor": {
+		"message": "Редакція"
+	},
+	"dropdownCellSpan": {
+		"message": "Клітинки"
+	},
+	"dropdownCellSplit": {
+		"message": "Спліт клітин"
+	},
 	"dropdownReset": {
 		"message": "Зареєструватися"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Зберегти"
+	},
+	"editorButtonCancel": {
+		"message": "Зареєструватися"
+	},
+	"editorButtonEdit": {
+		"message": "Редагувати текст"
+	},
+	"editorButtonPreview": {
+		"message": "Огляд"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Відновити попередній"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Відновити оригінальний"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Помилка"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Неможливо зберегти налаштування. Будь ласка, перевірте, чи правильні дані вводу!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Немає клітин, вибраних. Щоб вибрати клітинки, утримуйте \"Ctrl\" і натисніть на окремі клітинки або намалюйте квадрат з лівою кнопкою миші.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "Підбір містить об'єднані клітинки! В даний час не підтримується непристойна буріння.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Не можна створювати об'єднані клітинки від вибору. Неперервна прямокутна зона повинна бути вибрана.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Немає вибраних комірок.",
 	}
 }

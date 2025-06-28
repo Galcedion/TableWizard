@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Печатный стол"
 	},
+	"dropdownEditor": {
+		"message": "Редактор"
+	},
+	"dropdownCellSpan": {
+		"message": "Слияние клеток"
+	},
+	"dropdownCellSplit": {
+		"message": "Разделяемые клетки"
+	},
 	"dropdownReset": {
 		"message": "Сброс"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Спасти"
+	},
+	"editorButtonCancel": {
+		"message": "Отменить"
+	},
+	"editorButtonEdit": {
+		"message": "Редактировать текст"
+	},
+	"editorButtonPreview": {
+		"message": "Предварительный просмотр"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Восстановить предыдущие"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Восстановить оригинал"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Ошибка"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Не удается сохранить настройки. Пожалуйста, проверьте, правильны ли ваши входные данные!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Клетки не выбраны. Чтобы выбрать ячейки, удерживайте \"Ctrl\" и нажмите на отдельные ячейки или нарисуйте квадрат левой кнопкой мыши.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "Выбор содержит слитые клетки! В настоящее время не поддерживается вложенное слияние.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Нельзя создать слитую ячейку из отбора. Должна быть выбрана непрерывная прямоугольная область.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Не выбрана объединенная ячейка.",
 	}
 }

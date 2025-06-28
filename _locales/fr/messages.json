@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Tableau d'impression"
 	},
+	"dropdownEditor": {
+		"message": "Éditeur"
+	},
+	"dropdownCellSpan": {
+		"message": "Fusionner les cellules"
+	},
+	"dropdownCellSplit": {
+		"message": "Cellule fractionnées"
+	},
 	"dropdownReset": {
 		"message": "Réinitialiser"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Enregistrer"
+	},
+	"editorButtonCancel": {
+		"message": "Annuler"
+	},
+	"editorButtonEdit": {
+		"message": "Modifier le texte"
+	},
+	"editorButtonPreview": {
+		"message": "Aperçu"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Restaurer le précédent"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Rétablir l'original"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Erreur"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Impossible d'enregistrer les paramètres. Veuillez vérifier si vos données d'entrée sont correctes!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Aucune cellule sélectionnée. Pour sélectionner les cellules, maintenez \"Ctrl\" et cliquez sur les cellules individuelles ou dessinez un carré avec le bouton gauche de la souris.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "La sélection contient des cellules fusionnées ! Une fusion imbriquée n'est actuellement pas prise en charge.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Impossible de créer une cellule fusionnée à partir de la sélection. Une zone rectangulaire continue doit être sélectionnée.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Aucune cellule fusionnée sélectionnée.",
 	}
 }

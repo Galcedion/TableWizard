@@ -99,8 +99,38 @@
 	"dropdownExportPrint": {
 		"message": "Tabela wydruku"
 	},
+	"dropdownEditor": {
+		"message": "Edytor"
+	},
+	"dropdownCellSpan": {
+		"message": "Komórki łączące"
+	},
+	"dropdownCellSplit": {
+		"message": "Rozdzielone komórki"
+	},
 	"dropdownReset": {
 		"message": "Reset"
+	},
+	"editorTitle": {
+		"message": "TableWizard"
+	},
+	"editorButtonSave": {
+		"message": "Zapisz"
+	},
+	"editorButtonCancel": {
+		"message": "Anuluj"
+	},
+	"editorButtonEdit": {
+		"message": "Edytuj tekst"
+	},
+	"editorButtonPreview": {
+		"message": "Podgląd"
+	},
+	"editorButtonRestorePrevious": {
+		"message": "Przywróć poprzedni"
+	},
+	"editorButtonRestoreOriginal": {
+		"message": "Przywróć oryginał"
 	},
 	"errorTitle": {
 		"message": "TableWizard - Błąd"
@@ -125,5 +155,17 @@
 	},
 	"errorOptionsInvalid": {
 		"message": "Nie można zapisać ustawień. Proszę sprawdzić, czy dane wejściowe są poprawne!"
+	},
+	"errorCellSpanNoSelect": {
+		"message": "Nie wybrano komórek. Aby wybrać komórki, przytrzymaj \"Ctrl\" i kliknij na poszczególne komórki lub narysuj kwadrat lewym przyciskiem myszy.",
+	},
+	"errorCellSpanAlreadyMerged": {
+		"message": "Wybór zawiera połączone komórki! Zagnieżdżone połączenie nie jest obecnie obsługiwane.",
+	},
+	"errorCellSpanCantMerge": {
+		"message": "Nie można utworzyć połączonej komórki z wyboru. Należy wybrać ciągły obszar prostokątny.",
+	},
+	"errorCellSplitCantSplit": {
+		"message": "Nie wybrano połączonej komórki.",
 	}
 }
