@@ -6,6 +6,8 @@ Firefox AddOn for live manipulation of HTML tables
 - create visual grid inside the table
 - delete rows (either single row or multiple depending on exact or partial matches in the target cell)
 - delete columns (either single column or multiple depending on exact or partial matches in the target cell)
+- split and merge cells
+- editor to change cell content
 - export table to new tab or print the table itself
 - each table is managed separately
 - all changes are temporary and can be reverted without page reload

@@ -2,6 +2,25 @@
 
 Version changelog for TableWizard.
 
+## 1.3 - 30.06.2025
+
+### Quality of Life
+
+- Improved visuals for dialog popups.
+- Unified CSS injections. (less overhead)
+
+### Added
+
+#### Capabilities
+
+- Editor to edit cell content.
+- Merge cells.
+- Split merged cells.
+
+### Fixes
+
+- Fixing a cleanup issue where empty class attributes would remain.
+
 ## 1.2 - 18.10.2024
 
 ### Quality of Life
