@@ -157,15 +157,15 @@
 		"message": "Kan inte spara inställningar. Kontrollera om dina indata är korrekt!"
 	},
 	"errorCellSpanNoSelect": {
-		"message": "Inga celler valda. För att välja celler, håll \"Ctrl\" och klicka på enskilda celler eller dra en fyrkant med vänster musknappen.",
+		"message": "Inga celler valda. För att välja celler, håll \"Ctrl\" och klicka på enskilda celler eller dra en fyrkant med vänster musknappen."
 	},
 	"errorCellSpanAlreadyMerged": {
-		"message": "Urvalet innehåller sammanslagna celler! En kapslad sammanslagning stöds för närvarande inte.",
+		"message": "Urvalet innehåller sammanslagna celler! En kapslad sammanslagning stöds för närvarande inte."
 	},
 	"errorCellSpanCantMerge": {
-		"message": "Kan inte skapa sammanslagen cell från urval. Ett kontinuerligt rektangulärt område måste väljas.",
+		"message": "Kan inte skapa sammanslagen cell från urval. Ett kontinuerligt rektangulärt område måste väljas."
 	},
 	"errorCellSplitCantSplit": {
-		"message": "Ingen fusionerad cell vald.",
+		"message": "Ingen fusionerad cell vald."
 	}
 }

@@ -157,15 +157,15 @@
 		"message": "Impossible d'enregistrer les paramètres. Veuillez vérifier si vos données d'entrée sont correctes!"
 	},
 	"errorCellSpanNoSelect": {
-		"message": "Aucune cellule sélectionnée. Pour sélectionner les cellules, maintenez \"Ctrl\" et cliquez sur les cellules individuelles ou dessinez un carré avec le bouton gauche de la souris.",
+		"message": "Aucune cellule sélectionnée. Pour sélectionner les cellules, maintenez \"Ctrl\" et cliquez sur les cellules individuelles ou dessinez un carré avec le bouton gauche de la souris."
 	},
 	"errorCellSpanAlreadyMerged": {
-		"message": "La sélection contient des cellules fusionnées ! Une fusion imbriquée n'est actuellement pas prise en charge.",
+		"message": "La sélection contient des cellules fusionnées ! Une fusion imbriquée n'est actuellement pas prise en charge."
 	},
 	"errorCellSpanCantMerge": {
-		"message": "Impossible de créer une cellule fusionnée à partir de la sélection. Une zone rectangulaire continue doit être sélectionnée.",
+		"message": "Impossible de créer une cellule fusionnée à partir de la sélection. Une zone rectangulaire continue doit être sélectionnée."
 	},
 	"errorCellSplitCantSplit": {
-		"message": "Aucune cellule fusionnée sélectionnée.",
+		"message": "Aucune cellule fusionnée sélectionnée."
 	}
 }

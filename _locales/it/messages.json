@@ -157,15 +157,15 @@
 		"message": "Non è possibile salvare le impostazioni. Si prega di verificare se i dati di input sono corretti!"
 	},
 	"errorCellSpanNoSelect": {
-		"message": "Nessuna cella selezionata. Per selezionare le celle, tenere \"Ctrl\" e fare clic su singole celle o disegnare un quadrato con il pulsante sinistro del mouse.",
+		"message": "Nessuna cella selezionata. Per selezionare le celle, tenere \"Ctrl\" e fare clic su singole celle o disegnare un quadrato con il pulsante sinistro del mouse."
 	},
 	"errorCellSpanAlreadyMerged": {
-		"message": "La selezione contiene celle unite! Attualmente non è supportata una fusione nidificata.",
+		"message": "La selezione contiene celle unite! Attualmente non è supportata una fusione nidificata."
 	},
 	"errorCellSpanCantMerge": {
-		"message": "Non è possibile creare celle unite dalla selezione. Una superficie rettangolare continua deve essere selezionata.",
+		"message": "Non è possibile creare celle unite dalla selezione. Una superficie rettangolare continua deve essere selezionata."
 	},
 	"errorCellSplitCantSplit": {
-		"message": "Nessuna cella fusa selezionata.",
+		"message": "Nessuna cella fusa selezionata."
 	}
 }

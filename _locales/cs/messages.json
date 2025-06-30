@@ -157,15 +157,15 @@
 		"message": "Nelze uložit nastavení. Zkontrolujte prosím, zda jsou vaše vstupní data správná!"
 	},
 	"errorCellSpanNoSelect": {
-		"message": "Žádné zvolené buňky. Chcete-li vybrat buňky, podržte \"Ctrl\" a klikněte na jednotlivé buňky nebo nakreslit čtverec levým tlačítkem myši.",
+		"message": "Žádné zvolené buňky. Chcete-li vybrat buňky, podržte \"Ctrl\" a klikněte na jednotlivé buňky nebo nakreslit čtverec levým tlačítkem myši."
 	},
 	"errorCellSpanAlreadyMerged": {
-		"message": "Výběr obsahuje sloučené buňky! V současné době není podporováno spojení.",
+		"message": "Výběr obsahuje sloučené buňky! V současné době není podporováno spojení."
 	},
 	"errorCellSpanCantMerge": {
-		"message": "Nelze vytvořit sloučenou buňku z výběru. Musí být vybrána souvislá obdélníková plocha.",
+		"message": "Nelze vytvořit sloučenou buňku z výběru. Musí být vybrána souvislá obdélníková plocha."
 	},
 	"errorCellSplitCantSplit": {
-		"message": "Není zvolena žádná sloučená buňka.",
+		"message": "Není zvolena žádná sloučená buňka."
 	}
 }
